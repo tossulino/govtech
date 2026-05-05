@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radar GovTech Brasil 2025/2026 — DLG</title>
+<style>
+  :root {
+    --blue-dark: #1F4E79;
+    --blue-mid: #2E75B6;
+    --blue-light: #D6E4F0;
+    --teal-dark: #0D4F4A;
+    --teal-mid: #1A7A72;
+    --teal-light: #C8E6E4;
+    --purple-dark: #4A148C;
+    --purple-mid: #6A1B9A;
+    --purple-light: #EDE7F6;
+    --orange-dark: #7B3F00;
+    --orange-mid: #E65100;
+    --orange-fill: #FFF3E0;
+    --amber-dark: #BF360C;
+    --amber-fill: #FFF8E1;
+    --lime-dark: #2E7D32;
+    --lime-light: #F1F8E9;
+    --slate-dark: #37474F;
+    --slate-light: #ECEFF1;
+    --red-fill: #FFEBEE;
+    --red-dark: #8B0000;
+    --gray-bg: #F4F6F9;
+    --white: #FFFFFF;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--gray-bg);
+    color: #1a1a1a;
+    font-size: 13px;
+  }
+
+  /* ─── HEADER ─── */
+  .header {
+    background: linear-gradient(135deg, var(--blue-dark) 0%, #2a5f8e 100%);
+    color: white;
+    padding: 28px 40px 22px;
+  }
+  .header h1 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+  .header .sub {
+    font-size: 12px;
+    opacity: 0.75;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .header-meta {
+    display: flex;
+    gap: 32px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .kpi {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 8px;
+    padding: 12px 20px;
+    text-align: center;
+    min-width: 110px;
+  }
+  .kpi .num { font-size: 26px; font-weight: 800; line-height: 1; }
+  .kpi .lbl { font-size: 10px; opacity: 0.8; margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+  /* ─── CONTROLS ─── */
+  .controls {
+    background: white;
+    padding: 14px 40px;
+    border-bottom: 1px solid #dde3ec;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+  .search-box {
+    flex: 1; min-width: 220px; max-width: 340px;
+    border: 1.5px solid #c5d0e0;
+    border-radius: 6px;
+    padding: 7px 12px;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .search-box:focus { border-color: var(--blue-mid); }
+
+  .filter-btns {
+    display: flex; gap: 6px; flex-wrap: wrap; align-items: center;
+  }
+  .filter-btns .lbl {
+    font-size: 11px; font-weight: 600; color: #666; text-transform: uppercase; letter-spacing: 0.5px; margin-right: 4px;
+  }
+  .btn {
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1.5px solid transparent;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.18s;
+    white-space: nowrap;
+  }
+  .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+  .btn.active { box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+
+  .btn-all  { background: var(--blue-dark); color: white; border-color: var(--blue-dark); }
+  .btn-gestao { background: #E3EDF9; color: var(--blue-dark); border-color: #b8cde0; }
+  .btn-gestao.active { background: var(--blue-dark); color: white; }
+  .btn-saude { background: var(--teal-light); color: var(--teal-dark); border-color: #9dcfca; }
+  .btn-saude.active { background: var(--teal-dark); color: white; }
+  .btn-educ  { background: var(--blue-light); color: var(--blue-dark); border-color: #9dc4e0; }
+  .btn-educ.active { background: var(--blue-mid); color: white; }
+  .btn-ia    { background: var(--purple-light); color: var(--purple-dark); border-color: #c5a8e0; }
+  .btn-ia.active { background: var(--purple-mid); color: white; }
+  .btn-proc  { background: var(--amber-fill); color: var(--amber-dark); border-color: #e0c090; }
+  .btn-proc.active { background: var(--amber-dark); color: white; }
+  .btn-lic   { background: var(--lime-light); color: var(--lime-dark); border-color: #aad4a0; }
+  .btn-lic.active { background: var(--lime-dark); color: white; }
+  .btn-ma    { background: var(--orange-fill); color: var(--orange-dark); border-color: #e0b080; }
+  .btn-ma.active { background: var(--orange-dark); color: white; }
+
+  .count-badge {
+    background: rgba(255,255,255,0.3);
+    border-radius: 10px;
+    padding: 1px 6px;
+    font-size: 10px;
+    margin-left: 4px;
+  }
+
+  /* ─── MAIN LAYOUT ─── */
+  .main { padding: 24px 40px 40px; }
+
+  /* ─── SECTION HEADER ─── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 28px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid;
+  }
+  .section-header h2 { font-size: 15px; font-weight: 700; }
+  .section-header .pill {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 12px;
+    background: rgba(0,0,0,0.08);
+  }
+
+  /* ─── GRID ─── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 14px;
+  }
+
+  /* ─── CARD ─── */
+  .card {
+    background: white;
+    border-radius: 10px;
+    padding: 16px 18px 14px;
+    border: 1.5px solid #e0e8f0;
+    transition: transform 0.15s, box-shadow 0.15s;
+    position: relative;
+    overflow: hidden;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+  }
+  .card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 4px;
+    border-radius: 4px 0 0 4px;
+  }
+  .card.gestao::before  { background: var(--blue-dark); }
+  .card.saude::before   { background: var(--teal-mid); }
+  .card.educ::before    { background: var(--blue-mid); }
+  .card.ia::before      { background: var(--purple-mid); }
+  .card.proc::before    { background: var(--amber-dark); }
+  .card.lic::before     { background: var(--lime-dark); }
+  .card.alerta::before  { background: var(--red-dark); }
+
+  .card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+    gap: 8px;
+  }
+  .card-name {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .card.gestao  .card-name { color: var(--blue-dark); }
+  .card.saude   .card-name { color: var(--teal-dark); }
+  .card.educ    .card-name { color: var(--blue-mid); }
+  .card.ia      .card-name { color: var(--purple-mid); }
+  .card.proc    .card-name { color: var(--amber-dark); }
+  .card.lic     .card-name { color: var(--lime-dark); }
+  .card.alerta  .card-name { color: var(--red-dark); }
+
+  .card-porte {
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .porte-startup  { background: #E8F5E9; color: #1B5E20; }
+  .porte-scale    { background: #E3F2FD; color: #0D47A1; }
+  .porte-pme      { background: #FFF9C4; color: #795548; }
+  .porte-medio    { background: #FCE4EC; color: #880E4F; }
+  .porte-grande   { background: #ECEFF1; color: #37474F; }
+  .porte-publico  { background: #E8EAF6; color: #283593; }
+
+  .card-seg {
+    font-size: 10.5px;
+    color: #666;
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+
+  .card-meta {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 9px;
+    flex-wrap: wrap;
+  }
+  .meta-item {
+    display: flex; align-items: center; gap: 4px;
+    font-size: 11px; color: #555;
+  }
+  .meta-item .icon { font-size: 12px; }
+
+  .card-nota {
+    font-size: 11.5px;
+    color: #333;
+    line-height: 1.5;
+    border-top: 1px solid #eee;
+    padding-top: 8px;
+    margin-top: 2px;
+  }
+
+  .card-alerta-tag {
+    background: #FFEBEE;
+    color: var(--red-dark);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 10px;
+    margin-top: 6px;
+    display: inline-block;
+  }
+  .card-watch-tag {
+    background: var(--orange-fill);
+    color: var(--orange-dark);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 10px;
+    margin-top: 6px;
+    display: inline-block;
+  }
+  .card-ref-tag {
+    background: #E8F5E9;
+    color: #1B5E20;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 10px;
+    margin-top: 6px;
+    display: inline-block;
+  }
+  .card-new-tag {
+    background: #E8EAF6;
+    color: #283593;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 10px;
+    margin-top: 6px;
+    display: inline-block;
+  }
+
+  /* ─── M&A TABLE ─── */
+  .ma-table-wrap {
+    overflow-x: auto;
+    border-radius: 10px;
+    border: 1.5px solid #dde3ec;
+    background: white;
+  }
+  .ma-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .ma-table th {
+    background: var(--orange-dark);
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+  }
+  .ma-table td {
+    padding: 10px 14px;
+    border-top: 1px solid #eee;
+    font-size: 12px;
+    vertical-align: top;
+  }
+  .ma-table tr:nth-child(even) td { background: #fafafa; }
+  .ma-table tr:hover td { background: #fff8f0; }
+  .ma-tipo {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 700;
+  }
+  .tipo-aporte  { background: #E8F5E9; color: #1B5E20; }
+  .tipo-exit    { background: #E3F2FD; color: #0D47A1; }
+  .tipo-contrato{ background: var(--purple-light); color: var(--purple-dark); }
+  .tipo-parceria{ background: #E1F5FE; color: #01579B; }
+  .tipo-alerta  { background: #FFEBEE; color: var(--red-dark); }
+  .tipo-sinal   { background: var(--orange-fill); color: var(--orange-dark); }
+
+  /* ─── SIGNALS ─── */
+  .signals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 12px;
+  }
+  .signal-card {
+    background: white;
+    border-radius: 10px;
+    padding: 14px 16px;
+    border: 1.5px solid #e0e8f0;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .signal-card.alert { border-color: #ffcdd2; background: #fff8f8; }
+  .signal-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+  .signal-body {}
+  .signal-title { font-size: 12px; font-weight: 700; color: #1a1a1a; margin-bottom: 4px; }
+  .signal-card.alert .signal-title { color: var(--red-dark); }
+  .signal-desc { font-size: 11.5px; color: #444; line-height: 1.5; }
+
+  /* ─── NO RESULTS ─── */
+  .no-results {
+    text-align: center;
+    padding: 40px;
+    color: #888;
+    font-size: 14px;
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: var(--slate-dark);
+    color: #aaa;
+    text-align: center;
+    padding: 16px;
+    font-size: 11px;
+    margin-top: 20px;
+  }
+
+  /* ─── HIDDEN ─── */
+  .hidden { display: none !important; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 700px) {
+    .header, .controls, .main { padding-left: 16px; padding-right: 16px; }
+    .grid { grid-template-columns: 1fr; }
+    .signals-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<div class="header">
+  <h1>🇧🇷 Radar GovTech Brasil 2025/2026</h1>
+  <div class="sub">DLG · Mapeamento M&amp;A — Maio 2026 · v6</div>
+  <div class="header-meta">
+    <div class="kpi"><div class="num">53</div><div class="lbl">Players mapeados</div></div>
+    <div class="kpi"><div class="num">8</div><div class="lbl">Segmentos</div></div>
+  </div>
+</div>
+
+<!-- ─── CONTROLS ─── -->
+<div class="controls">
+  <input class="search-box" id="searchBox" type="text" placeholder="🔍  Buscar empresa, segmento, nota...">
+  <div class="filter-btns">
+    <span class="lbl">Filtro:</span>
+    <button class="btn btn-all active" onclick="setFilter('all', this)">Todos <span class="count-badge" id="cnt-all">53</span></button>
+    <button class="btn btn-gestao" onclick="setFilter('gestao', this)">Gestão Municipal <span class="count-badge" id="cnt-gestao"></span></button>
+    <button class="btn btn-saude" onclick="setFilter('saude', this)">Saúde <span class="count-badge" id="cnt-saude"></span></button>
+    <button class="btn btn-educ" onclick="setFilter('educ', this)">Educação <span class="count-badge" id="cnt-educ"></span></button>
+    <button class="btn btn-ia" onclick="setFilter('ia', this)">IA Gov <span class="count-badge" id="cnt-ia"></span></button>
+    <button class="btn btn-proc" onclick="setFilter('proc', this)">Procuradorias <span class="count-badge" id="cnt-proc"></span></button>
+    <button class="btn btn-lic" onclick="setFilter('lic', this)">Licitações <span class="count-badge" id="cnt-lic"></span></button>
+    <button class="btn btn-ma" onclick="setFilter('ma', this)">M&amp;A / Sinais</button>
+  </div>
+</div>
+
+<!-- ─── MAIN ─── -->
+<div class="main">
+
+<!-- GESTÃO MUNICIPAL + RADAR -->
+<div class="section-header" style="color:var(--blue-dark); border-color:var(--blue-mid);" id="sec-gestao">
+  <h2>🏛️ Gestão Pública Municipal &amp; Radar Geral</h2>
+  <span class="pill" style="background:var(--blue-light); color:var(--blue-dark);" id="cnt-gestao-sec"></span>
+</div>
+<div class="grid" id="grid-gestao"></div>
+
+<!-- SAÚDE PÚBLICA -->
+<div class="section-header" style="color:var(--teal-dark); border-color:var(--teal-mid);" id="sec-saude">
+  <h2>🏥 Saúde Pública</h2>
+  <span class="pill" style="background:var(--teal-light); color:var(--teal-dark);" id="cnt-saude-sec"></span>
+</div>
+<div class="grid" id="grid-saude"></div>
+
+<!-- EDUCAÇÃO -->
+<div class="section-header" style="color:var(--blue-mid); border-color:var(--blue-mid);" id="sec-educ">
+  <h2>📚 Educação Pública</h2>
+  <span class="pill" style="background:var(--blue-light); color:var(--blue-mid);" id="cnt-educ-sec"></span>
+</div>
+<div class="grid" id="grid-educ"></div>
+
+<!-- IA PARA GOVERNO -->
+<div class="section-header" style="color:var(--purple-mid); border-color:var(--purple-mid);" id="sec-ia">
+  <h2>🤖 IA para Governo</h2>
+  <span class="pill" style="background:var(--purple-light); color:var(--purple-mid);" id="cnt-ia-sec"></span>
+</div>
+<div class="grid" id="grid-ia"></div>
+
+<!-- PROCURADORIAS -->
+<div class="section-header" style="color:var(--amber-dark); border-color:var(--amber-dark);" id="sec-proc">
+  <h2>⚖️ Procuradorias (PGM/PGE/MP)</h2>
+  <span class="pill" style="background:var(--amber-fill); color:var(--amber-dark);" id="cnt-proc-sec"></span>
+</div>
+<div class="grid" id="grid-proc"></div>
+
+<!-- LICITAÇÕES -->
+<div class="section-header" style="color:var(--lime-dark); border-color:var(--lime-dark);" id="sec-lic">
+  <h2>📋 Licitações &amp; Compras Públicas</h2>
+  <span class="pill" style="background:var(--lime-light); color:var(--lime-dark);" id="cnt-lic-sec"></span>
+</div>
+<div class="grid" id="grid-lic"></div>
+
+<!-- M&A -->
+<div class="section-header" style="color:var(--orange-dark); border-color:var(--orange-dark);" id="sec-ma">
+  <h2>💼 Movimentos M&amp;A &amp; Alertas (2023–2026)</h2>
+  <span class="pill" style="background:var(--orange-fill); color:var(--orange-dark);"></span>
+</div>
+<div class="ma-table-wrap" id="grid-ma">
+<table class="ma-table">
+  <thead>
+    <tr>
+      <th>Transação / Evento</th>
+      <th>Tipo</th>
+      <th>Valor Ref.</th>
+      <th>Data</th>
+      <th>Segmento</th>
+      <th>Descrição / Tese</th>
+    </tr>
+  </thead>
+  <tbody id="ma-tbody"></tbody>
+</table>
+</div>
+
+<!-- SINAIS -->
+<div class="section-header" style="color:var(--orange-dark); border-color:var(--orange-dark);" id="sec-sinais">
+  <h2>⭐ Sinais de Mercado para M&amp;A / Parceria</h2>
+</div>
+<div class="signals-grid" id="grid-sinais"></div>
+
+</div><!-- /main -->
+
+<div class="footer">
+  Radar GovTech Brasil 2025/2026 · DLG · Uso interno · Gerado em maio/2026 · v6
+</div>
+
+<script>
+// ══════════════════════════════════════════════════════
+// DATA
+// ══════════════════════════════════════════════════════
+
+const companies = [
+  // ── GESTÃO MUNICIPAL ──
+  {seg:"gestao", name:"Aprova Digital",    subseg:"Gestão Pública Municipal",   porte:"Startup / Scale-up",  loc:"São Paulo - SP",          fund:"2017", presenca:"120+ cidades",           receita:"R$ 22,5M aporte",  nota:"Maior aporte da história das GovTechs da AL. 120+ cidades. TOP Open Startups 2024.", alerta:"", isNew:false},
+  {seg:"gestao", name:"GovDigital",        subseg:"Gestão Pública Municipal",   porte:"Startup / Scale-up",  loc:"Jaraguá do Sul - SC",     fund:"~2020",presenca:"5 estados | 600+ serv.", receita:"N/D (bootstrap)", nota:"App SaaS municipal customizável. 600+ serviços digitalizados. CEO: Elias Raasch. Expansão nacional sem VC. Referência SC.", alerta:"Watch — expansão nacional", isNew:false},
+  {seg:"gestao", name:"Desenvolve Cidade", subseg:"Gestão Pública Municipal",   porte:"Startup",             loc:"Campinas/RJ",              fund:"~2014",presenca:"N/D",                   receita:"N/D",             nota:"TOP 2 Ranking 100 Open Startups 2024 (GovTech).", alerta:"", isNew:false},
+  {seg:"gestao", name:"IP Inovação",       subseg:"Gestão Pública Municipal",   porte:"Startup",             loc:"Belém - PA",               fund:"~2018",presenca:"N/D",                   receita:"N/D",             nota:"TOP 3 Open Startups 2024. Representante do ecossistema Norte do Brasil.", alerta:"", isNew:false},
+  {seg:"gestao", name:"LICI GovTech",      subseg:"Smart Cities / Gestão",      porte:"Startup",             loc:"Belo Horizonte - MG",     fund:"2018", presenca:"Municípios | 2M+ cid.",  receita:"N/D",             nota:"Plataforma CHESI: 160+ indicadores ODS + fontes de financiamento + governança. Parceria SEDE-MG Cidades do Futuro.", alerta:"", isNew:false},
+  {seg:"gestao", name:"Quasar",            subseg:"Gestão Municipal / Fiscal",  porte:"Startup",             loc:"Belo Horizonte - MG",     fund:"2019", presenca:"Municípios MG",         receita:"N/D",             nota:"Alvarás digitais: reduz 90% do prazo de emissão. 2º DemoDay BrazilLAB 2023. Selecionada PBH Inova (2 desafios).", alerta:"Watch — fiscal municipal", isNew:false},
+  {seg:"gestao", name:"GESUAS",            subseg:"Assistência Social / SUAS",  porte:"Startup / PME",       loc:"Viçosa - MG",             fund:"~2016",presenca:"168 mun | 3,5M pessoas",receita:"N/D",             nota:"Prontuário eletrônico SUAS. 1,2M famílias | 6,5k trabalhadores. Líder IE GovTech 2020. Vertical exclusivo sem concorrente direto.", alerta:"Vertical exclusivo mapeado", isNew:false},
+  {seg:"gestao", name:"Prosas",            subseg:"Participação Cidadã",        porte:"Startup",             loc:"São Paulo - SP",          fund:"~2016",presenca:"220k+ usuários",          receita:"R$4M (KPTL)",     nota:"Portfólio Fundo GovTech KPTL. Gestão digital de editais socioculturais e transparência pública.", alerta:"", isNew:false},
+  {seg:"gestao", name:"Lemobs",            subseg:"Smart Cities / Mobilidade",  porte:"Startup",             loc:"Rio de Janeiro - RJ",     fund:"~2015",presenca:"N/D",                   receita:"N/D",             nota:"Origem COPPE/UFRJ. Selo GovTech BrazilLAB. Mobilidade urbana e cidades inteligentes.", alerta:"", isNew:false},
+  {seg:"gestao", name:"Sipremo",           subseg:"Infraestrutura / Clima",     porte:"Startup",             loc:"Ribeirão Preto - SP",     fund:"~2018",presenca:"Defesa Civil + seguros", receita:"R$200k (2022)",   nota:"IA para previsão antecipada de desastres naturais. Dados NASA + bases nacionais. Alerta SMS via Defesa Civil. COP26 selecionada.", alerta:"Watch — clima/risco", isNew:false},
+  {seg:"gestao", name:"i4Sea",             subseg:"Infraestrutura / Clima",     porte:"Startup",             loc:"Santos - SP",             fund:"~2018",presenca:"N/D",                   receita:"R$ 7,5M aporte",  nota:"Previsões microclimáticas para portos e setor elétrico. Captou R$7,5M do Fundo GovTech. Resiliência climática.", alerta:"", isNew:false},
+  {seg:"gestao", name:"GRTS Digital",      subseg:"Relações Trabalhistas",      porte:"Startup",             loc:"São Paulo - SP",          fund:"2019", presenca:"N/D",                   receita:"R$ 3,4M aporte",  nota:"Digitalização da gestão de relações sindicais. Captou R$3,4M do Fundo GovTech KPTL.", alerta:"", isNew:false},
+  {seg:"gestao", name:"IPQ Tecnologia",    subseg:"Segurança Pública",          porte:"PME / Scale-up",      loc:"Curitiba - PR",           fund:"~2010",presenca:"250+ municípios",        receita:"N/D",             nota:"Monitoramento e recuperação de veículos. 7.000+ veículos recuperados em 2024. Redução de 15,5% em furtos.", alerta:"", isNew:false},
+  {seg:"gestao", name:"Atech",             subseg:"Segurança Pública / Defesa", porte:"Médio Porte",         loc:"São Paulo - SP",          fund:"1999", presenca:"Nacional / Defesa",      receita:"N/D",             nota:"Empresa Estratégica de Defesa (MDefesa). Plataformas de Comando & Controle e gestão de crises.", alerta:"", isNew:false},
+  {seg:"gestao", name:"Governar",          subseg:"ERP Municipal / SIAFIC",     porte:"Startup / Scale-up",  loc:"N/D (Brasil)",            fund:"N/D",  presenca:"Municípios (SIAFIC)",    receita:"N/D",             nota:"ERP municipal integrado 100% cloud: SIAFIC + saúde + educação + assistência social. Conformidade SIAFIC obrigatória impulsiona substituição de legados.", alerta:"Watch — SIAFIC driver", isNew:true},
+  {seg:"gestao", name:"Qiatech",           subseg:"Convênios / Transferências", porte:"Startup",             loc:"N/D (Brasil)",            fund:"N/D",  presenca:"Municípios (convênios)", receita:"N/D",             nota:"Gestão de convênios com IA: integra TransfereGov, Simec, SISMOB, FNS. Vertical exclusivo de captação e gestão de transferências federais para municípios.", alerta:"Watch — convênios nicho virgem", isNew:true},
+  {seg:"gestao", name:"MuniScore",         subseg:"Inteligência Fiscal",        porte:"Startup",             loc:"Belo Horizonte - MG",     fund:"2026", presenca:"5.570 municípios (dados)",receita:"N/D",            nota:"Score fiscal para todos os 5.570 municípios brasileiros. Fundada 2026. Plataforma B2B/B2G de avaliação de saúde fiscal e creditícia municipal.", alerta:"Watch — dado fiscal municipal", isNew:true},
+
+  // ── SAÚDE PÚBLICA ──
+  {seg:"saude",  name:"OM30",              subseg:"Atenção Primária / Suite",   porte:"PME Estabelecida",    loc:"São Paulo - SP",          fund:"~2005",presenca:"Municípios SP",          receita:"N/D",             nota:"Suite municipal: Saúde Simples + Educação + DadosGov + Mobilidade + Doc+. 350 colaboradores. Meta: 2x municípios SP até 2030. IA reduz 40% tempo de consultas SUS.", alerta:"Target roll-up", isNew:false},
+  {seg:"saude",  name:"Olostech",          subseg:"Atenção Primária / APS",     porte:"PME Estabelecida",    loc:"Joinville - SC",          fund:"1992", presenca:"100+ municípios",        receita:"N/D",             nota:"Pioneira SaaS cloud em APS (1998). 91% dos clientes melhoraram indicadores Previne Brasil 2023.", alerta:"Target roll-up", isNew:false},
+  {seg:"saude",  name:"Vivver Sistemas",   subseg:"APS + Educação Municipal",   porte:"PME Estabelecida",    loc:"Belo Horizonte - MG",     fund:"1999", presenca:"Municípios MG + NE",    receita:"N/D",             nota:"26 anos de operação. Selos Ouro/Prata Bora Vacinar (mar/2025). Filiais SP e PB. Foco saúde pública + educação municipal integradas.", alerta:"Target roll-up", isNew:false},
+  {seg:"saude",  name:"Pública Tecnologia",subseg:"Prontuário Eletrônico APS",  porte:"PME",                 loc:"N/D",                     fund:"N/D",  presenca:"Municípios",            receita:"N/D",             nota:"Prontuário eletrônico certificado SBIS/CFM. Assinatura ICP-Brasil. Integração e-SUS.", alerta:"", isNew:false},
+  {seg:"saude",  name:"ImpulsoGov",        subseg:"Analytics / BI para APS",    porte:"Startup early-stage", loc:"São Paulo - SP",          fund:"~2020",presenca:"Municípios via SUS",     receita:"US$ 100k",        nota:"BI para gaps de atenção básica preventiva. Cofundada por ex-Harvard Kennedy School. Reconhecida pela CGU. Impulso Previne.", alerta:"", isNew:false},
+  {seg:"saude",  name:"UpCities",          subseg:"Integração e-SUS / Telecare",porte:"Startup",             loc:"São Paulo - SP",          fund:"~2019",presenca:"Municípios (expansão)",  receita:"N/D",             nota:"Integradora e-SUS/RNDS. Prontuário unificado, telecare. App offline para agentes comunitários de saúde.", alerta:"", isNew:false},
+  {seg:"saude",  name:"ToGov",             subseg:"Analytics APS / Educação",   porte:"Startup",             loc:"Santa Luzia - MG",        fund:"2020", presenca:"Municípios MG e outros", receita:"N/D",             nota:"Analytics Previne Brasil: gaps, captação de recursos, indicadores APS. 3ª DemoDay BrazilLAB 2023.", alerta:"", isNew:false},
+  {seg:"saude",  name:"MedBolso",          subseg:"Escalas / Anti-fraude Saúde",porte:"Startup",             loc:"N/D (Brasil)",            fund:"~2020",presenca:"UBS / Municípios",       receita:"N/D",             nota:"Gestão de escalas e plantões para saúde pública municipal. Anti-fraude em folha de pagamento. Top 30 Sebrae 2024. Acelerada GovTech Pará.", alerta:"Watch — anti-fraude saúde", isNew:true},
+
+  // ── EDUCAÇÃO PÚBLICA ──
+  {seg:"educ",   name:"Portabilis",        subseg:"Gestão Escolar (SIE)",       porte:"Scale-up / PME",      loc:"Içara - SC",              fund:"2009", presenca:"140+ mun | 700k+ alunos",receita:"Aporte Yunus R$2M",nota:"Mantenedora i-Educar (software público federal). Parceria MEC e Fundação Lemann. Meta: 1,5M alunos até 2027.", alerta:"Target / impacto", isNew:false},
+  {seg:"educ",   name:"Vivver Sistemas",   subseg:"Gestão Escolar (SIE)",       porte:"PME Estabelecida",    loc:"Belo Horizonte - MG",     fund:"1999", presenca:"Municípios MG + NE",    receita:"N/D",             nota:"Cliente Sorocaba (SP): avançou C+ → B no IEGM 2025 (Saúde e Educação). 26 anos no segmento.", alerta:"", isNew:false},
+  {seg:"educ",   name:"Educ21",            subseg:"Gestão Escolar com IA",      porte:"PME / Startup",       loc:"N/D",                     fund:"N/D",  presenca:"Municípios",            receita:"N/D",             nota:"Gestão acadêmica, administrativa e financeira com IA integrada. Dados institucionais limitados — oportunidade de due diligence.", alerta:"", isNew:false},
+  {seg:"educ",   name:"Geekie",            subseg:"Aprendizagem IA / Híbrida",  porte:"Scale-up",            loc:"São Paulo - SP",          fund:"2011", presenca:"5k esc | 12M alunos",   receita:"N/D",             nota:"415k alunos rede estadual SP (gratuito). Parceria MEC desde 2014. IA + ensino híbrido. Potencial alvo M&A.", alerta:"", isNew:false},
+  {seg:"educ",   name:"Educacross",        subseg:"Gamificação + IA Educacional",porte:"Startup",             loc:"N/D (Brasil)",            fund:"N/D",  presenca:"Rede estadual GO",      receita:"N/D",             nota:"Selecionada Governo de Goiás. Gamificação + IA em Português e Matemática para redes públicas.", alerta:"", isNew:false},
+  {seg:"educ",   name:"ToGov",             subseg:"Analytics Educacionais",     porte:"Startup",             loc:"Santa Luzia - MG",        fund:"2020", presenca:"Municípios MG e outros", receita:"N/D",             nota:"Monitoramento IDEB, IEGM, captação de recursos. Camada analítica sobre SIEs existentes. BrazilLAB 2023.", alerta:"", isNew:false},
+  {seg:"educ",   name:"i-Educar",          subseg:"Open Source / Software Público",porte:"Software Público",  loc:"Itajaí - SC (origem)",    fund:"2008", presenca:"80+ prefeituras ativas",receita:"Gratuito",        nota:"Software público federal mantido por Portabilis. Monte Alegre (RN) economizou R$2,4M. Parceria MEC + MP.", alerta:"Referência pública", isNew:false},
+
+  // ── IA PARA GOVERNO ──
+  {seg:"ia",     name:"GovTools",          subseg:"Agentes RPA / WhatsApp",     porte:"Startup",             loc:"Porto Alegre - RS",       fund:"2024", presenca:"200+ municípios",       receita:"Aporte Ventiur+DOMO",nota:"Agentes IA via WhatsApp. Opera sistemas municipais sem integração tradicional. 200+ municípios em <12 meses. Modelo viral, alta tração.", alerta:"M&A Watch", isNew:false},
+  {seg:"ia",     name:"Nuveo",             subseg:"Document AI / Ultra OCR",    porte:"Startup",             loc:"SP / Campina Grande - PB",fund:"2016", presenca:"Setor público e privado",receita:"N/D",             nota:"Ultra OCR®: automação de documentos públicos. Contratos, invoices, documentos de identidade. Gov + corporativo.", alerta:"", isNew:false},
+  {seg:"ia",     name:"CPQD",              subseg:"IA P&D / Gov Digital",       porte:"Instituto P&D",       loc:"Campinas - SP",           fund:"N/D",  presenca:"Governo Federal",       receita:"R$ 390M contrato", nota:"Projeto INSPIRE com MGI (R$390M, 4 anos). IA personalizada para serviços de governo digital: chatbots, recomendação, acessibilidade.", alerta:"Parceria estratégica MGI", isNew:false},
+  {seg:"ia",     name:"Horus Smart Det.",  subseg:"Fiscalização / Drones / IA", porte:"Scale-up",            loc:"Florianópolis - SC",      fund:"~2016",presenca:"100+ gov + privado",    receita:"N/D",             nota:"Drones + satélites + visão computacional: obras irregulares, desmatamento, infraestrutura. Cliente: Florianópolis. 9 anos de operação.", alerta:"", isNew:false},
+  {seg:"ia",     name:"Geopixel",          subseg:"GeoInteligência Fiscal",     porte:"PME",                 loc:"Curitiba - PR",           fund:"~2010",presenca:"100+ municípios",       receita:"N/D",             nota:"Geoprocessamento + IA para IPTU, ITBI, ISS. Reforma Tributária (LC 214/2025) cria janela de demanda direta e imediata.", alerta:"Oportunidade fiscal 2025", isNew:false},
+  {seg:"ia",     name:"Intelicity",        subseg:"IA Infraestrutura Urbana",   porte:"Startup / Scale-up",  loc:"São Paulo - SP",          fund:"~2019",presenca:"Sabesp + municípios",   receita:"N/D",             nota:"Câmeras em veículos + visão computacional: mapeia pavimento, rachaduras. Sabesp: detecção de vazamentos de água.", alerta:"", isNew:false},
+  {seg:"ia",     name:"MinutaIA (jAI)",    subseg:"IA Jurídica / Judicial",     porte:"Startup",             loc:"Belo Horizonte - MG",     fund:"2025", presenca:"7 tribunais | 100k+ usr",receita:"N/D",            nota:"10M+ minutas geradas. TJRS, STM, TRE-PB/BA, Tocantins. CNJ Resolução 615/2025. Exportou para a Argentina.", alerta:"Watch — tração judicial", isNew:false},
+  {seg:"ia",     name:"Tolky",             subseg:"IA Atendimento ao Cidadão",  porte:"Startup",             loc:"N/D (Brasil)",            fund:"~2023",presenca:"Contratos gov / CNJ",   receita:"N/D",             nota:"Multichannel (WhatsApp, chat, email) + processos end-to-end. ABES CSC 2025. Contrato CPSI CNJ.", alerta:"Selecionada CPSI CNJ", isNew:false},
+  {seg:"ia",     name:"Gove",              subseg:"Analytics Financeiro Municipal",porte:"Startup / Scale-up",loc:"São Paulo - SP",          fund:"2018", presenca:"SP, MG, RS, SC, ES+",  receita:"R$ 8M (Astella)", nota:"Analytics IA para finanças públicas: identifica ineficiências em receitas/despesas municipais. Aporte Astella. BrazilLAB Turma 7.", alerta:"", isNew:false},
+  {seg:"ia",     name:"Hub Esfera",        subseg:"IA Analytics / Gestão",      porte:"Startup",             loc:"N/D (Brasil)",            fund:"N/D",  presenca:"N/D",                   receita:"N/D",             nota:"Plataforma IA para gestão municipal: analytics preditivo + preventivo + prescritivo. Integra dados orçamentários, operacionais e sociais para apoio à decisão do gestor público.", alerta:"Watch", isNew:true},
+
+  // ── PROCURADORIAS ──
+  {seg:"proc",   name:"Attus Procuradoria Digital",subseg:"IA Contencioso + Consultivo (PGE/PGM)",porte:"Scale-up",loc:"São Ludgero, SC (Eloware)",fund:"~2018",presenca:"PGE-SP, PGE-BA, PGE-PA, PGM-Palmas",receita:"SaaS Oracle Cloud",nota:"4,3M+ processos analisados. 73% classificados automaticamente (98,5% acurácia). 642k+ peças geradas por IA. Referência nacional pós PGE-SP.", alerta:"M&A Watch — líder do segmento", isNew:false},
+  {seg:"proc",   name:"Eicon / Giex",      subseg:"Dívida Ativa / Execução Fiscal",porte:"PME",              loc:"N/D (Brasil)",            fund:"N/D",  presenca:"PGE e PGM — múltiplos estados",receita:"N/D",        nota:"Giex: perfil completo do devedor. Integração direta com TJs. Automação de CDA, penhoras e prazos. iCad: alvarás e licenças digitais (concorrente da Quasar). +15 produtos para governo.", alerta:"", isNew:false},
+  {seg:"proc",   name:"PGMNET",            subseg:"Gestão Jurídica Municipal + RPA",porte:"PME",             loc:"N/D (Brasil)",            fund:"N/D",  presenca:"Procuradorias municipais",receita:"N/D",            nota:"RPA integrado para peticionamento automático em qualquer TJ do país. Interface co-desenvolvida com procuradores municipais.", alerta:"", isNew:false},
+  {seg:"proc",   name:"Aetos Tech",        subseg:"IA Anti-fraude Contratos (Prisma)",porte:"Startup",       loc:"N/D (Brasil)",            fund:"N/D",  presenca:"MPRJ (CPSI 2024)",      receita:"Contrato CPSI",   nota:"Prisma: detecção de irregularidades em contratos públicos e lavagem de dinheiro. Cruzamento de bases abertas por IA. Selecionada CPSI MPRJ.", alerta:"Contrato CPSI", isNew:false},
+  {seg:"proc",   name:"Sumé Tecnologia",   subseg:"Monitoramento Políticas Públicas (Sonar)",porte:"Startup", loc:"N/D (Brasil)",            fund:"N/D",  presenca:"MPRJ (CPSI 2024)",      receita:"Contrato CPSI",   nota:"Sonar: controle externo automatizado do executivo municipal. Monitora 92 municípios do RJ via MPRJ. Selecionada CPSI MPRJ.", alerta:"Contrato CPSI", isNew:false},
+  {seg:"proc",   name:"Prodata Gestão Estratégica",subseg:"Módulo Procuradoria / ERP Municipal",porte:"PME",  loc:"Goiânia - GO",            fund:"N/D",  presenca:"Municípios Centro-Oeste",receita:"N/D",             nota:"Módulo procuradoria integrado ao ERP municipal Prodata. Gestão de contencioso, consultivo e execução fiscal para prefeituras de pequeno e médio porte.", alerta:"", isNew:false},
+
+  // ── LICITAÇÕES ──
+  {seg:"lic",    name:"Portal de Compras Públicas",subseg:"Marketplace Licitações Eletrônicas",porte:"Scale-up / PME",loc:"Belo Horizonte - MG",fund:"2016",presenca:"4.300+ entes | 600k+ forn.",receita:"R$450B+ TPV",  nota:"40%+ dos municípios brasileiros. Fundadores: Leonardo + Bruno Ladeira (Ecustomize). 35% crescimento anual. Marketplace B2G de referência nacional.", alerta:"Referência nacional", isNew:false},
+  {seg:"lic",    name:"Licitar.digital",   subseg:"SaaS Credenciamento Eletrônico",porte:"Startup",           loc:"N/D (Brasil)",            fund:"Jul/2019",presenca:"90k+ fornecedores",    receita:"N/D",             nota:"Única plataforma de credenciamento eletrônico automatizado do Brasil. CEO: Aniele H. Figueiredo. Diferencial regulatório: elimina burocracia de habilitação presencial.", alerta:"", isNew:false},
+  {seg:"lic",    name:"StartGi",           subseg:"CRM B2G para Fornecedores",  porte:"Startup",             loc:"São Paulo - SP",          fund:"2015", presenca:"N/D",                   receita:"N/D",             nota:"Portfólio Fundo GovTech KPTL. CRM especializado na jornada de vendas B2G. Gestão de oportunidades, propostas e relacionamento com entes públicos.", alerta:"", isNew:false},
+  {seg:"lic",    name:"BLL Compras",       subseg:"Plataforma Licitações Eletrônicas",porte:"PME Estabelecida",loc:"São Paulo - SP",         fund:"2008", presenca:"3.000+ entidades públicas",receita:"N/D",           nota:"Bolsa de Licitações e Leilões — uma das maiores plataformas de licitações do Brasil. Mais consolidada, pré-startups. Referência histórica do mercado.", alerta:"", isNew:false},
+  {seg:"lic",    name:"GoBuyer",           subseg:"IA Contratos Pós-adjudicação",porte:"Startup",            loc:"N/D (Brasil)",            fund:"N/D",  presenca:"N/D",                   receita:"N/D",             nota:"Gestão do ciclo de vida de contratos públicos com IA: análise de cláusulas, alertas de prazo, auditoria automatizada. Segmento pós-licitação ainda sem líder claro.", alerta:"Watch — nicho virgem", isNew:false},
+  {seg:"lic",    name:"StartGov",          subseg:"Licitações Buy-side para Órgãos Públicos",porte:"PME",     loc:"N/D (Brasil)",            fund:"N/D",  presenca:"290+ órgãos públicos",  receita:"N/D",             nota:"Plataforma buy-side: gestão de licitações e contratos para entes públicos. 290+ clientes. Lei 14.133/2021 compliance. Distinto do StartGi (B2G para fornecedores privados).", alerta:"Watch — buy-side gov", isNew:true},
+];
+
+const maData = [
+  {tx:"Portabilis — Yunus Negócios Sociais",tipo:"Aporte de impacto",valor:"Até R$ 2M",data:"2023",seg:"Educação Pública",desc:"R$800k já desembolsados. Valida modelo social. Meta: 1,5M alunos até 2027."},
+  {tx:"ImpulsoGov — Mulago Foundation",    tipo:"Aporte seed",       valor:"US$ 100k",  data:"2023",seg:"Saúde — Analytics",desc:"Capital de impacto para BI de APS preventiva. Cofundada ex-Harvard Kennedy."},
+  {tx:"GovTools — Ventiur + DOMO.VC",      tipo:"Aporte early-stage",valor:"N/D",       data:"2024",seg:"IA Operacional Gov",desc:"200+ municípios em menos de 12 meses. Modelo viral via WhatsApp. Potencial aquisição."},
+  {tx:"Gove — Astella",                    tipo:"Aporte Series A",   valor:"R$ 8M",     data:"2020",seg:"IA Analytics Fin.", desc:"Maior aporte em govtech na época. Plataforma analytics financeiro para prefeituras."},
+  {tx:"Geekie — MEC",                      tipo:"Parceria PPP",      valor:"N/D",       data:"2014–ativo",seg:"Educação Pública",desc:"Plataforma gratuita para 415k alunos rede pública SP. Modelo PPP escalável."},
+  {tx:"i-Educar — MEC + MP",               tipo:"Open source + MEC", valor:"Gratuito",  data:"jul/2024",seg:"Educação Pública",desc:"Portabilis abre PMD com MEC e MP. Expansão da infraestrutura pública digital."},
+  {tx:"Serpro — MGI (INSPIRE)",            tipo:"Contrato estratégico",valor:"R$ 390M", data:"2024–2028",seg:"IA Gov Digital",desc:"Projeto INSPIRE com CPQD: IA personalizada para governo digital (chatbots, recomendação)."},
+  {tx:"Serpro — Gestão Educacional",       tipo:"Expansão competitiva",valor:"Pública", data:"2025",seg:"Educação Pública",desc:"Serpro entra no mercado de gestão educacional municipal. Pressão sobre PMEs do segmento."},
+  {tx:"Stefanini — orçamento M&A",         tipo:"Sinalização de mkt", valor:"R$ 2B",    data:"2024–2027",seg:"IA Governo",desc:"Budget M&A declarado de R$2B. Sinaliza consolidação em serviços de IA para governo."},
+  {tx:"E&L Produções — Op. Onipresente",   tipo:"⚠ Alerta integridade",valor:"R$165M*", data:"mar/2023",seg:"Saúde — APS",desc:"⚠ PF + CGU. Fraude em licitações. 74 municípios ES. Excluir de qualquer M&A/parceria."},
+  {tx:"Augen — Biosolvit",                 tipo:"Exit estratégico",   valor:"R$ 36–48M",data:"out/2024",seg:"Infraestrutura / Água",desc:"1º exit do Fundo GovTech KPTL. Automação de tratamento de água. Earn-out 3 anos. Comprador: Biosolvit (Laércio Cosentino). Badesul apoiou. Tese: infraestrutura crítica + govtech."},
+];
+
+const sinais = [
+  {icon:"⭐", title:"Roll-up APS municipal",         desc:"Olostech, Vivver, Pública Tecnologia — PMEs longevas, rentáveis, independentes, base instalada sólida. Janela aberta para consolidação.", alert:false},
+  {icon:"⭐", title:"Exit de referência (Fundo GovTech)", desc:"Augen vendida à Biosolvit por R$36–48M (out/2024) — 1º exit do Fundo KPTL. Valida modelo de investimento em GovTechs de infraestrutura. KPTL planeja R$150M e 20-25 investidas.", alert:false},
+  {icon:"⭐", title:"Vertical virgem — SUAS",         desc:"GESUAS: 168 municípios, 3,5M pessoas no SUAS. Prontuário eletrônico social inexistente como produto consolidado. Alta adesão, baixíssima competição.", alert:false},
+  {icon:"⭐", title:"Mercado de licitações (R$450B+)",desc:"Portal de Compras: 4.300+ entes, R$450B+ TPV acumulado. Licitar.digital: único credenciamento automatizado do Brasil. StartGov: 290+ órgãos públicos. Segmento 35% crescimento a.a.", alert:false},
+  {icon:"⭐", title:"IA Judicial emergente",          desc:"MinutaIA: 10M+ minutas em 14 meses, 7 tribunais, exportando para Argentina. Crescimento viral sem VC. Potencial consolidação judicial-gov.", alert:false},
+  {icon:"⭐", title:"IA Financeira para municípios",  desc:"Gove (Astella R$8M): analytics de receitas/despesas para prefeituras. Aporte validado. Expansão geográfica em curso.", alert:false},
+  {icon:"⭐", title:"Tração IA operacional",          desc:"GovTools: 200+ municípios em <2 anos via WhatsApp. Modelo viral de adoção sem equipe de TI. Early-stage com forte PMF.", alert:false},
+  {icon:"⭐", title:"Demanda fiscal estrutural",      desc:"Geopixel: Reforma Tributária (LC 214/2025) obriga municípios a atualizar cadastros. Janela de demanda direta e imediata.", alert:false},
+  {icon:"⭐", title:"IA em procuradorias públicas",   desc:"Attus: 4,3M processos analisados pela PGE-SP com 98,5% acurácia. Em expansão para PGE/PGM de outros estados. Segmento sem consolidador nacional.", alert:false},
+  {icon:"⭐", title:"Convênios — vertical virgem",    desc:"Qiatech: gestão de convênios com IA integrando TransfereGov, Simec, SISMOB, FNS. Municípios captam R$400B+/ano em transferências federais — vertente ainda sem player consolidado.", alert:false},
+  {icon:"⭐", title:"SIAFIC como driver de ERP",      desc:"Conformidade SIAFIC obrigatória 2025 força substituição de legados on-premise em municípios. Governar e outros ERPs cloud capturarão essa onda. Janela de mercado definida e urgente.", alert:false},
+  {icon:"⚠",  title:"Alerta integridade — E&L",      desc:"E&L Produções: excluir de qualquer M&A/parceria sem apuração detalhada. Operação Onipresente PF+CGU (mar/2023), R$165M em 74 municípios do ES.", alert:true},
+];
+
+// ══════════════════════════════════════════════════════
+// RENDER
+// ══════════════════════════════════════════════════════
+
+function getPorteClass(porte) {
+  const p = porte.toLowerCase();
+  if (p.includes("startup")) return "porte-startup";
+  if (p.includes("scale")) return "porte-scale";
+  if (p.includes("pme")) return "porte-pme";
+  if (p.includes("médio") || p.includes("medio")) return "porte-medio";
+  if (p.includes("grande") || p.includes("instituto") || p.includes("software público")) return "porte-publico";
+  return "porte-pme";
+}
+
+function makeCard(c) {
+  const alertTag = c.alerta
+    ? (c.alerta.startsWith("Target") || c.alerta.startsWith("Ref") || c.alerta.startsWith("Vert") || c.alerta.startsWith("Parc") ? "ref"
+      : c.alerta.startsWith("Watch") ? "watch"
+      : c.alerta.startsWith("M&A") ? "watch"
+      : c.alerta.startsWith("Sele") ? "ref"
+      : c.alerta.startsWith("Oport") ? "ref"
+      : "ref")
+    : "";
+
+  const tagHtml = c.alerta
+    ? `<span class="card-${alertTag}-tag">${c.alerta}</span>`
+    : "";
+
+  const newBadge = c.isNew ? `<span class="card-new-tag">🆕 Novo</span>` : "";
+
+  return `
+    <div class="card ${c.seg}" data-seg="${c.seg}" data-search="${(c.name+c.subseg+c.nota+c.loc+c.presenca).toLowerCase()}">
+      <div class="card-top">
+        <div class="card-name">${c.name}</div>
+        <div class="card-porte ${getPorteClass(c.porte)}">${c.porte}</div>
+      </div>
+      <div class="card-seg">${c.subseg}</div>
+      <div class="card-meta">
+        ${c.loc !== "N/D" && c.loc !== "N/D (Brasil)" ? `<span class="meta-item"><span class="icon">📍</span>${c.loc}</span>` : ""}
+        ${c.fund !== "N/D" ? `<span class="meta-item"><span class="icon">📅</span>${c.fund}</span>` : ""}
+        ${c.presenca !== "N/D" ? `<span class="meta-item"><span class="icon">🌐</span>${c.presenca}</span>` : ""}
+        ${c.receita !== "N/D" ? `<span class="meta-item"><span class="icon">💰</span>${c.receita}</span>` : ""}
+      </div>
+      <div class="card-nota">${c.nota}</div>
+      <div style="margin-top:6px;">${tagHtml}${newBadge}</div>
+    </div>`;
+}
+
+function renderSection(gridId, secId, cntSecId, segs, title) {
+  const arr = companies.filter(c => segs.includes(c.seg));
+  document.getElementById(gridId).innerHTML = arr.map(makeCard).join("");
+  document.getElementById(cntSecId).textContent = arr.length + " empresas";
+}
+
+function renderMA() {
+  const tbody = document.getElementById("ma-tbody");
+  tbody.innerHTML = maData.map(m => {
+    const isAlert = m.tipo.includes("Alerta");
+    const tipoClass = m.tipo.includes("Aporte") ? "tipo-aporte"
+      : m.tipo.includes("Exit") ? "tipo-exit"
+      : m.tipo.includes("Contrato") ? "tipo-contrato"
+      : m.tipo.includes("Alerta") ? "tipo-alerta"
+      : m.tipo.includes("Sinal") || m.tipo.includes("Expansão") ? "tipo-sinal"
+      : "tipo-parceria";
+    const style = isAlert ? ' style="background:#fff8f8;"' : "";
+    return `<tr${style}>
+      <td style="font-weight:600;${isAlert?' color:var(--red-dark);':''}">${m.tx}</td>
+      <td><span class="ma-tipo ${tipoClass}">${m.tipo}</span></td>
+      <td style="font-weight:600;">${m.valor}</td>
+      <td style="white-space:nowrap;">${m.data}</td>
+      <td>${m.seg}</td>
+      <td style="color:#444;">${m.desc}</td>
+    </tr>`;
+  }).join("");
+}
+
+function renderSinais() {
+  document.getElementById("grid-sinais").innerHTML = sinais.map(s => `
+    <div class="signal-card${s.alert?' alert':''}">
+      <div class="signal-icon">${s.icon}</div>
+      <div class="signal-body">
+        <div class="signal-title">${s.title}</div>
+        <div class="signal-desc">${s.desc}</div>
+      </div>
+    </div>`).join("");
+}
+
+// ── FILTER & SEARCH ──
+let currentFilter = "all";
+
+function updateCounts() {
+  const segs = ["gestao","saude","educ","ia","proc","lic"];
+  segs.forEach(s => {
+    const el = document.getElementById("cnt-"+s);
+    if (el) el.textContent = companies.filter(c=>c.seg===s).length;
+  });
+  document.getElementById("cnt-all").textContent = companies.length;
+}
+
+const sections = {
+  gestao: ["sec-gestao","grid-gestao"],
+  saude:  ["sec-saude","grid-saude"],
+  educ:   ["sec-educ","grid-educ"],
+  ia:     ["sec-ia","grid-ia"],
+  proc:   ["sec-proc","grid-proc"],
+  lic:    ["sec-lic","grid-lic"],
+  ma:     ["sec-ma","grid-ma","sec-sinais","grid-sinais"],
+};
+
+function hideAllSections() {
+  Object.values(sections).flat().forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.add("hidden");
+  });
+}
+
+function showSection(id) {
+  const el = document.getElementById(id);
+  if (el) el.classList.remove("hidden");
+}
+
+function setFilter(f, btn) {
+  currentFilter = f;
+  document.querySelectorAll(".filter-btns .btn").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+
+  hideAllSections();
+
+  if (f === "all") {
+    Object.values(sections).flat().forEach(showSection);
+  } else if (f === "ma") {
+    ["sec-ma","grid-ma","sec-sinais","grid-sinais"].forEach(showSection);
+  } else {
+    const ids = sections[f] || [];
+    // show section header + grid
+    const secEl = document.getElementById("sec-"+f);
+    const gridEl = document.getElementById("grid-"+f);
+    const cntEl = document.getElementById("cnt-"+f+"-sec");
+    if (secEl) secEl.classList.remove("hidden");
+    if (gridEl) gridEl.classList.remove("hidden");
+  }
+
+  // apply search too
+  applySearch(document.getElementById("searchBox").value);
+}
+
+function applySearch(q) {
+  const query = q.toLowerCase().trim();
+  const grids = ["grid-gestao","grid-saude","grid-educ","grid-ia","grid-proc","grid-lic"];
+
+  grids.forEach(gid => {
+    const grid = document.getElementById(gid);
+    if (!grid) return;
+    const cards = grid.querySelectorAll(".card");
+    let visible = 0;
+    cards.forEach(card => {
+      const seg = card.dataset.seg;
+      const search = card.dataset.search || "";
+      const segMatch = currentFilter === "all" || currentFilter === seg;
+      const qMatch = !query || search.includes(query) || card.querySelector(".card-name").textContent.toLowerCase().includes(query);
+      if (segMatch && qMatch) {
+        card.classList.remove("hidden");
+        visible++;
+      } else {
+        card.classList.add("hidden");
+      }
+    });
+
+    // show/hide section header based on visible cards
+    const secId = gid.replace("grid-","sec-");
+    const secEl = document.getElementById(secId);
+    if (secEl) {
+      if (visible === 0 && (currentFilter !== "all" || query)) {
+        if (currentFilter !== "all" && !gid.includes(currentFilter)) return;
+      }
+    }
+  });
+}
+
+document.getElementById("searchBox").addEventListener("input", function() {
+  applySearch(this.value);
+});
+
+// ── INIT ──
+renderSection("grid-gestao","sec-gestao","cnt-gestao-sec",["gestao"],"Gestão Municipal");
+renderSection("grid-saude","sec-saude","cnt-saude-sec",["saude"],"Saúde Pública");
+renderSection("grid-educ","sec-educ","cnt-educ-sec",["educ"],"Educação");
+renderSection("grid-ia","sec-ia","cnt-ia-sec",["ia"],"IA para Governo");
+renderSection("grid-proc","sec-proc","cnt-proc-sec",["proc"],"Procuradorias");
+renderSection("grid-lic","sec-lic","cnt-lic-sec",["lic"],"Licitações");
+renderMA();
+renderSinais();
+updateCounts();
+</script>
+</body>
+</html>
