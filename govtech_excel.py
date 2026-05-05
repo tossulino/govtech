@@ -20,6 +20,60 @@ VERSION = "v8"
 DATA_REF = "Maio 2026"
 UPDATED_AT = "05/05/2026"
 
+CHANGELOG = [
+    {
+        "version": "v8", "date": "05/05/2026",
+        "items": [
+            "Novo segmento: Habitação & Regularização Fundiária — ReurBR, sisHABI, CERURB, Vivenda",
+            "Novo segmento: Meio Ambiente & Licenciamento — eGAC, TUXTU, Retech Recycle",
+            "Novo segmento: Smart Cities & Mobilidade — SmartCityTec, Iguata",
+            "PLACE adicionado (Gestão Municipal — Planejamento Urbano)",
+            "Inteligov adicionado (IA Gov — Monitoramento Legislativo)",
+            "Botão de changelog e data de atualização adicionados ao radar",
+        ]
+    },
+    {
+        "version": "v7", "date": "abr/2026",
+        "items": [
+            "Colab e Fractal confirmados portfólio KPTL+Cedro",
+            "Kinebot: 8º aporte Fundo GovTech (R$ 3M, fev/2026)",
+            "Jovens Gênios: seed R$ 11,8M Fundo GovTech (mar/2026)",
+            "Hub Esfera, MedBolso, Governar, Qiatech, MuniScore, StartGov adicionados",
+            "Aprova Digital: investidor corrigido para Astella + VOX Capital (BB) + CAF + Endeavor",
+        ]
+    },
+    {
+        "version": "v6", "date": "mar/2026",
+        "items": [
+            "Pesquisa completa portfólio KPTL/Cedro: Fundo GovTech mapeado",
+            "i4Sea e GRTS Digital (aportes Fundo GovTech) adicionados",
+            "Exit Augen → Biosolvit (R$ 36–48M) registrado",
+        ]
+    },
+    {
+        "version": "v5", "date": "jan/2026",
+        "items": [
+            "Novo segmento: Licitações & Compras Públicas",
+            "Portal de Compras Públicas, BLL Compras, Licitar.digital, GoBuyer adicionados",
+        ]
+    },
+    {
+        "version": "v4", "date": "dez/2025",
+        "items": [
+            "Novo segmento: Procuradorias (PGM/PGE/MP)",
+            "Attus, Eicon/Giex, PGMNET, Aetos Tech, Sumé, Prodata adicionados",
+        ]
+    },
+    {
+        "version": "v1–v3", "date": "2025",
+        "items": [
+            "Versões iniciais: segmentos Gestão, Saúde, Educação, IA para Governo",
+            "Deploy Firebase Hosting (govtech-408d1)",
+            "Proteção de acesso com senha SHA-256",
+        ]
+    },
+]
+
 COMPANIES = [
     # ── GESTÃO MUNICIPAL ──
     {"seg":"gestao", "name":"Aprova Digital",    "subseg":"Gestão Pública Municipal",   "porte":"Startup / Scale-up",  "loc":"São Paulo - SP",        "fund":"2017",  "presenca":"120+ cidades",            "receita":"R$ 22,5M (Astella+BB)",  "nota":"Aporte Seed de R$22,5M (US$4M) liderado por Astella e VOX Capital (CVC do Banco do Brasil), com CAF e Endeavor. 120+ cidades. TOP Open Startups 2024. Maior aporte da história das GovTechs da AL.", "alerta":"",                             "isNew":False},
@@ -98,6 +152,15 @@ COMPANIES = [
     {"seg":"hab",    "name":"CERURB",              "subseg":"REURB Digital com IA",                  "porte":"Startup",             "loc":"Brasil",                "fund":"N/D",   "presenca":"Municípios + TJ Piauí",   "receita":"N/D",              "nota":"Plataforma corporativa para REURB: diagnóstico, mapeamento geoespacial, emissão automática de CRF e integração com cartórios. 30k+ matrículas abertas em 12 meses. Contratos com Governo do Piauí (PROURBE) e Tribunal de Justiça.", "alerta":"Watch — tração judicial",      "isNew":True},
     {"seg":"hab",    "name":"Vivenda",              "subseg":"Melhoria Habitacional de Interesse Social","porte":"Startup de Impacto", "loc":"São Paulo - SP",        "fund":"N/D",   "presenca":"4.500+ intervenções",     "receita":"N/D",              "nota":"Melhoria habitacional acessível para população de baixa renda. 4.500+ melhorias entregues. Portfólio BrazilLAB. Um dos principais negócios de impacto social do Brasil em habitação.", "alerta":"Impacto social / ESG",         "isNew":True},
 
+    # ── MEIO AMBIENTE & LICENCIAMENTO ──
+    {"seg":"ambiental","name":"eGAC",          "subseg":"Licenciamento Ambiental Municipal Digital",          "porte":"Startup",             "loc":"Bahia",                 "fund":"~2021", "presenca":"Consórcios intermunicipais BA",    "receita":"N/D",              "nota":"SaaS de licenciamento ambiental municipal 100% digital. Integra SINAFLOR, GEOBAHIA, SEMA-BA e CEPRAM. 70% redução de custos declarada, onboarding em 30 dias. Operando via consórcios: CDS Bacia do Paramirim, CONVALE e CONSID Oeste da BA. Conformidade com Resolução CEPRAM 4.327/13.", "alerta":"Watch — lic. ambiental nicho virgem", "isNew":True},
+    {"seg":"ambiental","name":"TUXTU",         "subseg":"Licenciamento + Arborização + Crédito de Carbono",  "porte":"Startup",             "loc":"Brasil",                "fund":"~2022", "presenca":"Municípios (via órgãos ambientais)","receita":"N/D",              "nota":"3 módulos SaaS para Secretarias de Meio Ambiente: SIBLAM (licenciamento com bio-algoritmo e método Battelle EES — reduz subjetividade do analista), SIGAU (arborização urbana com participação cidadã), SICCA (crédito de carbono). Propõe padronização nacional do licenciamento. CEO: Marcelo Creão. Associada ABES.", "alerta":"Watch — 3 verticais ambientais",      "isNew":True},
+    {"seg":"ambiental","name":"Retech Recycle","subseg":"Gestão de Resíduos Sólidos / Rastreabilidade IoT",  "porte":"Startup early-stage", "loc":"São José dos Campos - SP","fund":"2024", "presenca":"N/D (early-stage)",               "receita":"N/D",              "nota":"Plataforma + hardware IoT proprietário (H-SAT) para rastreabilidade de resíduos sólidos do ponto de coleta ao destino final. Gera documentos auditáveis com fotos georreferenciadas, telemetria e carimbos de tempo. Conformidade PNRS. Modelo híbrido: software + presença onsite. PIT-SJC. Fundada jun/2024.", "alerta":"Watch — PNRS compliance IoT",        "isNew":True},
+
+    # ── SMART CITIES & MOBILIDADE ──
+    {"seg":"smart",    "name":"SmartCityTec",  "subseg":"Plataforma FIWARE / Interoperabilidade Municipal",  "porte":"Startup",             "loc":"Santa Catarina",        "fund":"~2022", "presenca":"Smart Mafra + Amurel Conectada (18 mun.)", "receita":"N/D",         "nota":"Plataforma open-source baseada em FIWARE para cidades inteligentes: data spaces, IoT, mobilidade, segurança e clima. Smart Mafra: 1ª cidade BR com lei municipal baseada em FIWARE (centraliza tributação, alvarás e serviços públicos). Amurel Conectada: integra 18 municípios da Região de Laguna/SC. SC aprovou Lei 19.494 adotando FIWARE como padrão estadual. Prêmio GovTech Summit 2025. Smart City Expo Barcelona 2025.", "alerta":"Watch — padrão FIWARE em SC",        "isNew":True},
+    {"seg":"smart",    "name":"Iguata",        "subseg":"IA para Mobilidade Urbana / Transporte Público",    "porte":"Startup early-stage", "loc":"Porto Alegre - RS",     "fund":"N/D",   "presenca":"N/D (early-stage)",               "receita":"N/D",              "nota":"Plataforma de IA para otimização de redes de transporte público: roteirização dinâmica, previsão de demanda, priorização semafórica e inteligência geoespacial. Resultados declarados: -14% no tempo de viagem (ônibus+IA), -18% custo logístico, +21% satisfação em eventos. Arquitetura modular com API aberta. Early-stage — contratos públicos não confirmados.", "alerta":"Watch — mobilidade pública IA",      "isNew":True},
+
     # ── GESTÃO — URBANISMO ──
     {"seg":"gestao", "name":"PLACE",               "subseg":"Planejamento Urbano / GeoInteligência", "porte":"Startup",             "loc":"Brasil",                "fund":"N/D",   "presenca":"Municípios",              "receita":"N/D",              "nota":"Plataforma que integra dados de mercado imobiliário, urbanismo e legislação municipal em interface intuitiva para gestores públicos. Certificada BrazilLAB. Suporte a decisões de planejamento territorial e uso do solo.", "alerta":"Watch — urbanismo digital",    "isNew":True},
 ]
@@ -125,7 +188,9 @@ SEGMENTS = {
     "ia":     {"label": "IA para Governo",               "emoji": "🤖",  "color": "6A1B9A"},
     "proc":   {"label": "Procuradorias (PGM/PGE/MP)",      "emoji": "⚖️",  "color": "BF360C"},
     "lic":    {"label": "Licitações & Compras Públicas",  "emoji": "📋",  "color": "2E7D32"},
-    "hab":    {"label": "Habitação & Regularização Fundiária", "emoji": "🏘️", "color": "4E342E"},
+    "hab":       {"label": "Habitação & Regularização Fundiária", "emoji": "🏘️", "color": "4E342E"},
+    "ambiental": {"label": "Meio Ambiente & Licenciamento",      "emoji": "🌿", "color": "1B5E20"},
+    "smart":     {"label": "Smart Cities & Mobilidade",          "emoji": "🏙️", "color": "283593"},
 }
 
 # ══════════════════════════════════════════════════════════════
@@ -282,6 +347,14 @@ def make_html(output_path):
 
     unique_count = len({c["name"] for c in COMPANIES})
 
+    changelog_html = ""
+    for entry in CHANGELOG:
+        items_html = "".join(f"<li>{it}</li>" for it in entry["items"])
+        changelog_html += f"""<div class="cl-entry">
+  <span class="cl-ver">{entry['version']}</span><span class="cl-date">{entry['date']}</span>
+  <ul class="cl-items">{items_html}</ul>
+</div>"""
+
     html = f"""<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -308,6 +381,10 @@ def make_html(output_path):
     --lime-light: #F1F8E9;
     --brown-dark: #4E342E;
     --brown-light: #EFEBE9;
+    --green-dark: #1B5E20;
+    --green-light: #E8F5E9;
+    --indigo-dark: #283593;
+    --indigo-light: #E8EAF6;
     --slate-dark: #37474F;
     --slate-light: #ECEFF1;
     --red-fill: #FFEBEE;
@@ -347,8 +424,14 @@ def make_html(output_path):
   .btn-proc.active   {{ background: var(--amber-dark); color: white; }}
   .btn-lic    {{ background: var(--lime-light); color: var(--lime-dark); border-color: #aad4a0; }}
   .btn-lic.active    {{ background: var(--lime-dark); color: white; }}
-  .btn-hab    {{ background: var(--brown-light); color: var(--brown-dark); border-color: #bcaaa4; }}
-  .btn-hab.active    {{ background: var(--brown-dark); color: white; }}
+  .btn-hab        {{ background: var(--brown-light);  color: var(--brown-dark);  border-color: #bcaaa4; }}
+  .btn-hab.active        {{ background: var(--brown-dark);  color: white; }}
+  .btn-ambiental  {{ background: var(--green-light);  color: var(--green-dark);  border-color: #a5d6a7; }}
+  .btn-ambiental.active  {{ background: var(--green-dark);  color: white; }}
+  .btn-smart      {{ background: var(--indigo-light); color: var(--indigo-dark); border-color: #9fa8da; }}
+  .btn-smart.active      {{ background: var(--indigo-dark); color: white; }}
+  .btn-changelog  {{ background: #F5F5F5; color: #444; border-color: #ccc; margin-left: auto; }}
+  .btn-changelog:hover   {{ background: #eee; }}
   .btn-ma     {{ background: var(--orange-fill); color: var(--orange-dark); border-color: #e0b080; }}
   .btn-ma.active     {{ background: var(--orange-dark); color: white; }}
   .count-badge {{ background: rgba(255,255,255,0.3); border-radius: 10px; padding: 1px 6px; font-size: 10px; margin-left: 4px; }}
@@ -371,7 +454,9 @@ def make_html(output_path):
   .card.ia::before     {{ background: var(--purple-mid); }}
   .card.proc::before   {{ background: var(--amber-dark); }}
   .card.lic::before    {{ background: var(--lime-dark); }}
-  .card.hab::before    {{ background: var(--brown-dark); }}
+  .card.hab::before        {{ background: var(--brown-dark); }}
+  .card.ambiental::before {{ background: var(--green-dark); }}
+  .card.smart::before     {{ background: var(--indigo-dark); }}
 
   .card-top {{ display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; gap: 8px; }}
   .card-name {{ font-size: 14px; font-weight: 700; line-height: 1.2; }}
@@ -381,7 +466,9 @@ def make_html(output_path):
   .card.ia     .card-name {{ color: var(--purple-mid); }}
   .card.proc   .card-name {{ color: var(--amber-dark); }}
   .card.lic    .card-name {{ color: var(--lime-dark); }}
-  .card.hab    .card-name {{ color: var(--brown-dark); }}
+  .card.hab        .card-name {{ color: var(--brown-dark); }}
+  .card.ambiental  .card-name {{ color: var(--green-dark); }}
+  .card.smart      .card-name {{ color: var(--indigo-dark); }}
 
   .card-porte {{ font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 10px; white-space: nowrap; flex-shrink: 0; }}
   .porte-startup {{ background: #E8F5E9; color: #1B5E20; }}
@@ -413,6 +500,20 @@ def make_html(output_path):
 
   .footer {{ text-align: center; padding: 24px; color: #999; font-size: 11px; border-top: 1px solid #e0e8f0; margin-top: 20px; }}
 
+  /* Changelog modal */
+  #cl-overlay {{ position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 8000; display: flex; align-items: center; justify-content: center; }}
+  #cl-overlay.hidden {{ display: none !important; }}
+  #cl-box {{ background: #fff; border-radius: 12px; padding: 32px 36px; width: 100%; max-width: 580px; max-height: 80vh; overflow-y: auto; box-shadow: 0 12px 40px rgba(0,0,0,0.25); }}
+  #cl-box h2 {{ font-size: 16px; font-weight: 700; color: var(--blue-dark); margin-bottom: 20px; }}
+  .cl-entry {{ margin-bottom: 20px; }}
+  .cl-ver {{ display: inline-block; font-weight: 700; font-size: 13px; color: var(--blue-dark); background: var(--blue-light); padding: 2px 10px; border-radius: 12px; margin-right: 8px; }}
+  .cl-date {{ font-size: 11px; color: #888; }}
+  .cl-items {{ margin: 8px 0 0 4px; padding: 0; list-style: none; }}
+  .cl-items li {{ font-size: 12px; color: #444; padding: 3px 0 3px 14px; position: relative; line-height: 1.5; }}
+  .cl-items li::before {{ content: '·'; position: absolute; left: 2px; color: var(--blue-mid); font-weight: 700; }}
+  #cl-close {{ float: right; background: none; border: none; font-size: 20px; cursor: pointer; color: #888; margin-top: -4px; }}
+  #cl-close:hover {{ color: #333; }}
+
   /* Login */
   #login-overlay {{ position: fixed; inset: 0; background: linear-gradient(135deg, #1F4E79 0%, #2a5f8e 100%); display: flex; align-items: center; justify-content: center; z-index: 9999; }}
   #login-box {{ background: #fff; border-radius: 12px; padding: 48px 40px; width: 100%; max-width: 380px; box-shadow: 0 8px 32px rgba(0,0,0,0.25); text-align: center; }}
@@ -430,10 +531,10 @@ def make_html(output_path):
 
 <div class="header">
   <h1>🇧🇷 Radar GovTech Brasil 2025/2026</h1>
-  <div class="sub">DLG · Mapeamento M&amp;A — {DATA_REF} · {VERSION}</div>
+  <div class="sub">DLG · Mapeamento M&amp;A — {DATA_REF} · {VERSION} · Atualizado em {UPDATED_AT}</div>
   <div class="header-meta">
     <div class="kpi"><div class="num" id="kpi-total">{unique_count}</div><div class="lbl">Players mapeados</div></div>
-    <div class="kpi"><div class="num">7</div><div class="lbl">Segmentos</div></div>
+    <div class="kpi"><div class="num">9</div><div class="lbl">Segmentos</div></div>
   </div>
 </div>
 
@@ -448,8 +549,11 @@ def make_html(output_path):
     <button class="btn btn-ia"     onclick="setFilter('ia',this)">IA Gov <span class="count-badge" id="cnt-ia"></span></button>
     <button class="btn btn-proc"   onclick="setFilter('proc',this)">Procuradorias <span class="count-badge" id="cnt-proc"></span></button>
     <button class="btn btn-lic"    onclick="setFilter('lic',this)">Licitações <span class="count-badge" id="cnt-lic"></span></button>
-    <button class="btn btn-hab"    onclick="setFilter('hab',this)">Habitação <span class="count-badge" id="cnt-hab"></span></button>
-    <button class="btn btn-ma"     onclick="setFilter('aporte',this)">Aportes &amp; Investimentos <span class="count-badge" id="cnt-aporte"></span></button>
+    <button class="btn btn-hab"        onclick="setFilter('hab',this)">Habitação <span class="count-badge" id="cnt-hab"></span></button>
+    <button class="btn btn-ambiental"  onclick="setFilter('ambiental',this)">Meio Ambiente <span class="count-badge" id="cnt-ambiental"></span></button>
+    <button class="btn btn-smart"      onclick="setFilter('smart',this)">Smart Cities <span class="count-badge" id="cnt-smart"></span></button>
+    <button class="btn btn-ma"         onclick="setFilter('aporte',this)">Aportes &amp; Investimentos <span class="count-badge" id="cnt-aporte"></span></button>
+    <button class="btn btn-changelog"  onclick="openChangelog()">📋 Changelog</button>
   </div>
 </div>
 
@@ -496,6 +600,18 @@ def make_html(output_path):
   <span class="pill" style="background:var(--brown-light);color:var(--brown-dark);" id="cnt-hab-sec"></span>
 </div>
 <div class="grid" id="grid-hab"></div>
+
+<div class="section-header" style="color:var(--green-dark);border-color:var(--green-dark);" id="sec-ambiental">
+  <h2>🌿 Meio Ambiente &amp; Licenciamento</h2>
+  <span class="pill" style="background:var(--green-light);color:var(--green-dark);" id="cnt-ambiental-sec"></span>
+</div>
+<div class="grid" id="grid-ambiental"></div>
+
+<div class="section-header" style="color:var(--indigo-dark);border-color:var(--indigo-dark);" id="sec-smart">
+  <h2>🏙️ Smart Cities &amp; Mobilidade</h2>
+  <span class="pill" style="background:var(--indigo-light);color:var(--indigo-dark);" id="cnt-smart-sec"></span>
+</div>
+<div class="grid" id="grid-smart"></div>
 
 <div class="section-header" style="color:var(--orange-dark);border-color:var(--orange-dark);" id="sec-aporte">
   <h2>💰 Aportes &amp; Investimentos</h2>
@@ -585,14 +701,14 @@ function renderAportes() {{
 let currentFilter = "all";
 
 function updateCounts() {{
-  ["gestao","saude","educ","ia","proc","lic","hab"].forEach(s => {{
+  ["gestao","saude","educ","ia","proc","lic","hab","ambiental","smart"].forEach(s => {{
     const el = document.getElementById("cnt-"+s);
     if (el) el.textContent = companies.filter(c=>c.seg===s).length;
   }});
   document.getElementById("cnt-all").textContent = companies.length;
 }}
 
-const sections = {{ gestao:["sec-gestao","grid-gestao"], saude:["sec-saude","grid-saude"], educ:["sec-educ","grid-educ"], ia:["sec-ia","grid-ia"], proc:["sec-proc","grid-proc"], lic:["sec-lic","grid-lic"], hab:["sec-hab","grid-hab"], aporte:["sec-aporte","grid-aporte"] }};
+const sections = {{ gestao:["sec-gestao","grid-gestao"], saude:["sec-saude","grid-saude"], educ:["sec-educ","grid-educ"], ia:["sec-ia","grid-ia"], proc:["sec-proc","grid-proc"], lic:["sec-lic","grid-lic"], hab:["sec-hab","grid-hab"], ambiental:["sec-ambiental","grid-ambiental"], smart:["sec-smart","grid-smart"], aporte:["sec-aporte","grid-aporte"] }};
 
 function hideAllSections() {{ Object.values(sections).flat().forEach(id => {{ const el=document.getElementById(id); if(el) el.classList.add("hidden"); }}); }}
 function showSection(id)    {{ const el=document.getElementById(id); if(el) el.classList.remove("hidden"); }}
@@ -610,7 +726,7 @@ function setFilter(f, btn) {{
 
 function applySearch(q) {{
   const query = q.toLowerCase().trim();
-  ["grid-gestao","grid-saude","grid-educ","grid-ia","grid-proc","grid-lic","grid-hab"].forEach(gid => {{
+  ["grid-gestao","grid-saude","grid-educ","grid-ia","grid-proc","grid-lic","grid-hab","grid-ambiental","grid-smart"].forEach(gid => {{
     const grid = document.getElementById(gid);
     if (!grid) return;
     grid.querySelectorAll(".card").forEach(card => {{
@@ -623,16 +739,31 @@ function applySearch(q) {{
 
 document.getElementById("searchBox").addEventListener("input", function() {{ applySearch(this.value); }});
 
+function openChangelog()  {{ document.getElementById("cl-overlay").classList.remove("hidden"); }}
+function closeChangelog() {{ document.getElementById("cl-overlay").classList.add("hidden"); }}
+document.getElementById("cl-overlay").addEventListener("click", function(e) {{ if(e.target===this) closeChangelog(); }});
+
 renderSection("grid-gestao","cnt-gestao-sec","gestao");
 renderSection("grid-saude", "cnt-saude-sec", "saude");
 renderSection("grid-educ",  "cnt-educ-sec",  "educ");
 renderSection("grid-ia",    "cnt-ia-sec",    "ia");
 renderSection("grid-proc",  "cnt-proc-sec",  "proc");
 renderSection("grid-lic",   "cnt-lic-sec",   "lic");
-renderSection("grid-hab",   "cnt-hab-sec",   "hab");
+renderSection("grid-hab",       "cnt-hab-sec",       "hab");
+renderSection("grid-ambiental", "cnt-ambiental-sec", "ambiental");
+renderSection("grid-smart",     "cnt-smart-sec",     "smart");
 renderAportes();
 updateCounts();
 </script>
+
+<!-- CHANGELOG MODAL -->
+<div id="cl-overlay" class="hidden">
+  <div id="cl-box">
+    <button id="cl-close" onclick="closeChangelog()">✕</button>
+    <h2>📋 Histórico de Atualizações</h2>
+    {changelog_html}
+  </div>
+</div>
 
 <!-- LOGIN -->
 <div id="login-overlay">
@@ -703,6 +834,9 @@ if __name__ == "__main__":
 # v8 — 05/05/2026
 #   + Inteligov: monitoramento legislativo + IA regulatória (ia)
 #   + Novo segmento: Habitação & Regularização Fundiária (hab)
+#   + Novo segmento: Meio Ambiente & Licenciamento (ambiental) — eGAC, TUXTU, Retech Recycle
+#   + Novo segmento: Smart Cities & Mobilidade (smart) — SmartCityTec, Iguata
+#   + Botão de changelog (modal) e data de atualização visível no header
 #   + ReurBR: SaaS REURB ponta a ponta — ES, BA, RN
 #   + sisHABI: gestão habitacional + REURB — 16 estados (desde 2005)
 #   + CERURB: REURB digital com IA — 30k+ matrículas, TJ Piauí
