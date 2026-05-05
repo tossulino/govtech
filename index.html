@@ -799,5 +799,112 @@ renderMA();
 renderSinais();
 updateCounts();
 </script>
+
+<!-- LOGIN OVERLAY -->
+<style>
+  #login-overlay {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #1F4E79 0%, #2a5f8e 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  #login-box {
+    background: #fff;
+    border-radius: 12px;
+    padding: 48px 40px;
+    width: 100%;
+    max-width: 380px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+    text-align: center;
+  }
+  #login-box h2 {
+    color: #1F4E79;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  #login-box p {
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 28px;
+  }
+  #login-box input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+    margin-bottom: 12px;
+    transition: border-color 0.2s;
+  }
+  #login-box input:focus { border-color: #2E75B6; }
+  #login-box button {
+    width: 100%;
+    padding: 12px;
+    background: #1F4E79;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  #login-box button:hover { background: #2E75B6; }
+  #login-error {
+    color: #c0392b;
+    font-size: 13px;
+    margin-top: 10px;
+    display: none;
+  }
+  #login-logo {
+    font-size: 13px;
+    color: #999;
+    margin-top: 24px;
+  }
+</style>
+
+<div id="login-overlay">
+  <div id="login-box">
+    <h2>Radar GovTech Brasil</h2>
+    <p>DLG Tech — Acesso restrito</p>
+    <input type="password" id="login-input" placeholder="Digite a senha" onkeydown="if(event.key==='Enter') checkLogin()" autofocus />
+    <button onclick="checkLogin()">Entrar</button>
+    <div id="login-error">Senha incorreta. Tente novamente.</div>
+    <div id="login-logo">dlgtech.com.br</div>
+  </div>
+</div>
+
+<script>
+  (function() {
+    const HASH = "a4ab044afdb741fec333da9498b48a42edf765c67fa259c8ed2916093d1d33a5";
+    function sha256hex(str) {
+      const buf = new TextEncoder().encode(str);
+      return crypto.subtle.digest('SHA-256', buf).then(b =>
+        Array.from(new Uint8Array(b)).map(x => x.toString(16).padStart(2,'0')).join('')
+      );
+    }
+    if (sessionStorage.getItem('dlg_auth') === '1') {
+      document.getElementById('login-overlay').style.display = 'none';
+    }
+    window.checkLogin = function() {
+      const pwd = document.getElementById('login-input').value;
+      sha256hex(pwd).then(hash => {
+        if (hash === HASH) {
+          sessionStorage.setItem('dlg_auth', '1');
+          document.getElementById('login-overlay').style.display = 'none';
+        } else {
+          document.getElementById('login-error').style.display = 'block';
+          document.getElementById('login-input').value = '';
+          document.getElementById('login-input').focus();
+        }
+      });
+    };
+  })();
+</script>
 </body>
 </html>
