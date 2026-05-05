@@ -140,9 +140,9 @@
 
 <div class="header">
   <h1>🇧🇷 Radar GovTech Brasil 2025/2026</h1>
-  <div class="sub">DLG · Mapeamento M&amp;A — Maio 2026 · v6</div>
+  <div class="sub">DLG · Mapeamento M&amp;A — Maio 2026 · v7</div>
   <div class="header-meta">
-    <div class="kpi"><div class="num" id="kpi-total">52</div><div class="lbl">Players mapeados</div></div>
+    <div class="kpi"><div class="num" id="kpi-total">56</div><div class="lbl">Players mapeados</div></div>
     <div class="kpi"><div class="num">8</div><div class="lbl">Segmentos</div></div>
   </div>
 </div>
@@ -151,7 +151,7 @@
   <input class="search-box" id="searchBox" type="text" placeholder="🔍  Buscar empresa, segmento, nota...">
   <div class="filter-btns">
     <span class="lbl">Filtro:</span>
-    <button class="btn btn-all active" onclick="setFilter('all',this)">Todos <span class="count-badge" id="cnt-all">52</span></button>
+    <button class="btn btn-all active" onclick="setFilter('all',this)">Todos <span class="count-badge" id="cnt-all">56</span></button>
     <button class="btn btn-gestao" onclick="setFilter('gestao',this)">Gestão Municipal <span class="count-badge" id="cnt-gestao"></span></button>
     <button class="btn btn-saude"  onclick="setFilter('saude',this)">Saúde <span class="count-badge" id="cnt-saude"></span></button>
     <button class="btn btn-educ"   onclick="setFilter('educ',this)">Educação <span class="count-badge" id="cnt-educ"></span></button>
@@ -217,7 +217,7 @@
 </div>
 
 <div class="footer">
-  Radar GovTech Brasil 2025/2026 · DLG · Uso interno · Gerado em Maio 2026 · v6
+  Radar GovTech Brasil 2025/2026 · DLG · Uso interno · Gerado em Maio 2026 · v7
 </div>
 
 <script>
@@ -230,8 +230,8 @@ const companies = [
     "loc": "São Paulo - SP",
     "fund": "2017",
     "presenca": "120+ cidades",
-    "receita": "R$ 22,5M aporte",
-    "nota": "Maior aporte da história das GovTechs da AL. 120+ cidades. TOP Open Startups 2024.",
+    "receita": "R$ 22,5M (Astella+BB)",
+    "nota": "Aporte Seed de R$22,5M (US$4M) liderado por Astella e VOX Capital (CVC do Banco do Brasil), com CAF e Endeavor. 120+ cidades. TOP Open Startups 2024. Maior aporte da história das GovTechs da AL.",
     "alerta": "",
     "isNew": false
   },
@@ -444,6 +444,32 @@ const companies = [
     "isNew": true
   },
   {
+    "seg": "gestao",
+    "name": "Colab",
+    "subseg": "Participação Cidadã / Gestão Pública",
+    "porte": "Scale-up",
+    "loc": "Brasil",
+    "fund": "2013",
+    "presenca": "20M+ pessoas impactadas",
+    "receita": "R$3-7M (Fundo GovTech)",
+    "nota": "Plataforma de gestão pública e participação cidadã: zeladoria urbana, CRM prefeitura-cidadão e marketplace de serviços públicos digitais. 1º investimento da KPTL em 2014. Follow-on pelo Fundo GovTech (KPTL+Cedro) em 2023. Co-invest EDP.",
+    "alerta": "Portfólio KPTL+Cedro",
+    "isNew": true
+  },
+  {
+    "seg": "gestao",
+    "name": "Fractal",
+    "subseg": "Gestão Hídrica / Infraestrutura",
+    "porte": "Startup / Scale-up",
+    "loc": "Brasil",
+    "fund": "2010",
+    "presenca": "Setor elétrico + agro",
+    "receita": "N/D (KPTL 2019)",
+    "nota": "SaaS hidrológico integrado: previsão de fluxo de água e gestão de bacias hidrográficas. 80 anos de dados históricos. Clientes: CPFL, Statkraft. Aplicações em energia, agronegócio e seguros. Investimento KPTL 2019 (pré-Fundo GovTech).",
+    "alerta": "Portfólio KPTL",
+    "isNew": true
+  },
+  {
     "seg": "saude",
     "name": "OM30",
     "subseg": "Atenção Primária / Suite",
@@ -639,6 +665,19 @@ const companies = [
     "isNew": false
   },
   {
+    "seg": "educ",
+    "name": "Jovens Gênios",
+    "subseg": "EdTech Gamificada / IA Educacional",
+    "porte": "Startup",
+    "loc": "Rio de Janeiro - RJ",
+    "fund": "N/D",
+    "presenca": "50+ municípios | est. SP",
+    "receita": "R$11,8M (Fundo GovTech)",
+    "nota": "Plataforma adaptativa de aprendizagem e avaliação gamificada. 90% dos alunos em escolas públicas. 83% dos usuários em rede pública. Meta: 10M alunos até 2030. Rodada seed R$11,8M liderada pelo Fundo GovTech (KPTL+Cedro) com DOMO.VC, Criabiz Ventures e Rosey Ventures (Grupo Marista). Mar/2026.",
+    "alerta": "Portfólio KPTL+Cedro",
+    "isNew": true
+  },
+  {
     "seg": "ia",
     "name": "GovTools",
     "subseg": "Agentes RPA / WhatsApp",
@@ -766,6 +805,19 @@ const companies = [
     "receita": "N/D",
     "nota": "Plataforma IA para gestão municipal: analytics preditivo + preventivo + prescritivo. Integra dados orçamentários, operacionais e sociais para apoio à decisão do gestor público.",
     "alerta": "Watch",
+    "isNew": true
+  },
+  {
+    "seg": "ia",
+    "name": "Kinebot",
+    "subseg": "IA Ergonomia / Saúde do Trabalhador",
+    "porte": "Startup",
+    "loc": "Curitiba - PR",
+    "fund": "N/D",
+    "presenca": "Indústria + gov",
+    "receita": "R$3M (Fundo GovTech)",
+    "nota": "IA para análises ergonômicas e psicossociais via visão computacional. Clientes: Marfrig, P&G, Electrolux. 8º investimento do Fundo GovTech (KPTL+Cedro), R$3M em fev/2026. Foco em saúde do trabalhador para setor público e privado. Expansão global planejada.",
+    "alerta": "Portfólio KPTL+Cedro",
     "isNew": true
   },
   {
@@ -936,6 +988,15 @@ const aporteData = [
     "desc": "Maior aporte em govtech na época. Plataforma analytics financeiro para prefeituras. Expansão geográfica em curso."
   },
   {
+    "tx": "Aprova Digital — Astella + BB/VOX",
+    "tipo": "Aporte Seed",
+    "valor": "R$ 22,5M",
+    "ano": 2022,
+    "data": "2022",
+    "seg": "Gestão Pública Municipal",
+    "desc": "Rodada liderada por Astella e VOX Capital (CVC do Banco do Brasil), com CAF e Endeavor. Maior aporte da história das GovTechs da América Latina na época. 120+ cidades, 21M de brasileiros impactados."
+  },
+  {
     "tx": "Portabilis — Yunus Negócios Sociais",
     "tipo": "Aporte de impacto",
     "valor": "Até R$ 2M",
@@ -979,6 +1040,24 @@ const aporteData = [
     "data": "out/2024",
     "seg": "Infraestrutura / Água",
     "desc": "1º exit do Fundo GovTech KPTL. Automação de tratamento de água. Earn-out 3 anos. Comprador: Biosolvit (Laércio Cosentino). Badesul apoiou."
+  },
+  {
+    "tx": "Kinebot — Fundo GovTech (KPTL+Cedro)",
+    "tipo": "Aporte",
+    "valor": "R$ 3M",
+    "ano": 2026,
+    "data": "fev/2026",
+    "seg": "IA Ergonomia / Saúde Gov",
+    "desc": "8º investimento do Fundo GovTech. IA para análises ergonômicas e psicossociais. Clientes: Marfrig, P&G, Electrolux. Expansão global planejada para 2026."
+  },
+  {
+    "tx": "Jovens Gênios — Fundo GovTech+DOMO",
+    "tipo": "Aporte Seed",
+    "valor": "R$ 11,8M",
+    "ano": 2026,
+    "data": "mar/2026",
+    "seg": "Educação Pública",
+    "desc": "Rodada seed liderada pelo Fundo GovTech (KPTL+Cedro), com DOMO.VC, Criabiz Ventures e Rosey Ventures (Grupo Marista). 90% dos alunos em escolas públicas. Meta: 10M alunos até 2030."
   }
 ];
 
