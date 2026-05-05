@@ -16,13 +16,21 @@ from openpyxl.utils import get_column_letter
 # DADOS — edite aqui para atualizar Excel e HTML juntos
 # ══════════════════════════════════════════════════════════════
 
-VERSION = "v8"
+VERSION = "v9"
 DATA_REF = "Maio 2026"
 UPDATED_AT = "05/05/2026"
 
 CHANGELOG = [
     {
-        "version": "v8", "date": "05/05/2026",
+        "version": "v9", "date": "05/05/2026",
+        "items": [
+            "M&A Volaris Group: Equiplano (nov/2022), GOVBR (mai/2023), IDS (ago/2024), Nydus Systems (mar/2025) adicionados à lista de investimentos",
+            "M&A Softplan: 1Doc 100% (abr/2025) adicionado à lista de investimentos",
+            "Changelog simplificado: mantidos apenas os 2 últimos meses",
+        ]
+    },
+    {
+        "version": "v8", "date": "mai/2026",
         "items": [
             "Novo segmento: Habitação & Regularização Fundiária — ReurBR, sisHABI, CERURB, Vivenda",
             "Novo segmento: Meio Ambiente & Licenciamento — eGAC, TUXTU, Retech Recycle",
@@ -40,36 +48,6 @@ CHANGELOG = [
             "Jovens Gênios: seed R$ 11,8M Fundo GovTech (mar/2026)",
             "Hub Esfera, MedBolso, Governar, Qiatech, MuniScore, StartGov adicionados",
             "Aprova Digital: investidor corrigido para Astella + VOX Capital (BB) + CAF + Endeavor",
-        ]
-    },
-    {
-        "version": "v6", "date": "mar/2026",
-        "items": [
-            "Pesquisa completa portfólio KPTL/Cedro: Fundo GovTech mapeado",
-            "i4Sea e GRTS Digital (aportes Fundo GovTech) adicionados",
-            "Exit Augen → Biosolvit (R$ 36–48M) registrado",
-        ]
-    },
-    {
-        "version": "v5", "date": "jan/2026",
-        "items": [
-            "Novo segmento: Licitações & Compras Públicas",
-            "Portal de Compras Públicas, BLL Compras, Licitar.digital, GoBuyer adicionados",
-        ]
-    },
-    {
-        "version": "v4", "date": "dez/2025",
-        "items": [
-            "Novo segmento: Procuradorias (PGM/PGE/MP)",
-            "Attus, Eicon/Giex, PGMNET, Aetos Tech, Sumé, Prodata adicionados",
-        ]
-    },
-    {
-        "version": "v1–v3", "date": "2025",
-        "items": [
-            "Versões iniciais: segmentos Gestão, Saúde, Educação, IA para Governo",
-            "Deploy Firebase Hosting (govtech-408d1)",
-            "Proteção de acesso com senha SHA-256",
         ]
     },
 ]
@@ -175,6 +153,11 @@ APORTES = [
     {"tx":"Aprova Digital — Astella + BB/VOX",   "tipo":"Aporte Seed",       "valor":"R$ 22,5M",   "ano":2022, "data":"2022",      "seg":"Gestão Pública Municipal", "desc":"Rodada liderada por Astella e VOX Capital (CVC do Banco do Brasil), com CAF e Endeavor. Maior aporte da história das GovTechs da América Latina na época. 120+ cidades, 21M de brasileiros impactados."},
     {"tx":"Kinebot — Fundo GovTech (KPTL+Cedro)","tipo":"Aporte",            "valor":"R$ 3M",      "ano":2026, "data":"fev/2026",  "seg":"IA Ergonomia / Saúde Gov", "desc":"8º investimento do Fundo GovTech. IA para análises ergonômicas e psicossociais. Clientes: Marfrig, P&G, Electrolux. Expansão global planejada para 2026."},
     {"tx":"Jovens Gênios — Fundo GovTech+DOMO",  "tipo":"Aporte Seed",       "valor":"R$ 11,8M",   "ano":2026, "data":"mar/2026",  "seg":"Educação Pública",         "desc":"Rodada seed liderada pelo Fundo GovTech (KPTL+Cedro), com DOMO.VC, Criabiz Ventures e Rosey Ventures (Grupo Marista). 90% dos alunos em escolas públicas. Meta: 10M alunos até 2030."},
+    {"tx":"Equiplano — Volaris Group (Constellation Software)", "tipo":"Aquisição (M&A)", "valor":"N/D", "ano":2022, "data":"nov/2022", "seg":"Gestão Pública Municipal",       "desc":"Volaris adquire a Equiplano, ERP municipal líder no Paraná (≈1/3 do mercado estadual). Fundada em 1974, módulos: contabilidade pública, tributos, RH, compras, frotas. 70 funcionários. Opera de forma independente dentro do portfólio Volaris Latam & Ibéria."},
+    {"tx":"GOVBR — Volaris Group (Constellation Software)",     "tipo":"Aquisição (M&A)", "valor":"N/D", "ano":2023, "data":"mai/2023", "seg":"Gestão Pública Municipal",       "desc":"Volaris adquire a GovernançaBrasil (GOVBR), ERP municipal com 35 anos de atuação. Fundador: Roberto Coelho. Plataforma Cidade 360, 24 módulos. Presença em RS, SC, SP, PR, RJ, ES, MG, MS, PE. Descrita como 'aquisição de grande porte' pela Volaris."},
+    {"tx":"IDS — Volaris Group (Constellation Software)",       "tipo":"Aquisição (M&A)", "valor":"N/D", "ano":2024, "data":"ago/2024", "seg":"Saúde / Educação / Assistência Social", "desc":"Volaris adquire a IDS (Pato Branco, PR), fornecedora de software para municípios nas áreas de saúde, assistência social, educação e cidadão. Fundada em 2003, 112 funcionários. CEO: Mauri Dengo. Opera de forma independente dentro do portfólio Volaris Latam & Ibéria."},
+    {"tx":"Nydus Systems — Volaris Group (Constellation Software)", "tipo":"Aquisição (M&A)", "valor":"N/D", "ano":2025, "data":"mar/2025", "seg":"RH / Folha de Pagamento Gov",  "desc":"Volaris adquire a Nydus Systems Informatica (São Paulo), fornecedora de HR/payroll para PMEs no Brasil. CEO: Adalberto Argente. Expansão do portfólio Volaris em RH/folha de pagamento no mercado brasileiro."},
+    {"tx":"1Doc — Softplan (100%)",                             "tipo":"Aquisição (M&A)", "valor":"N/D", "ano":2025, "data":"abr/2025", "seg":"Digitalização / Gestão Municipal", "desc":"Softplan adquire 100% da 1Doc, govtech de digitalização de processos e atendimento ao cidadão em prefeituras. Jornada: aporte 2017 → maioria 2019 → 100% abr/2025. CAGR de 75% (2019–2025). Fundada 2014, 1.000 entidades públicas, 22M brasileiros impactados, 141 colaboradores."},
 ]
 
 # ══════════════════════════════════════════════════════════════
