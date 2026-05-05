@@ -16,8 +16,9 @@ from openpyxl.utils import get_column_letter
 # DADOS — edite aqui para atualizar Excel e HTML juntos
 # ══════════════════════════════════════════════════════════════
 
-VERSION = "v7"
+VERSION = "v8"
 DATA_REF = "Maio 2026"
+UPDATED_AT = "05/05/2026"
 
 COMPANIES = [
     # ── GESTÃO MUNICIPAL ──
@@ -89,6 +90,15 @@ COMPANIES = [
     {"seg":"lic",    "name":"BLL Compras",       "subseg":"Plataforma Licitações Eletrônicas","porte":"PME Estabelecida","loc":"São Paulo - SP",        "fund":"2008",  "presenca":"3.000+ entidades públicas","receita":"N/D",              "nota":"Bolsa de Licitações e Leilões — uma das maiores plataformas de licitações do Brasil. Mais consolidada, pré-startups. Referência histórica do mercado.", "alerta":"",                             "isNew":False},
     {"seg":"lic",    "name":"GoBuyer",           "subseg":"IA Contratos Pós-adjudicação","porte":"Startup",             "loc":"N/D (Brasil)",          "fund":"N/D",   "presenca":"N/D",                     "receita":"N/D",              "nota":"Gestão do ciclo de vida de contratos públicos com IA: análise de cláusulas, alertas de prazo, auditoria automatizada. Segmento pós-licitação ainda sem líder claro.", "alerta":"Watch — nicho virgem",         "isNew":False},
     {"seg":"lic",    "name":"StartGov",          "subseg":"Licitações Buy-side para Órgãos Públicos","porte":"PME",     "loc":"N/D (Brasil)",          "fund":"N/D",   "presenca":"290+ órgãos públicos",    "receita":"N/D",              "nota":"Plataforma buy-side: gestão de licitações e contratos para entes públicos. 290+ clientes. Lei 14.133/2021 compliance. Distinto do StartGi (B2G para fornecedores privados).", "alerta":"Watch — buy-side gov",         "isNew":True},
+
+    # ── HABITAÇÃO & REGULARIZAÇÃO FUNDIÁRIA ──
+    {"seg":"hab",    "name":"ReurBR",             "subseg":"SaaS Regularização Fundiária (REURB)",  "porte":"Startup",             "loc":"Brasil (ES, BA, RN)",   "fund":"N/D",   "presenca":"14 municípios | 17k+ un.", "receita":"N/D",              "nota":"Plataforma SaaS para regularização fundiária urbana (REURB) de ponta a ponta. App offline para agentes de campo. Emissão automática de CRF, títulos de legitimação e relatórios técnicos. Integração com cartórios. 17k+ unidades habitacionais regularizadas.", "alerta":"Watch — REURB nicho virgem",   "isNew":True},
+    {"seg":"hab",    "name":"sisHABI",             "subseg":"Gestão Habitacional + REURB Municipal", "porte":"PME",                 "loc":"Chapecó - SC",          "fund":"2005",  "presenca":"16 estados brasileiros",  "receita":"N/D",              "nota":"Software especialista em habitação de interesse social e regularização fundiária. 18 anos de atuação. Clientes: Governo de Roraima, programas MCMV e Casa Verde Amarela. Gestão de sorteios, hierarquizações e entregas habitacionais para prefeituras.", "alerta":"Target roll-up",               "isNew":True},
+    {"seg":"hab",    "name":"CERURB",              "subseg":"REURB Digital com IA",                  "porte":"Startup",             "loc":"Brasil",                "fund":"N/D",   "presenca":"Municípios + TJ Piauí",   "receita":"N/D",              "nota":"Plataforma corporativa para REURB: diagnóstico, mapeamento geoespacial, emissão automática de CRF e integração com cartórios. 30k+ matrículas abertas em 12 meses. Contratos com Governo do Piauí (PROURBE) e Tribunal de Justiça.", "alerta":"Watch — tração judicial",      "isNew":True},
+    {"seg":"hab",    "name":"Vivenda",              "subseg":"Melhoria Habitacional de Interesse Social","porte":"Startup de Impacto", "loc":"São Paulo - SP",        "fund":"N/D",   "presenca":"4.500+ intervenções",     "receita":"N/D",              "nota":"Melhoria habitacional acessível para população de baixa renda. 4.500+ melhorias entregues. Portfólio BrazilLAB. Um dos principais negócios de impacto social do Brasil em habitação.", "alerta":"Impacto social / ESG",         "isNew":True},
+
+    # ── GESTÃO — URBANISMO ──
+    {"seg":"gestao", "name":"PLACE",               "subseg":"Planejamento Urbano / GeoInteligência", "porte":"Startup",             "loc":"Brasil",                "fund":"N/D",   "presenca":"Municípios",              "receita":"N/D",              "nota":"Plataforma que integra dados de mercado imobiliário, urbanismo e legislação municipal em interface intuitiva para gestores públicos. Certificada BrazilLAB. Suporte a decisões de planejamento territorial e uso do solo.", "alerta":"Watch — urbanismo digital",    "isNew":True},
 ]
 
 APORTES = [
@@ -112,8 +122,9 @@ SEGMENTS = {
     "saude":  {"label": "Saúde Pública",                 "emoji": "🏥",  "color": "0D4F4A"},
     "educ":   {"label": "Educação Pública",              "emoji": "📚",  "color": "2E75B6"},
     "ia":     {"label": "IA para Governo",               "emoji": "🤖",  "color": "6A1B9A"},
-    "proc":   {"label": "Procuradorias (PGM/PGE/MP)",   "emoji": "⚖️",  "color": "BF360C"},
-    "lic":    {"label": "Licitações & Compras Públicas", "emoji": "📋",  "color": "2E7D32"},
+    "proc":   {"label": "Procuradorias (PGM/PGE/MP)",      "emoji": "⚖️",  "color": "BF360C"},
+    "lic":    {"label": "Licitações & Compras Públicas",  "emoji": "📋",  "color": "2E7D32"},
+    "hab":    {"label": "Habitação & Regularização Fundiária", "emoji": "🏘️", "color": "4E342E"},
 }
 
 # ══════════════════════════════════════════════════════════════
@@ -294,6 +305,8 @@ def make_html(output_path):
     --amber-fill: #FFF8E1;
     --lime-dark: #2E7D32;
     --lime-light: #F1F8E9;
+    --brown-dark: #4E342E;
+    --brown-light: #EFEBE9;
     --slate-dark: #37474F;
     --slate-light: #ECEFF1;
     --red-fill: #FFEBEE;
@@ -333,6 +346,8 @@ def make_html(output_path):
   .btn-proc.active   {{ background: var(--amber-dark); color: white; }}
   .btn-lic    {{ background: var(--lime-light); color: var(--lime-dark); border-color: #aad4a0; }}
   .btn-lic.active    {{ background: var(--lime-dark); color: white; }}
+  .btn-hab    {{ background: var(--brown-light); color: var(--brown-dark); border-color: #bcaaa4; }}
+  .btn-hab.active    {{ background: var(--brown-dark); color: white; }}
   .btn-ma     {{ background: var(--orange-fill); color: var(--orange-dark); border-color: #e0b080; }}
   .btn-ma.active     {{ background: var(--orange-dark); color: white; }}
   .count-badge {{ background: rgba(255,255,255,0.3); border-radius: 10px; padding: 1px 6px; font-size: 10px; margin-left: 4px; }}
@@ -355,6 +370,7 @@ def make_html(output_path):
   .card.ia::before     {{ background: var(--purple-mid); }}
   .card.proc::before   {{ background: var(--amber-dark); }}
   .card.lic::before    {{ background: var(--lime-dark); }}
+  .card.hab::before    {{ background: var(--brown-dark); }}
 
   .card-top {{ display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; gap: 8px; }}
   .card-name {{ font-size: 14px; font-weight: 700; line-height: 1.2; }}
@@ -364,6 +380,7 @@ def make_html(output_path):
   .card.ia     .card-name {{ color: var(--purple-mid); }}
   .card.proc   .card-name {{ color: var(--amber-dark); }}
   .card.lic    .card-name {{ color: var(--lime-dark); }}
+  .card.hab    .card-name {{ color: var(--brown-dark); }}
 
   .card-porte {{ font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 10px; white-space: nowrap; flex-shrink: 0; }}
   .porte-startup {{ background: #E8F5E9; color: #1B5E20; }}
@@ -415,7 +432,7 @@ def make_html(output_path):
   <div class="sub">DLG · Mapeamento M&amp;A — {DATA_REF} · {VERSION}</div>
   <div class="header-meta">
     <div class="kpi"><div class="num" id="kpi-total">{unique_count}</div><div class="lbl">Players mapeados</div></div>
-    <div class="kpi"><div class="num">8</div><div class="lbl">Segmentos</div></div>
+    <div class="kpi"><div class="num">7</div><div class="lbl">Segmentos</div></div>
   </div>
 </div>
 
@@ -430,6 +447,7 @@ def make_html(output_path):
     <button class="btn btn-ia"     onclick="setFilter('ia',this)">IA Gov <span class="count-badge" id="cnt-ia"></span></button>
     <button class="btn btn-proc"   onclick="setFilter('proc',this)">Procuradorias <span class="count-badge" id="cnt-proc"></span></button>
     <button class="btn btn-lic"    onclick="setFilter('lic',this)">Licitações <span class="count-badge" id="cnt-lic"></span></button>
+    <button class="btn btn-hab"    onclick="setFilter('hab',this)">Habitação <span class="count-badge" id="cnt-hab"></span></button>
     <button class="btn btn-ma"     onclick="setFilter('aporte',this)">Aportes &amp; Investimentos <span class="count-badge" id="cnt-aporte"></span></button>
   </div>
 </div>
@@ -471,6 +489,12 @@ def make_html(output_path):
   <span class="pill" style="background:var(--lime-light);color:var(--lime-dark);" id="cnt-lic-sec"></span>
 </div>
 <div class="grid" id="grid-lic"></div>
+
+<div class="section-header" style="color:var(--brown-dark);border-color:var(--brown-dark);" id="sec-hab">
+  <h2>🏘️ Habitação &amp; Regularização Fundiária</h2>
+  <span class="pill" style="background:var(--brown-light);color:var(--brown-dark);" id="cnt-hab-sec"></span>
+</div>
+<div class="grid" id="grid-hab"></div>
 
 <div class="section-header" style="color:var(--orange-dark);border-color:var(--orange-dark);" id="sec-aporte">
   <h2>💰 Aportes &amp; Investimentos</h2>
@@ -560,14 +584,14 @@ function renderAportes() {{
 let currentFilter = "all";
 
 function updateCounts() {{
-  ["gestao","saude","educ","ia","proc","lic"].forEach(s => {{
+  ["gestao","saude","educ","ia","proc","lic","hab"].forEach(s => {{
     const el = document.getElementById("cnt-"+s);
     if (el) el.textContent = companies.filter(c=>c.seg===s).length;
   }});
   document.getElementById("cnt-all").textContent = companies.length;
 }}
 
-const sections = {{ gestao:["sec-gestao","grid-gestao"], saude:["sec-saude","grid-saude"], educ:["sec-educ","grid-educ"], ia:["sec-ia","grid-ia"], proc:["sec-proc","grid-proc"], lic:["sec-lic","grid-lic"], aporte:["sec-aporte","grid-aporte"] }};
+const sections = {{ gestao:["sec-gestao","grid-gestao"], saude:["sec-saude","grid-saude"], educ:["sec-educ","grid-educ"], ia:["sec-ia","grid-ia"], proc:["sec-proc","grid-proc"], lic:["sec-lic","grid-lic"], hab:["sec-hab","grid-hab"], aporte:["sec-aporte","grid-aporte"] }};
 
 function hideAllSections() {{ Object.values(sections).flat().forEach(id => {{ const el=document.getElementById(id); if(el) el.classList.add("hidden"); }}); }}
 function showSection(id)    {{ const el=document.getElementById(id); if(el) el.classList.remove("hidden"); }}
@@ -585,7 +609,7 @@ function setFilter(f, btn) {{
 
 function applySearch(q) {{
   const query = q.toLowerCase().trim();
-  ["grid-gestao","grid-saude","grid-educ","grid-ia","grid-proc","grid-lic"].forEach(gid => {{
+  ["grid-gestao","grid-saude","grid-educ","grid-ia","grid-proc","grid-lic","grid-hab"].forEach(gid => {{
     const grid = document.getElementById(gid);
     if (!grid) return;
     grid.querySelectorAll(".card").forEach(card => {{
@@ -604,6 +628,7 @@ renderSection("grid-educ",  "cnt-educ-sec",  "educ");
 renderSection("grid-ia",    "cnt-ia-sec",    "ia");
 renderSection("grid-proc",  "cnt-proc-sec",  "proc");
 renderSection("grid-lic",   "cnt-lic-sec",   "lic");
+renderSection("grid-hab",   "cnt-hab-sec",   "hab");
 renderAportes();
 updateCounts();
 </script>
@@ -670,3 +695,47 @@ if __name__ == "__main__":
     print(f"  Empresas unicas : {unique}")
     print(f"  Aportes         : {len(APORTES)}")
     print("\nConcluido! Para publicar: python govtech_excel.py && firebase deploy --only hosting")
+
+# ══════════════════════════════════════════════════════════════
+# CHANGELOG
+# ══════════════════════════════════════════════════════════════
+# v8 — 05/05/2026
+#   + Novo segmento: Habitação & Regularização Fundiária (hab)
+#   + ReurBR: SaaS REURB ponta a ponta — ES, BA, RN
+#   + sisHABI: gestão habitacional + REURB — 16 estados (desde 2005)
+#   + CERURB: REURB digital com IA — 30k+ matrículas, TJ Piauí
+#   + Vivenda: melhoria habitacional de impacto social — 4.500+ intervenções
+#   + PLACE: planejamento urbano / geo-inteligência (gestao)
+#
+# v7 — abr/2026
+#   + Colab: participação cidadã — portfólio KPTL+Cedro (1º invest. 2014)
+#   + Fractal: SaaS hidrológico — portfólio KPTL (2019)
+#   + Kinebot: IA ergonomia — 8º invest. Fundo GovTech R$3M fev/2026
+#   + Jovens Gênios: EdTech gamificada — seed R$11,8M Fundo GovTech mar/2026
+#   + Hub Esfera: IA analytics municipal
+#   + MedBolso: escalas e anti-fraude saúde pública
+#   + Governar: ERP municipal cloud / SIAFIC
+#   + Qiatech: gestão de convênios com IA
+#   + MuniScore: score fiscal para todos os 5.570 municípios
+#   + StartGov: plataforma buy-side para órgãos públicos (290+)
+#   * Aprova Digital: corrigido investidor para Astella + VOX/BB + CAF + Endeavor
+#   + Aportes: Kinebot (R$3M) e Jovens Gênios (R$11,8M)
+#
+# v6 — mar/2026
+#   + Pesquisa KPTL/Cedro: mapeamento completo do Fundo GovTech
+#   + i4Sea, GRTS Digital (aportes Fundo GovTech)
+#   + Augen exit (R$36–48M, Biosolvit)
+#   * Prosas, StartGi, Colab: confirmados portfólio KPTL
+#
+# v5 — jan/2026
+#   + Segmento Licitações & Compras Públicas (lic)
+#   + Portal de Compras Públicas, BLL Compras, Licitar.digital, GoBuyer
+#
+# v4 — dez/2025
+#   + Segmento Procuradorias (proc)
+#   + Attus, Eicon/Giex, PGMNET, Aetos Tech, Sumé, Prodata
+#
+# v1–v3 — 2025
+#   · Versões iniciais: gestao, saude, educ, ia
+#   · Deploy Firebase Hosting (govtech-408d1)
+#   · Login SHA-256 com sessionStorage

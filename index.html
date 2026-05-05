@@ -22,6 +22,8 @@
     --amber-fill: #FFF8E1;
     --lime-dark: #2E7D32;
     --lime-light: #F1F8E9;
+    --brown-dark: #4E342E;
+    --brown-light: #EFEBE9;
     --slate-dark: #37474F;
     --slate-light: #ECEFF1;
     --red-fill: #FFEBEE;
@@ -61,6 +63,8 @@
   .btn-proc.active   { background: var(--amber-dark); color: white; }
   .btn-lic    { background: var(--lime-light); color: var(--lime-dark); border-color: #aad4a0; }
   .btn-lic.active    { background: var(--lime-dark); color: white; }
+  .btn-hab    { background: var(--brown-light); color: var(--brown-dark); border-color: #bcaaa4; }
+  .btn-hab.active    { background: var(--brown-dark); color: white; }
   .btn-ma     { background: var(--orange-fill); color: var(--orange-dark); border-color: #e0b080; }
   .btn-ma.active     { background: var(--orange-dark); color: white; }
   .count-badge { background: rgba(255,255,255,0.3); border-radius: 10px; padding: 1px 6px; font-size: 10px; margin-left: 4px; }
@@ -83,6 +87,7 @@
   .card.ia::before     { background: var(--purple-mid); }
   .card.proc::before   { background: var(--amber-dark); }
   .card.lic::before    { background: var(--lime-dark); }
+  .card.hab::before    { background: var(--brown-dark); }
 
   .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; gap: 8px; }
   .card-name { font-size: 14px; font-weight: 700; line-height: 1.2; }
@@ -92,6 +97,7 @@
   .card.ia     .card-name { color: var(--purple-mid); }
   .card.proc   .card-name { color: var(--amber-dark); }
   .card.lic    .card-name { color: var(--lime-dark); }
+  .card.hab    .card-name { color: var(--brown-dark); }
 
   .card-porte { font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 10px; white-space: nowrap; flex-shrink: 0; }
   .porte-startup { background: #E8F5E9; color: #1B5E20; }
@@ -140,10 +146,10 @@
 
 <div class="header">
   <h1>🇧🇷 Radar GovTech Brasil 2025/2026</h1>
-  <div class="sub">DLG · Mapeamento M&amp;A — Maio 2026 · v7</div>
+  <div class="sub">DLG · Mapeamento M&amp;A — Maio 2026 · v8</div>
   <div class="header-meta">
-    <div class="kpi"><div class="num" id="kpi-total">56</div><div class="lbl">Players mapeados</div></div>
-    <div class="kpi"><div class="num">8</div><div class="lbl">Segmentos</div></div>
+    <div class="kpi"><div class="num" id="kpi-total">61</div><div class="lbl">Players mapeados</div></div>
+    <div class="kpi"><div class="num">7</div><div class="lbl">Segmentos</div></div>
   </div>
 </div>
 
@@ -151,13 +157,14 @@
   <input class="search-box" id="searchBox" type="text" placeholder="🔍  Buscar empresa, segmento, nota...">
   <div class="filter-btns">
     <span class="lbl">Filtro:</span>
-    <button class="btn btn-all active" onclick="setFilter('all',this)">Todos <span class="count-badge" id="cnt-all">56</span></button>
+    <button class="btn btn-all active" onclick="setFilter('all',this)">Todos <span class="count-badge" id="cnt-all">61</span></button>
     <button class="btn btn-gestao" onclick="setFilter('gestao',this)">Gestão Municipal <span class="count-badge" id="cnt-gestao"></span></button>
     <button class="btn btn-saude"  onclick="setFilter('saude',this)">Saúde <span class="count-badge" id="cnt-saude"></span></button>
     <button class="btn btn-educ"   onclick="setFilter('educ',this)">Educação <span class="count-badge" id="cnt-educ"></span></button>
     <button class="btn btn-ia"     onclick="setFilter('ia',this)">IA Gov <span class="count-badge" id="cnt-ia"></span></button>
     <button class="btn btn-proc"   onclick="setFilter('proc',this)">Procuradorias <span class="count-badge" id="cnt-proc"></span></button>
     <button class="btn btn-lic"    onclick="setFilter('lic',this)">Licitações <span class="count-badge" id="cnt-lic"></span></button>
+    <button class="btn btn-hab"    onclick="setFilter('hab',this)">Habitação <span class="count-badge" id="cnt-hab"></span></button>
     <button class="btn btn-ma"     onclick="setFilter('aporte',this)">Aportes &amp; Investimentos <span class="count-badge" id="cnt-aporte"></span></button>
   </div>
 </div>
@@ -200,6 +207,12 @@
 </div>
 <div class="grid" id="grid-lic"></div>
 
+<div class="section-header" style="color:var(--brown-dark);border-color:var(--brown-dark);" id="sec-hab">
+  <h2>🏘️ Habitação &amp; Regularização Fundiária</h2>
+  <span class="pill" style="background:var(--brown-light);color:var(--brown-dark);" id="cnt-hab-sec"></span>
+</div>
+<div class="grid" id="grid-hab"></div>
+
 <div class="section-header" style="color:var(--orange-dark);border-color:var(--orange-dark);" id="sec-aporte">
   <h2>💰 Aportes &amp; Investimentos</h2>
   <span class="pill" style="background:var(--orange-fill);color:var(--orange-dark);" id="cnt-aporte-sec"></span>
@@ -217,7 +230,7 @@
 </div>
 
 <div class="footer">
-  Radar GovTech Brasil 2025/2026 · DLG · Uso interno · Gerado em Maio 2026 · v7
+  Radar GovTech Brasil 2025/2026 · DLG · Uso interno · Gerado em Maio 2026 · v8
 </div>
 
 <script>
@@ -975,6 +988,71 @@ const companies = [
     "nota": "Plataforma buy-side: gestão de licitações e contratos para entes públicos. 290+ clientes. Lei 14.133/2021 compliance. Distinto do StartGi (B2G para fornecedores privados).",
     "alerta": "Watch — buy-side gov",
     "isNew": true
+  },
+  {
+    "seg": "hab",
+    "name": "ReurBR",
+    "subseg": "SaaS Regularização Fundiária (REURB)",
+    "porte": "Startup",
+    "loc": "Brasil (ES, BA, RN)",
+    "fund": "N/D",
+    "presenca": "14 municípios | 17k+ un.",
+    "receita": "N/D",
+    "nota": "Plataforma SaaS para regularização fundiária urbana (REURB) de ponta a ponta. App offline para agentes de campo. Emissão automática de CRF, títulos de legitimação e relatórios técnicos. Integração com cartórios. 17k+ unidades habitacionais regularizadas.",
+    "alerta": "Watch — REURB nicho virgem",
+    "isNew": true
+  },
+  {
+    "seg": "hab",
+    "name": "sisHABI",
+    "subseg": "Gestão Habitacional + REURB Municipal",
+    "porte": "PME",
+    "loc": "Chapecó - SC",
+    "fund": "2005",
+    "presenca": "16 estados brasileiros",
+    "receita": "N/D",
+    "nota": "Software especialista em habitação de interesse social e regularização fundiária. 18 anos de atuação. Clientes: Governo de Roraima, programas MCMV e Casa Verde Amarela. Gestão de sorteios, hierarquizações e entregas habitacionais para prefeituras.",
+    "alerta": "Target roll-up",
+    "isNew": true
+  },
+  {
+    "seg": "hab",
+    "name": "CERURB",
+    "subseg": "REURB Digital com IA",
+    "porte": "Startup",
+    "loc": "Brasil",
+    "fund": "N/D",
+    "presenca": "Municípios + TJ Piauí",
+    "receita": "N/D",
+    "nota": "Plataforma corporativa para REURB: diagnóstico, mapeamento geoespacial, emissão automática de CRF e integração com cartórios. 30k+ matrículas abertas em 12 meses. Contratos com Governo do Piauí (PROURBE) e Tribunal de Justiça.",
+    "alerta": "Watch — tração judicial",
+    "isNew": true
+  },
+  {
+    "seg": "hab",
+    "name": "Vivenda",
+    "subseg": "Melhoria Habitacional de Interesse Social",
+    "porte": "Startup de Impacto",
+    "loc": "São Paulo - SP",
+    "fund": "N/D",
+    "presenca": "4.500+ intervenções",
+    "receita": "N/D",
+    "nota": "Melhoria habitacional acessível para população de baixa renda. 4.500+ melhorias entregues. Portfólio BrazilLAB. Um dos principais negócios de impacto social do Brasil em habitação.",
+    "alerta": "Impacto social / ESG",
+    "isNew": true
+  },
+  {
+    "seg": "gestao",
+    "name": "PLACE",
+    "subseg": "Planejamento Urbano / GeoInteligência",
+    "porte": "Startup",
+    "loc": "Brasil",
+    "fund": "N/D",
+    "presenca": "Municípios",
+    "receita": "N/D",
+    "nota": "Plataforma que integra dados de mercado imobiliário, urbanismo e legislação municipal em interface intuitiva para gestores públicos. Certificada BrazilLAB. Suporte a decisões de planejamento territorial e uso do solo.",
+    "alerta": "Watch — urbanismo digital",
+    "isNew": true
   }
 ];
 const aporteData = [
@@ -1125,14 +1203,14 @@ function renderAportes() {
 let currentFilter = "all";
 
 function updateCounts() {
-  ["gestao","saude","educ","ia","proc","lic"].forEach(s => {
+  ["gestao","saude","educ","ia","proc","lic","hab"].forEach(s => {
     const el = document.getElementById("cnt-"+s);
     if (el) el.textContent = companies.filter(c=>c.seg===s).length;
   });
   document.getElementById("cnt-all").textContent = companies.length;
 }
 
-const sections = { gestao:["sec-gestao","grid-gestao"], saude:["sec-saude","grid-saude"], educ:["sec-educ","grid-educ"], ia:["sec-ia","grid-ia"], proc:["sec-proc","grid-proc"], lic:["sec-lic","grid-lic"], aporte:["sec-aporte","grid-aporte"] };
+const sections = { gestao:["sec-gestao","grid-gestao"], saude:["sec-saude","grid-saude"], educ:["sec-educ","grid-educ"], ia:["sec-ia","grid-ia"], proc:["sec-proc","grid-proc"], lic:["sec-lic","grid-lic"], hab:["sec-hab","grid-hab"], aporte:["sec-aporte","grid-aporte"] };
 
 function hideAllSections() { Object.values(sections).flat().forEach(id => { const el=document.getElementById(id); if(el) el.classList.add("hidden"); }); }
 function showSection(id)    { const el=document.getElementById(id); if(el) el.classList.remove("hidden"); }
@@ -1150,7 +1228,7 @@ function setFilter(f, btn) {
 
 function applySearch(q) {
   const query = q.toLowerCase().trim();
-  ["grid-gestao","grid-saude","grid-educ","grid-ia","grid-proc","grid-lic"].forEach(gid => {
+  ["grid-gestao","grid-saude","grid-educ","grid-ia","grid-proc","grid-lic","grid-hab"].forEach(gid => {
     const grid = document.getElementById(gid);
     if (!grid) return;
     grid.querySelectorAll(".card").forEach(card => {
@@ -1169,6 +1247,7 @@ renderSection("grid-educ",  "cnt-educ-sec",  "educ");
 renderSection("grid-ia",    "cnt-ia-sec",    "ia");
 renderSection("grid-proc",  "cnt-proc-sec",  "proc");
 renderSection("grid-lic",   "cnt-lic-sec",   "lic");
+renderSection("grid-hab",   "cnt-hab-sec",   "hab");
 renderAportes();
 updateCounts();
 </script>
