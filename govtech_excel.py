@@ -741,7 +741,6 @@ document.getElementById("searchBox").addEventListener("input", function() {{ app
 
 function openChangelog()  {{ document.getElementById("cl-overlay").classList.remove("hidden"); }}
 function closeChangelog() {{ document.getElementById("cl-overlay").classList.add("hidden"); }}
-document.getElementById("cl-overlay").addEventListener("click", function(e) {{ if(e.target===this) closeChangelog(); }});
 
 renderSection("grid-gestao","cnt-gestao-sec","gestao");
 renderSection("grid-saude", "cnt-saude-sec", "saude");
@@ -757,7 +756,7 @@ updateCounts();
 </script>
 
 <!-- CHANGELOG MODAL -->
-<div id="cl-overlay" class="hidden">
+<div id="cl-overlay" class="hidden" onclick="if(event.target===this)closeChangelog()">
   <div id="cl-box">
     <button id="cl-close" onclick="closeChangelog()">✕</button>
     <h2>📋 Histórico de Atualizações</h2>
