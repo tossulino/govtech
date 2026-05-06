@@ -180,9 +180,9 @@
 
 <div class="header">
   <h1>🇧🇷 Radar GovTech Brasil 2025/2026</h1>
-  <div class="sub">DLG · Mapeamento M&amp;A — Maio 2026 · v10 · Atualizado em 05/05/2026</div>
+  <div class="sub">DLG · Mapeamento M&amp;A — Maio 2026 · v11 · Atualizado em 05/05/2026</div>
   <div class="header-meta">
-    <div class="kpi"><div class="num" id="kpi-total">67</div><div class="lbl">Players mapeados</div></div>
+    <div class="kpi"><div class="num" id="kpi-total">68</div><div class="lbl">Players mapeados</div></div>
     <div class="kpi"><div class="num">11</div><div class="lbl">Segmentos</div></div>
   </div>
 </div>
@@ -191,7 +191,7 @@
   <input class="search-box" id="searchBox" type="text" placeholder="🔍  Buscar empresa, segmento, nota...">
   <div class="filter-btns">
     <span class="lbl">Filtro:</span>
-    <button class="btn btn-all active" onclick="setFilter('all',this)">Todos <span class="count-badge" id="cnt-all">67</span></button>
+    <button class="btn btn-all active" onclick="setFilter('all',this)">Todos <span class="count-badge" id="cnt-all">68</span></button>
     <button class="btn btn-gestao"     onclick="setFilter('gestao',this)">Gestão &amp; ERP <span class="count-badge" id="cnt-gestao"></span></button>
     <button class="btn btn-fiscal"     onclick="setFilter('fiscal',this)">Fiscal &amp; Convênios <span class="count-badge" id="cnt-fiscal"></span></button>
     <button class="btn btn-saude"      onclick="setFilter('saude',this)">Saúde <span class="count-badge" id="cnt-saude"></span></button>
@@ -293,7 +293,7 @@
 </div>
 
 <div class="footer">
-  Radar GovTech Brasil 2025/2026 · DLG · Uso interno · Gerado em Maio 2026 · v10
+  Radar GovTech Brasil 2025/2026 · DLG · Uso interno · Gerado em Maio 2026 · v11
 </div>
 
 <script>
@@ -884,6 +884,19 @@ const companies = [
     "isNew": true
   },
   {
+    "seg": "ia",
+    "name": "Datapolicy",
+    "subseg": "Inteligência Regulatória B2B / RelGov",
+    "porte": "Startup",
+    "loc": "Brasília - DF",
+    "fund": "N/D",
+    "presenca": "+80 clientes | 200+ fontes",
+    "receita": "N/D",
+    "nota": "Plataforma de inteligência regulatória voltada para corporações e escritórios de RelGov: monitora PLs, decretos, normas de agências reguladoras e órgãos de controle (federal, estadual, municipal). +16M proposições e atos indexados. Diferente da Inteligov (B2G): Datapolicy é B2B — vende para empresas que monitoram o governo. Portfólio Cedro Capital (FIP VBC) — disponível para M&A, sem mandatada.",
+    "alerta": "M&A Watch — portfólio Cedro",
+    "isNew": true
+  },
+  {
     "seg": "fiscal",
     "name": "Hub Esfera",
     "subseg": "IA Analytics / Orçamento Municipal",
@@ -996,8 +1009,8 @@ const companies = [
     "fund": "2016",
     "presenca": "4.300+ entes | 600k+ forn.",
     "receita": "R$450B+ TPV",
-    "nota": "40%+ dos municípios brasileiros. Fundadores: Leonardo + Bruno Ladeira (Ecustomize). 35% crescimento anual. Marketplace B2G de referência nacional.",
-    "alerta": "Referência nacional",
+    "nota": "40%+ dos municípios brasileiros. Fundadores: Leonardo + Bruno Ladeira (Ecustomize). 35% crescimento anual. Marketplace B2G de referência nacional. Portfólio Cedro Capital (FIP Venture Brasil Central) — disponível para M&A, sem mandatada.",
+    "alerta": "M&A Watch — portfólio Cedro",
     "isNew": false
   },
   {
@@ -1451,6 +1464,9 @@ updateCounts();
     <button id="cl-close" onclick="closeChangelog()">✕</button>
     <h2>📋 Histórico de Atualizações</h2>
     <div class="cl-entry">
+  <span class="cl-ver">v11</span><span class="cl-date">06/05/2026</span>
+  <ul class="cl-items"><li>Datapolicy adicionada (IA Gov — Inteligência Regulatória B2B, portfólio Cedro Capital)</li><li>Portal de Compras Públicas: confirmado portfólio Cedro Capital (FIP VBC) — disponível para M&A</li></ul>
+</div><div class="cl-entry">
   <span class="cl-ver">v10</span><span class="cl-date">05/05/2026</span>
   <ul class="cl-items"><li>Reclassificação de segmentos: Gestão Municipal e IA Gov divididos em verticais mais específicas</li><li>Novo segmento: Fiscal & Convênios Municipais — Geopixel, Gove, Quasar, MuniScore, Qiatech, LICI GovTech, Hub Esfera</li><li>Novo segmento: Segurança Pública & Infraestrutura — IPQ Tecnologia, Atech, Horus Smart Det., Intelicity, Sipremo, i4Sea, Fractal</li><li>MinutaIA migrada para Procuradorias (vertical jurídico-judicial)</li></ul>
 </div><div class="cl-entry">

@@ -16,11 +16,18 @@ from openpyxl.utils import get_column_letter
 # DADOS — edite aqui para atualizar Excel e HTML juntos
 # ══════════════════════════════════════════════════════════════
 
-VERSION = "v10"
+VERSION = "v11"
 DATA_REF = "Maio 2026"
 UPDATED_AT = "05/05/2026"
 
 CHANGELOG = [
+    {
+        "version": "v11", "date": "06/05/2026",
+        "items": [
+            "Datapolicy adicionada (IA Gov — Inteligência Regulatória B2B, portfólio Cedro Capital)",
+            "Portal de Compras Públicas: confirmado portfólio Cedro Capital (FIP VBC) — disponível para M&A",
+        ]
+    },
     {
         "version": "v10", "date": "05/05/2026",
         "items": [
@@ -114,6 +121,7 @@ COMPANIES = [
     {"seg":"ia",     "name":"Tolky",             "subseg":"IA Atendimento ao Cidadão",  "porte":"Startup",             "loc":"N/D (Brasil)",          "fund":"~2023", "presenca":"Contratos gov / CNJ",     "receita":"N/D",              "nota":"Multichannel (WhatsApp, chat, email) + processos end-to-end. ABES CSC 2025. Contrato CPSI CNJ.", "alerta":"Selecionada CPSI CNJ",         "isNew":False},
     {"seg":"fiscal", "name":"Gove",              "subseg":"Analytics Financeiro Municipal","porte":"Startup / Scale-up","loc":"São Paulo - SP",        "fund":"2018",  "presenca":"SP, MG, RS, SC, ES+",    "receita":"R$ 8M (Astella)",  "nota":"Analytics IA para finanças públicas: identifica ineficiências em receitas/despesas municipais. Aporte Astella. BrazilLAB Turma 7.", "alerta":"",                             "isNew":False},
     {"seg":"ia",     "name":"Inteligov",         "subseg":"Monitoramento Legislativo / Inteligência Regulatória","porte":"Startup / Scale-up",  "loc":"São Paulo - SP",        "fund":"2014",  "presenca":"100+ clientes | 27 estados + 1k+ mun.","receita":"N/D",              "nota":"Pioneira em monitoramento automatizado de dados governamentais (Legislativo, Executivo, Judiciário). 4M+ proposições monitoradas. ~890 fontes de Diários Oficiais. IA com termômetro de aprovação de PLs (>98% acurácia). Única com 100% de cobertura das Assembleias Estaduais. Ranking 100 Open Startups, Mapa GovTech. Cubo Itaú, Inovabra, Distrito.", "alerta":"Watch — inteligência regulatória", "isNew":True},
+    {"seg":"ia",     "name":"Datapolicy",        "subseg":"Inteligência Regulatória B2B / RelGov",             "porte":"Startup",             "loc":"Brasília - DF",         "fund":"N/D",   "presenca":"+80 clientes | 200+ fontes","receita":"N/D",              "nota":"Plataforma de inteligência regulatória voltada para corporações e escritórios de RelGov: monitora PLs, decretos, normas de agências reguladoras e órgãos de controle (federal, estadual, municipal). +16M proposições e atos indexados. Diferente da Inteligov (B2G): Datapolicy é B2B — vende para empresas que monitoram o governo. Portfólio Cedro Capital (FIP VBC) — disponível para M&A, sem mandatada.", "alerta":"M&A Watch — portfólio Cedro",   "isNew":True},
     {"seg":"fiscal", "name":"Hub Esfera",        "subseg":"IA Analytics / Orçamento Municipal", "porte":"Startup",             "loc":"N/D (Brasil)",          "fund":"N/D",   "presenca":"N/D",                     "receita":"N/D",              "nota":"Plataforma IA para gestão municipal: analytics preditivo + preventivo + prescritivo. Integra dados orçamentários, operacionais e sociais para apoio à decisão do gestor público.", "alerta":"Watch",                        "isNew":True},
     {"seg":"ia",     "name":"Kinebot",           "subseg":"IA Ergonomia / Saúde do Trabalhador","porte":"Startup",          "loc":"Curitiba - PR",         "fund":"N/D",   "presenca":"Indústria + gov",          "receita":"R$3M (Fundo GovTech)","nota":"IA para análises ergonômicas e psicossociais via visão computacional. Clientes: Marfrig, P&G, Electrolux. 8º investimento do Fundo GovTech (KPTL+Cedro), R$3M em fev/2026. Foco em saúde do trabalhador para setor público e privado. Expansão global planejada.", "alerta":"Portfólio KPTL+Cedro",         "isNew":True},
 
@@ -126,7 +134,7 @@ COMPANIES = [
     {"seg":"proc",   "name":"Prodata Gestão Estratégica","subseg":"Módulo Procuradoria / ERP Municipal","porte":"PME",  "loc":"Goiânia - GO",          "fund":"N/D",   "presenca":"Municípios Centro-Oeste", "receita":"N/D",              "nota":"Módulo procuradoria integrado ao ERP municipal Prodata. Gestão de contencioso, consultivo e execução fiscal para prefeituras de pequeno e médio porte.", "alerta":"",                             "isNew":False},
 
     # ── LICITAÇÕES ──
-    {"seg":"lic",    "name":"Portal de Compras Públicas","subseg":"Marketplace Licitações Eletrônicas","porte":"Scale-up / PME","loc":"Belo Horizonte - MG","fund":"2016","presenca":"4.300+ entes | 600k+ forn.","receita":"R$450B+ TPV",  "nota":"40%+ dos municípios brasileiros. Fundadores: Leonardo + Bruno Ladeira (Ecustomize). 35% crescimento anual. Marketplace B2G de referência nacional.", "alerta":"Referência nacional",          "isNew":False},
+    {"seg":"lic",    "name":"Portal de Compras Públicas","subseg":"Marketplace Licitações Eletrônicas","porte":"Scale-up / PME","loc":"Belo Horizonte - MG","fund":"2016","presenca":"4.300+ entes | 600k+ forn.","receita":"R$450B+ TPV",  "nota":"40%+ dos municípios brasileiros. Fundadores: Leonardo + Bruno Ladeira (Ecustomize). 35% crescimento anual. Marketplace B2G de referência nacional. Portfólio Cedro Capital (FIP Venture Brasil Central) — disponível para M&A, sem mandatada.", "alerta":"M&A Watch — portfólio Cedro",   "isNew":False},
     {"seg":"lic",    "name":"Licitar.digital",   "subseg":"SaaS Credenciamento Eletrônico","porte":"Startup",           "loc":"N/D (Brasil)",          "fund":"Jul/2019","presenca":"90k+ fornecedores",      "receita":"N/D",              "nota":"Única plataforma de credenciamento eletrônico automatizado do Brasil. CEO: Aniele H. Figueiredo. Diferencial regulatório: elimina burocracia de habilitação presencial.", "alerta":"",                             "isNew":False},
     {"seg":"lic",    "name":"StartGi",           "subseg":"CRM B2G para Fornecedores",  "porte":"Startup",             "loc":"São Paulo - SP",        "fund":"2015",  "presenca":"N/D",                     "receita":"N/D",              "nota":"Portfólio Fundo GovTech KPTL. CRM especializado na jornada de vendas B2G. Gestão de oportunidades, propostas e relacionamento com entes públicos.", "alerta":"",                             "isNew":False},
     {"seg":"lic",    "name":"BLL Compras",       "subseg":"Plataforma Licitações Eletrônicas","porte":"PME Estabelecida","loc":"São Paulo - SP",        "fund":"2008",  "presenca":"3.000+ entidades públicas","receita":"N/D",              "nota":"Bolsa de Licitações e Leilões — uma das maiores plataformas de licitações do Brasil. Mais consolidada, pré-startups. Referência histórica do mercado.", "alerta":"",                             "isNew":False},
