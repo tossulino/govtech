@@ -30,6 +30,8 @@
     --indigo-light: #E8EAF6;
     --slate-dark: #37474F;
     --slate-light: #ECEFF1;
+    --gold-dark: #92400E;
+    --gold-light: #FEF3C7;
     --red-fill: #FFEBEE;
     --red-dark: #8B0000;
     --gray-bg: #F4F6F9;
@@ -73,6 +75,10 @@
   .btn-ambiental.active  { background: var(--green-dark);  color: white; }
   .btn-smart      { background: var(--indigo-light); color: var(--indigo-dark); border-color: #9fa8da; }
   .btn-smart.active      { background: var(--indigo-dark); color: white; }
+  .btn-fiscal     { background: var(--gold-light);  color: var(--gold-dark);  border-color: #d97706; }
+  .btn-fiscal.active     { background: var(--gold-dark);  color: white; }
+  .btn-segpub     { background: var(--slate-light); color: var(--slate-dark); border-color: #90a4ae; }
+  .btn-segpub.active     { background: var(--slate-dark); color: white; }
   .btn-changelog  { background: #F5F5F5; color: #444; border-color: #ccc; margin-left: auto; }
   .btn-changelog:hover   { background: #eee; }
   .btn-ma     { background: var(--orange-fill); color: var(--orange-dark); border-color: #e0b080; }
@@ -174,10 +180,10 @@
 
 <div class="header">
   <h1>🇧🇷 Radar GovTech Brasil 2025/2026</h1>
-  <div class="sub">DLG · Mapeamento M&amp;A — Maio 2026 · v9 · Atualizado em 05/05/2026</div>
+  <div class="sub">DLG · Mapeamento M&amp;A — Maio 2026 · v10 · Atualizado em 05/05/2026</div>
   <div class="header-meta">
     <div class="kpi"><div class="num" id="kpi-total">67</div><div class="lbl">Players mapeados</div></div>
-    <div class="kpi"><div class="num">9</div><div class="lbl">Segmentos</div></div>
+    <div class="kpi"><div class="num">11</div><div class="lbl">Segmentos</div></div>
   </div>
 </div>
 
@@ -186,15 +192,17 @@
   <div class="filter-btns">
     <span class="lbl">Filtro:</span>
     <button class="btn btn-all active" onclick="setFilter('all',this)">Todos <span class="count-badge" id="cnt-all">67</span></button>
-    <button class="btn btn-gestao" onclick="setFilter('gestao',this)">Gestão Municipal <span class="count-badge" id="cnt-gestao"></span></button>
-    <button class="btn btn-saude"  onclick="setFilter('saude',this)">Saúde <span class="count-badge" id="cnt-saude"></span></button>
-    <button class="btn btn-educ"   onclick="setFilter('educ',this)">Educação <span class="count-badge" id="cnt-educ"></span></button>
-    <button class="btn btn-ia"     onclick="setFilter('ia',this)">IA Gov <span class="count-badge" id="cnt-ia"></span></button>
-    <button class="btn btn-proc"   onclick="setFilter('proc',this)">Procuradorias <span class="count-badge" id="cnt-proc"></span></button>
-    <button class="btn btn-lic"    onclick="setFilter('lic',this)">Licitações <span class="count-badge" id="cnt-lic"></span></button>
+    <button class="btn btn-gestao"     onclick="setFilter('gestao',this)">Gestão &amp; ERP <span class="count-badge" id="cnt-gestao"></span></button>
+    <button class="btn btn-fiscal"     onclick="setFilter('fiscal',this)">Fiscal &amp; Convênios <span class="count-badge" id="cnt-fiscal"></span></button>
+    <button class="btn btn-saude"      onclick="setFilter('saude',this)">Saúde <span class="count-badge" id="cnt-saude"></span></button>
+    <button class="btn btn-educ"       onclick="setFilter('educ',this)">Educação <span class="count-badge" id="cnt-educ"></span></button>
+    <button class="btn btn-ia"         onclick="setFilter('ia',this)">IA Horizontal <span class="count-badge" id="cnt-ia"></span></button>
+    <button class="btn btn-proc"       onclick="setFilter('proc',this)">Procuradorias &amp; Jurídico <span class="count-badge" id="cnt-proc"></span></button>
+    <button class="btn btn-lic"        onclick="setFilter('lic',this)">Licitações <span class="count-badge" id="cnt-lic"></span></button>
     <button class="btn btn-hab"        onclick="setFilter('hab',this)">Habitação <span class="count-badge" id="cnt-hab"></span></button>
     <button class="btn btn-ambiental"  onclick="setFilter('ambiental',this)">Meio Ambiente <span class="count-badge" id="cnt-ambiental"></span></button>
     <button class="btn btn-smart"      onclick="setFilter('smart',this)">Smart Cities <span class="count-badge" id="cnt-smart"></span></button>
+    <button class="btn btn-segpub"     onclick="setFilter('segpub',this)">Segurança &amp; Infraestrutura <span class="count-badge" id="cnt-segpub"></span></button>
     <button class="btn btn-ma"         onclick="setFilter('aporte',this)">Aportes &amp; Investimentos <span class="count-badge" id="cnt-aporte"></span></button>
     <button class="btn btn-changelog"  onclick="openChangelog()">📋 Changelog</button>
   </div>
@@ -203,10 +211,16 @@
 <div class="main">
 
 <div class="section-header" style="color:var(--blue-dark);border-color:var(--blue-mid);" id="sec-gestao">
-  <h2>🏛️ Gestão Pública Municipal &amp; Radar Geral</h2>
+  <h2>🏛️ Gestão &amp; ERP Municipal</h2>
   <span class="pill" style="background:var(--blue-light);color:var(--blue-dark);" id="cnt-gestao-sec"></span>
 </div>
 <div class="grid" id="grid-gestao"></div>
+
+<div class="section-header" style="color:var(--gold-dark);border-color:var(--gold-dark);" id="sec-fiscal">
+  <h2>📊 Fiscal &amp; Convênios Municipais</h2>
+  <span class="pill" style="background:var(--gold-light);color:var(--gold-dark);" id="cnt-fiscal-sec"></span>
+</div>
+<div class="grid" id="grid-fiscal"></div>
 
 <div class="section-header" style="color:var(--teal-dark);border-color:var(--teal-mid);" id="sec-saude">
   <h2>🏥 Saúde Pública</h2>
@@ -256,6 +270,12 @@
 </div>
 <div class="grid" id="grid-smart"></div>
 
+<div class="section-header" style="color:var(--slate-dark);border-color:var(--slate-dark);" id="sec-segpub">
+  <h2>🛡️ Segurança Pública &amp; Infraestrutura</h2>
+  <span class="pill" style="background:var(--slate-light);color:var(--slate-dark);" id="cnt-segpub-sec"></span>
+</div>
+<div class="grid" id="grid-segpub"></div>
+
 <div class="section-header" style="color:var(--orange-dark);border-color:var(--orange-dark);" id="sec-aporte">
   <h2>💰 Aportes &amp; Investimentos</h2>
   <span class="pill" style="background:var(--orange-fill);color:var(--orange-dark);" id="cnt-aporte-sec"></span>
@@ -273,7 +293,7 @@
 </div>
 
 <div class="footer">
-  Radar GovTech Brasil 2025/2026 · DLG · Uso interno · Gerado em Maio 2026 · v9
+  Radar GovTech Brasil 2025/2026 · DLG · Uso interno · Gerado em Maio 2026 · v10
 </div>
 
 <script>
@@ -331,9 +351,9 @@ const companies = [
     "isNew": false
   },
   {
-    "seg": "gestao",
+    "seg": "fiscal",
     "name": "LICI GovTech",
-    "subseg": "Smart Cities / Gestão",
+    "subseg": "Indicadores ODS / Financiamento Municipal",
     "porte": "Startup",
     "loc": "Belo Horizonte - MG",
     "fund": "2018",
@@ -344,9 +364,9 @@ const companies = [
     "isNew": false
   },
   {
-    "seg": "gestao",
+    "seg": "fiscal",
     "name": "Quasar",
-    "subseg": "Gestão Municipal / Fiscal",
+    "subseg": "Fiscal / Alvarás Digitais",
     "porte": "Startup",
     "loc": "Belo Horizonte - MG",
     "fund": "2019",
@@ -396,7 +416,7 @@ const companies = [
     "isNew": false
   },
   {
-    "seg": "gestao",
+    "seg": "segpub",
     "name": "Sipremo",
     "subseg": "Infraestrutura / Clima",
     "porte": "Startup",
@@ -409,7 +429,7 @@ const companies = [
     "isNew": false
   },
   {
-    "seg": "gestao",
+    "seg": "segpub",
     "name": "i4Sea",
     "subseg": "Infraestrutura / Clima",
     "porte": "Startup",
@@ -435,7 +455,7 @@ const companies = [
     "isNew": false
   },
   {
-    "seg": "gestao",
+    "seg": "segpub",
     "name": "IPQ Tecnologia",
     "subseg": "Segurança Pública",
     "porte": "PME / Scale-up",
@@ -448,7 +468,7 @@ const companies = [
     "isNew": false
   },
   {
-    "seg": "gestao",
+    "seg": "segpub",
     "name": "Atech",
     "subseg": "Segurança Pública / Defesa",
     "porte": "Médio Porte",
@@ -474,9 +494,9 @@ const companies = [
     "isNew": true
   },
   {
-    "seg": "gestao",
+    "seg": "fiscal",
     "name": "Qiatech",
-    "subseg": "Convênios / Transferências",
+    "subseg": "Convênios / Transferências Federais",
     "porte": "Startup",
     "loc": "N/D (Brasil)",
     "fund": "N/D",
@@ -487,9 +507,9 @@ const companies = [
     "isNew": true
   },
   {
-    "seg": "gestao",
+    "seg": "fiscal",
     "name": "MuniScore",
-    "subseg": "Inteligência Fiscal",
+    "subseg": "Inteligência Fiscal Municipal",
     "porte": "Startup",
     "loc": "Belo Horizonte - MG",
     "fund": "2026",
@@ -513,7 +533,7 @@ const companies = [
     "isNew": true
   },
   {
-    "seg": "gestao",
+    "seg": "segpub",
     "name": "Fractal",
     "subseg": "Gestão Hídrica / Infraestrutura",
     "porte": "Startup / Scale-up",
@@ -773,7 +793,7 @@ const companies = [
     "isNew": false
   },
   {
-    "seg": "ia",
+    "seg": "segpub",
     "name": "Horus Smart Det.",
     "subseg": "Fiscalização / Drones / IA",
     "porte": "Scale-up",
@@ -786,7 +806,7 @@ const companies = [
     "isNew": false
   },
   {
-    "seg": "ia",
+    "seg": "fiscal",
     "name": "Geopixel",
     "subseg": "GeoInteligência Fiscal",
     "porte": "PME",
@@ -799,7 +819,7 @@ const companies = [
     "isNew": false
   },
   {
-    "seg": "ia",
+    "seg": "segpub",
     "name": "Intelicity",
     "subseg": "IA Infraestrutura Urbana",
     "porte": "Startup / Scale-up",
@@ -812,7 +832,7 @@ const companies = [
     "isNew": false
   },
   {
-    "seg": "ia",
+    "seg": "proc",
     "name": "MinutaIA (jAI)",
     "subseg": "IA Jurídica / Judicial",
     "porte": "Startup",
@@ -838,7 +858,7 @@ const companies = [
     "isNew": false
   },
   {
-    "seg": "ia",
+    "seg": "fiscal",
     "name": "Gove",
     "subseg": "Analytics Financeiro Municipal",
     "porte": "Startup / Scale-up",
@@ -864,9 +884,9 @@ const companies = [
     "isNew": true
   },
   {
-    "seg": "ia",
+    "seg": "fiscal",
     "name": "Hub Esfera",
-    "subseg": "IA Analytics / Gestão",
+    "subseg": "IA Analytics / Orçamento Municipal",
     "porte": "Startup",
     "loc": "N/D (Brasil)",
     "fund": "N/D",
@@ -1369,14 +1389,14 @@ function renderAportes() {
 let currentFilter = "all";
 
 function updateCounts() {
-  ["gestao","saude","educ","ia","proc","lic","hab","ambiental","smart"].forEach(s => {
+  ["gestao","fiscal","saude","educ","ia","proc","lic","hab","ambiental","smart","segpub"].forEach(s => {
     const el = document.getElementById("cnt-"+s);
     if (el) el.textContent = companies.filter(c=>c.seg===s).length;
   });
   document.getElementById("cnt-all").textContent = companies.length;
 }
 
-const sections = { gestao:["sec-gestao","grid-gestao"], saude:["sec-saude","grid-saude"], educ:["sec-educ","grid-educ"], ia:["sec-ia","grid-ia"], proc:["sec-proc","grid-proc"], lic:["sec-lic","grid-lic"], hab:["sec-hab","grid-hab"], ambiental:["sec-ambiental","grid-ambiental"], smart:["sec-smart","grid-smart"], aporte:["sec-aporte","grid-aporte"] };
+const sections = { gestao:["sec-gestao","grid-gestao"], fiscal:["sec-fiscal","grid-fiscal"], saude:["sec-saude","grid-saude"], educ:["sec-educ","grid-educ"], ia:["sec-ia","grid-ia"], proc:["sec-proc","grid-proc"], lic:["sec-lic","grid-lic"], hab:["sec-hab","grid-hab"], ambiental:["sec-ambiental","grid-ambiental"], smart:["sec-smart","grid-smart"], segpub:["sec-segpub","grid-segpub"], aporte:["sec-aporte","grid-aporte"] };
 
 function hideAllSections() { Object.values(sections).flat().forEach(id => { const el=document.getElementById(id); if(el) el.classList.add("hidden"); }); }
 function showSection(id)    { const el=document.getElementById(id); if(el) el.classList.remove("hidden"); }
@@ -1394,7 +1414,7 @@ function setFilter(f, btn) {
 
 function applySearch(q) {
   const query = q.toLowerCase().trim();
-  ["grid-gestao","grid-saude","grid-educ","grid-ia","grid-proc","grid-lic","grid-hab","grid-ambiental","grid-smart"].forEach(gid => {
+  ["grid-gestao","grid-fiscal","grid-saude","grid-educ","grid-ia","grid-proc","grid-lic","grid-hab","grid-ambiental","grid-smart","grid-segpub"].forEach(gid => {
     const grid = document.getElementById(gid);
     if (!grid) return;
     grid.querySelectorAll(".card").forEach(card => {
@@ -1410,15 +1430,17 @@ document.getElementById("searchBox").addEventListener("input", function() { appl
 function openChangelog()  { document.getElementById("cl-overlay").classList.remove("hidden"); }
 function closeChangelog() { document.getElementById("cl-overlay").classList.add("hidden"); }
 
-renderSection("grid-gestao","cnt-gestao-sec","gestao");
-renderSection("grid-saude", "cnt-saude-sec", "saude");
-renderSection("grid-educ",  "cnt-educ-sec",  "educ");
-renderSection("grid-ia",    "cnt-ia-sec",    "ia");
-renderSection("grid-proc",  "cnt-proc-sec",  "proc");
-renderSection("grid-lic",   "cnt-lic-sec",   "lic");
+renderSection("grid-gestao",    "cnt-gestao-sec",    "gestao");
+renderSection("grid-fiscal",    "cnt-fiscal-sec",    "fiscal");
+renderSection("grid-saude",     "cnt-saude-sec",     "saude");
+renderSection("grid-educ",      "cnt-educ-sec",      "educ");
+renderSection("grid-ia",        "cnt-ia-sec",        "ia");
+renderSection("grid-proc",      "cnt-proc-sec",      "proc");
+renderSection("grid-lic",       "cnt-lic-sec",       "lic");
 renderSection("grid-hab",       "cnt-hab-sec",       "hab");
 renderSection("grid-ambiental", "cnt-ambiental-sec", "ambiental");
 renderSection("grid-smart",     "cnt-smart-sec",     "smart");
+renderSection("grid-segpub",    "cnt-segpub-sec",    "segpub");
 renderAportes();
 updateCounts();
 </script>
@@ -1429,7 +1451,10 @@ updateCounts();
     <button id="cl-close" onclick="closeChangelog()">✕</button>
     <h2>📋 Histórico de Atualizações</h2>
     <div class="cl-entry">
-  <span class="cl-ver">v9</span><span class="cl-date">05/05/2026</span>
+  <span class="cl-ver">v10</span><span class="cl-date">05/05/2026</span>
+  <ul class="cl-items"><li>Reclassificação de segmentos: Gestão Municipal e IA Gov divididos em verticais mais específicas</li><li>Novo segmento: Fiscal & Convênios Municipais — Geopixel, Gove, Quasar, MuniScore, Qiatech, LICI GovTech, Hub Esfera</li><li>Novo segmento: Segurança Pública & Infraestrutura — IPQ Tecnologia, Atech, Horus Smart Det., Intelicity, Sipremo, i4Sea, Fractal</li><li>MinutaIA migrada para Procuradorias (vertical jurídico-judicial)</li></ul>
+</div><div class="cl-entry">
+  <span class="cl-ver">v9</span><span class="cl-date">mai/2026</span>
   <ul class="cl-items"><li>M&A Volaris Group: Equiplano (nov/2022), GOVBR (mai/2023), IDS (ago/2024), Nydus Systems (mar/2025) adicionados à lista de investimentos</li><li>M&A Softplan: 1Doc 100% (abr/2025) adicionado à lista de investimentos</li><li>Changelog simplificado: mantidos apenas os 2 últimos meses</li></ul>
 </div><div class="cl-entry">
   <span class="cl-ver">v8</span><span class="cl-date">mai/2026</span>

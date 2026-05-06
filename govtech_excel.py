@@ -16,13 +16,22 @@ from openpyxl.utils import get_column_letter
 # DADOS — edite aqui para atualizar Excel e HTML juntos
 # ══════════════════════════════════════════════════════════════
 
-VERSION = "v9"
+VERSION = "v10"
 DATA_REF = "Maio 2026"
 UPDATED_AT = "05/05/2026"
 
 CHANGELOG = [
     {
-        "version": "v9", "date": "05/05/2026",
+        "version": "v10", "date": "05/05/2026",
+        "items": [
+            "Reclassificação de segmentos: Gestão Municipal e IA Gov divididos em verticais mais específicas",
+            "Novo segmento: Fiscal & Convênios Municipais — Geopixel, Gove, Quasar, MuniScore, Qiatech, LICI GovTech, Hub Esfera",
+            "Novo segmento: Segurança Pública & Infraestrutura — IPQ Tecnologia, Atech, Horus Smart Det., Intelicity, Sipremo, i4Sea, Fractal",
+            "MinutaIA migrada para Procuradorias (vertical jurídico-judicial)",
+        ]
+    },
+    {
+        "version": "v9", "date": "mai/2026",
         "items": [
             "M&A Volaris Group: Equiplano (nov/2022), GOVBR (mai/2023), IDS (ago/2024), Nydus Systems (mar/2025) adicionados à lista de investimentos",
             "M&A Softplan: 1Doc 100% (abr/2025) adicionado à lista de investimentos",
@@ -58,21 +67,21 @@ COMPANIES = [
     {"seg":"gestao", "name":"GovDigital",        "subseg":"Gestão Pública Municipal",   "porte":"Startup / Scale-up",  "loc":"Jaraguá do Sul - SC",   "fund":"~2020", "presenca":"5 estados | 600+ serv.",  "receita":"N/D (bootstrap)",  "nota":"App SaaS municipal customizável. 600+ serviços digitalizados. CEO: Elias Raasch. Expansão nacional sem VC. Referência SC.", "alerta":"Watch — expansão nacional",    "isNew":False},
     {"seg":"gestao", "name":"Desenvolve Cidade", "subseg":"Gestão Pública Municipal",   "porte":"Startup",             "loc":"Campinas/RJ",            "fund":"~2014", "presenca":"N/D",                     "receita":"N/D",              "nota":"TOP 2 Ranking 100 Open Startups 2024 (GovTech).", "alerta":"",                             "isNew":False},
     {"seg":"gestao", "name":"IP Inovação",       "subseg":"Gestão Pública Municipal",   "porte":"Startup",             "loc":"Belém - PA",             "fund":"~2018", "presenca":"N/D",                     "receita":"N/D",              "nota":"TOP 3 Open Startups 2024. Representante do ecossistema Norte do Brasil.", "alerta":"",                             "isNew":False},
-    {"seg":"gestao", "name":"LICI GovTech",      "subseg":"Smart Cities / Gestão",      "porte":"Startup",             "loc":"Belo Horizonte - MG",   "fund":"2018",  "presenca":"Municípios | 2M+ cid.",   "receita":"N/D",              "nota":"Plataforma CHESI: 160+ indicadores ODS + fontes de financiamento + governança. Parceria SEDE-MG Cidades do Futuro.", "alerta":"",                             "isNew":False},
-    {"seg":"gestao", "name":"Quasar",            "subseg":"Gestão Municipal / Fiscal",  "porte":"Startup",             "loc":"Belo Horizonte - MG",   "fund":"2019",  "presenca":"Municípios MG",           "receita":"N/D",              "nota":"Alvarás digitais: reduz 90% do prazo de emissão. 2º DemoDay BrazilLAB 2023. Selecionada PBH Inova (2 desafios).", "alerta":"Watch — fiscal municipal",     "isNew":False},
+    {"seg":"fiscal", "name":"LICI GovTech",      "subseg":"Indicadores ODS / Financiamento Municipal",  "porte":"Startup",             "loc":"Belo Horizonte - MG",   "fund":"2018",  "presenca":"Municípios | 2M+ cid.",   "receita":"N/D",              "nota":"Plataforma CHESI: 160+ indicadores ODS + fontes de financiamento + governança. Parceria SEDE-MG Cidades do Futuro.", "alerta":"",                             "isNew":False},
+    {"seg":"fiscal", "name":"Quasar",            "subseg":"Fiscal / Alvarás Digitais",  "porte":"Startup",             "loc":"Belo Horizonte - MG",   "fund":"2019",  "presenca":"Municípios MG",           "receita":"N/D",              "nota":"Alvarás digitais: reduz 90% do prazo de emissão. 2º DemoDay BrazilLAB 2023. Selecionada PBH Inova (2 desafios).", "alerta":"Watch — fiscal municipal",     "isNew":False},
     {"seg":"gestao", "name":"GESUAS",            "subseg":"Assistência Social / SUAS",  "porte":"Startup / PME",       "loc":"Viçosa - MG",           "fund":"~2016", "presenca":"168 mun | 3,5M pessoas", "receita":"N/D",              "nota":"Prontuário eletrônico SUAS. 1,2M famílias | 6,5k trabalhadores. Líder IE GovTech 2020. Vertical exclusivo sem concorrente direto.", "alerta":"Vertical exclusivo mapeado",   "isNew":False},
     {"seg":"gestao", "name":"Prosas",            "subseg":"Participação Cidadã",        "porte":"Startup",             "loc":"São Paulo - SP",        "fund":"~2016", "presenca":"220k+ usuários",          "receita":"R$4M (KPTL)",      "nota":"Portfólio Fundo GovTech KPTL. Gestão digital de editais socioculturais e transparência pública.", "alerta":"",                             "isNew":False},
     {"seg":"gestao", "name":"Lemobs",            "subseg":"Smart Cities / Mobilidade",  "porte":"Startup",             "loc":"Rio de Janeiro - RJ",   "fund":"~2015", "presenca":"N/D",                     "receita":"N/D",              "nota":"Origem COPPE/UFRJ. Selo GovTech BrazilLAB. Mobilidade urbana e cidades inteligentes.", "alerta":"",                             "isNew":False},
-    {"seg":"gestao", "name":"Sipremo",           "subseg":"Infraestrutura / Clima",     "porte":"Startup",             "loc":"Ribeirão Preto - SP",   "fund":"~2018", "presenca":"Defesa Civil + seguros",  "receita":"R$200k (2022)",    "nota":"IA para previsão antecipada de desastres naturais. Dados NASA + bases nacionais. Alerta SMS via Defesa Civil. COP26 selecionada.", "alerta":"Watch — clima/risco",          "isNew":False},
-    {"seg":"gestao", "name":"i4Sea",             "subseg":"Infraestrutura / Clima",     "porte":"Startup",             "loc":"Santos - SP",           "fund":"~2018", "presenca":"N/D",                     "receita":"R$ 7,5M aporte",   "nota":"Previsões microclimáticas para portos e setor elétrico. Captou R$7,5M do Fundo GovTech. Resiliência climática.", "alerta":"",                             "isNew":False},
+    {"seg":"segpub", "name":"Sipremo",           "subseg":"Infraestrutura / Clima",     "porte":"Startup",             "loc":"Ribeirão Preto - SP",   "fund":"~2018", "presenca":"Defesa Civil + seguros",  "receita":"R$200k (2022)",    "nota":"IA para previsão antecipada de desastres naturais. Dados NASA + bases nacionais. Alerta SMS via Defesa Civil. COP26 selecionada.", "alerta":"Watch — clima/risco",          "isNew":False},
+    {"seg":"segpub", "name":"i4Sea",             "subseg":"Infraestrutura / Clima",     "porte":"Startup",             "loc":"Santos - SP",           "fund":"~2018", "presenca":"N/D",                     "receita":"R$ 7,5M aporte",   "nota":"Previsões microclimáticas para portos e setor elétrico. Captou R$7,5M do Fundo GovTech. Resiliência climática.", "alerta":"",                             "isNew":False},
     {"seg":"gestao", "name":"GRTS Digital",      "subseg":"Relações Trabalhistas",      "porte":"Startup",             "loc":"São Paulo - SP",        "fund":"2019",  "presenca":"N/D",                     "receita":"R$ 3,4M aporte",   "nota":"Digitalização da gestão de relações sindicais. Captou R$3,4M do Fundo GovTech KPTL.", "alerta":"",                             "isNew":False},
-    {"seg":"gestao", "name":"IPQ Tecnologia",    "subseg":"Segurança Pública",          "porte":"PME / Scale-up",      "loc":"Curitiba - PR",         "fund":"~2010", "presenca":"250+ municípios",         "receita":"N/D",              "nota":"Monitoramento e recuperação de veículos. 7.000+ veículos recuperados em 2024. Redução de 15,5% em furtos.", "alerta":"",                             "isNew":False},
-    {"seg":"gestao", "name":"Atech",             "subseg":"Segurança Pública / Defesa", "porte":"Médio Porte",         "loc":"São Paulo - SP",        "fund":"1999",  "presenca":"Nacional / Defesa",       "receita":"N/D",              "nota":"Empresa Estratégica de Defesa (MDefesa). Plataformas de Comando & Controle e gestão de crises.", "alerta":"",                             "isNew":False},
+    {"seg":"segpub", "name":"IPQ Tecnologia",    "subseg":"Segurança Pública",          "porte":"PME / Scale-up",      "loc":"Curitiba - PR",         "fund":"~2010", "presenca":"250+ municípios",         "receita":"N/D",              "nota":"Monitoramento e recuperação de veículos. 7.000+ veículos recuperados em 2024. Redução de 15,5% em furtos.", "alerta":"",                             "isNew":False},
+    {"seg":"segpub", "name":"Atech",             "subseg":"Segurança Pública / Defesa", "porte":"Médio Porte",         "loc":"São Paulo - SP",        "fund":"1999",  "presenca":"Nacional / Defesa",       "receita":"N/D",              "nota":"Empresa Estratégica de Defesa (MDefesa). Plataformas de Comando & Controle e gestão de crises.", "alerta":"",                             "isNew":False},
     {"seg":"gestao", "name":"Governar",          "subseg":"ERP Municipal / SIAFIC",     "porte":"Startup / Scale-up",  "loc":"N/D (Brasil)",          "fund":"N/D",   "presenca":"Municípios (SIAFIC)",     "receita":"N/D",              "nota":"ERP municipal integrado 100% cloud: SIAFIC + saúde + educação + assistência social. Conformidade SIAFIC obrigatória impulsiona substituição de legados.", "alerta":"Watch — SIAFIC driver",        "isNew":True},
-    {"seg":"gestao", "name":"Qiatech",           "subseg":"Convênios / Transferências", "porte":"Startup",             "loc":"N/D (Brasil)",          "fund":"N/D",   "presenca":"Municípios (convênios)",  "receita":"N/D",              "nota":"Gestão de convênios com IA: integra TransfereGov, Simec, SISMOB, FNS. Vertical exclusivo de captação e gestão de transferências federais para municípios.", "alerta":"Watch — convênios nicho virgem","isNew":True},
-    {"seg":"gestao", "name":"MuniScore",         "subseg":"Inteligência Fiscal",        "porte":"Startup",             "loc":"Belo Horizonte - MG",   "fund":"2026",  "presenca":"5.570 municípios (dados)","receita":"N/D",              "nota":"Score fiscal para todos os 5.570 municípios brasileiros. Fundada 2026. Plataforma B2B/B2G de avaliação de saúde fiscal e creditícia municipal.", "alerta":"Watch — dado fiscal municipal", "isNew":True},
+    {"seg":"fiscal", "name":"Qiatech",           "subseg":"Convênios / Transferências Federais", "porte":"Startup",             "loc":"N/D (Brasil)",          "fund":"N/D",   "presenca":"Municípios (convênios)",  "receita":"N/D",              "nota":"Gestão de convênios com IA: integra TransfereGov, Simec, SISMOB, FNS. Vertical exclusivo de captação e gestão de transferências federais para municípios.", "alerta":"Watch — convênios nicho virgem","isNew":True},
+    {"seg":"fiscal", "name":"MuniScore",         "subseg":"Inteligência Fiscal Municipal",        "porte":"Startup",             "loc":"Belo Horizonte - MG",   "fund":"2026",  "presenca":"5.570 municípios (dados)","receita":"N/D",              "nota":"Score fiscal para todos os 5.570 municípios brasileiros. Fundada 2026. Plataforma B2B/B2G de avaliação de saúde fiscal e creditícia municipal.", "alerta":"Watch — dado fiscal municipal", "isNew":True},
     {"seg":"gestao", "name":"Colab",             "subseg":"Participação Cidadã / Gestão Pública","porte":"Scale-up",         "loc":"Brasil",                "fund":"2013",  "presenca":"20M+ pessoas impactadas", "receita":"R$3-7M (Fundo GovTech)", "nota":"Plataforma de gestão pública e participação cidadã: zeladoria urbana, CRM prefeitura-cidadão e marketplace de serviços públicos digitais. 1º investimento da KPTL em 2014. Follow-on pelo Fundo GovTech (KPTL+Cedro) em 2023. Co-invest EDP.", "alerta":"Portfólio KPTL+Cedro",         "isNew":True},
-    {"seg":"gestao", "name":"Fractal",           "subseg":"Gestão Hídrica / Infraestrutura","porte":"Startup / Scale-up",  "loc":"Brasil",                "fund":"2010",  "presenca":"Setor elétrico + agro",   "receita":"N/D (KPTL 2019)",  "nota":"SaaS hidrológico integrado: previsão de fluxo de água e gestão de bacias hidrográficas. 80 anos de dados históricos. Clientes: CPFL, Statkraft. Aplicações em energia, agronegócio e seguros. Investimento KPTL 2019 (pré-Fundo GovTech).", "alerta":"Portfólio KPTL",              "isNew":True},
+    {"seg":"segpub", "name":"Fractal",           "subseg":"Gestão Hídrica / Infraestrutura","porte":"Startup / Scale-up",  "loc":"Brasil",                "fund":"2010",  "presenca":"Setor elétrico + agro",   "receita":"N/D (KPTL 2019)",  "nota":"SaaS hidrológico integrado: previsão de fluxo de água e gestão de bacias hidrográficas. 80 anos de dados históricos. Clientes: CPFL, Statkraft. Aplicações em energia, agronegócio e seguros. Investimento KPTL 2019 (pré-Fundo GovTech).", "alerta":"Portfólio KPTL",              "isNew":True},
 
     # ── SAÚDE PÚBLICA ──
     {"seg":"saude",  "name":"OM30",              "subseg":"Atenção Primária / Suite",   "porte":"PME Estabelecida",    "loc":"São Paulo - SP",        "fund":"~2005", "presenca":"Municípios SP",           "receita":"N/D",              "nota":"Suite municipal: Saúde Simples + Educação + DadosGov + Mobilidade + Doc+. 350 colaboradores. Meta: 2x municípios SP até 2030. IA reduz 40% tempo de consultas SUS.", "alerta":"Target roll-up",               "isNew":False},
@@ -98,14 +107,14 @@ COMPANIES = [
     {"seg":"ia",     "name":"GovTools",          "subseg":"Agentes RPA / WhatsApp",     "porte":"Startup",             "loc":"Porto Alegre - RS",     "fund":"2024",  "presenca":"200+ municípios",         "receita":"Aporte Ventiur+DOMO","nota":"Agentes IA via WhatsApp. Opera sistemas municipais sem integração tradicional. 200+ municípios em <12 meses. Modelo viral, alta tração.", "alerta":"M&A Watch",                   "isNew":False},
     {"seg":"ia",     "name":"Nuveo",             "subseg":"Document AI / Ultra OCR",    "porte":"Startup",             "loc":"SP / Campina Grande - PB","fund":"2016", "presenca":"Setor público e privado", "receita":"N/D",              "nota":"Ultra OCR®: automação de documentos públicos. Contratos, invoices, documentos de identidade. Gov + corporativo.", "alerta":"",                             "isNew":False},
     {"seg":"ia",     "name":"CPQD",              "subseg":"IA P&D / Gov Digital",       "porte":"Instituto P&D",       "loc":"Campinas - SP",         "fund":"N/D",   "presenca":"Governo Federal",         "receita":"R$ 390M contrato", "nota":"Projeto INSPIRE com MGI (R$390M, 4 anos). IA personalizada para serviços de governo digital: chatbots, recomendação, acessibilidade.", "alerta":"Parceria estratégica MGI",     "isNew":False},
-    {"seg":"ia",     "name":"Horus Smart Det.",  "subseg":"Fiscalização / Drones / IA", "porte":"Scale-up",            "loc":"Florianópolis - SC",    "fund":"~2016", "presenca":"100+ gov + privado",      "receita":"N/D",              "nota":"Drones + satélites + visão computacional: obras irregulares, desmatamento, infraestrutura. Cliente: Florianópolis. 9 anos de operação.", "alerta":"",                             "isNew":False},
-    {"seg":"ia",     "name":"Geopixel",          "subseg":"GeoInteligência Fiscal",     "porte":"PME",                 "loc":"Curitiba - PR",         "fund":"~2010", "presenca":"100+ municípios",         "receita":"N/D",              "nota":"Geoprocessamento + IA para IPTU, ITBI, ISS. Reforma Tributária (LC 214/2025) cria janela de demanda direta e imediata.", "alerta":"Oportunidade fiscal 2025",     "isNew":False},
-    {"seg":"ia",     "name":"Intelicity",        "subseg":"IA Infraestrutura Urbana",   "porte":"Startup / Scale-up",  "loc":"São Paulo - SP",        "fund":"~2019", "presenca":"Sabesp + municípios",     "receita":"N/D",              "nota":"Câmeras em veículos + visão computacional: mapeia pavimento, rachaduras. Sabesp: detecção de vazamentos de água.", "alerta":"",                             "isNew":False},
-    {"seg":"ia",     "name":"MinutaIA (jAI)",    "subseg":"IA Jurídica / Judicial",     "porte":"Startup",             "loc":"Belo Horizonte - MG",   "fund":"2025",  "presenca":"7 tribunais | 100k+ usr", "receita":"N/D",              "nota":"10M+ minutas geradas. TJRS, STM, TRE-PB/BA, Tocantins. CNJ Resolução 615/2025. Exportou para a Argentina.", "alerta":"Watch — tração judicial",      "isNew":False},
+    {"seg":"segpub", "name":"Horus Smart Det.",  "subseg":"Fiscalização / Drones / IA", "porte":"Scale-up",            "loc":"Florianópolis - SC",    "fund":"~2016", "presenca":"100+ gov + privado",      "receita":"N/D",              "nota":"Drones + satélites + visão computacional: obras irregulares, desmatamento, infraestrutura. Cliente: Florianópolis. 9 anos de operação.", "alerta":"",                             "isNew":False},
+    {"seg":"fiscal", "name":"Geopixel",          "subseg":"GeoInteligência Fiscal",     "porte":"PME",                 "loc":"Curitiba - PR",         "fund":"~2010", "presenca":"100+ municípios",         "receita":"N/D",              "nota":"Geoprocessamento + IA para IPTU, ITBI, ISS. Reforma Tributária (LC 214/2025) cria janela de demanda direta e imediata.", "alerta":"Oportunidade fiscal 2025",     "isNew":False},
+    {"seg":"segpub", "name":"Intelicity",        "subseg":"IA Infraestrutura Urbana",   "porte":"Startup / Scale-up",  "loc":"São Paulo - SP",        "fund":"~2019", "presenca":"Sabesp + municípios",     "receita":"N/D",              "nota":"Câmeras em veículos + visão computacional: mapeia pavimento, rachaduras. Sabesp: detecção de vazamentos de água.", "alerta":"",                             "isNew":False},
+    {"seg":"proc",   "name":"MinutaIA (jAI)",    "subseg":"IA Jurídica / Judicial",     "porte":"Startup",             "loc":"Belo Horizonte - MG",   "fund":"2025",  "presenca":"7 tribunais | 100k+ usr", "receita":"N/D",              "nota":"10M+ minutas geradas. TJRS, STM, TRE-PB/BA, Tocantins. CNJ Resolução 615/2025. Exportou para a Argentina.", "alerta":"Watch — tração judicial",      "isNew":False},
     {"seg":"ia",     "name":"Tolky",             "subseg":"IA Atendimento ao Cidadão",  "porte":"Startup",             "loc":"N/D (Brasil)",          "fund":"~2023", "presenca":"Contratos gov / CNJ",     "receita":"N/D",              "nota":"Multichannel (WhatsApp, chat, email) + processos end-to-end. ABES CSC 2025. Contrato CPSI CNJ.", "alerta":"Selecionada CPSI CNJ",         "isNew":False},
-    {"seg":"ia",     "name":"Gove",              "subseg":"Analytics Financeiro Municipal","porte":"Startup / Scale-up","loc":"São Paulo - SP",        "fund":"2018",  "presenca":"SP, MG, RS, SC, ES+",    "receita":"R$ 8M (Astella)",  "nota":"Analytics IA para finanças públicas: identifica ineficiências em receitas/despesas municipais. Aporte Astella. BrazilLAB Turma 7.", "alerta":"",                             "isNew":False},
+    {"seg":"fiscal", "name":"Gove",              "subseg":"Analytics Financeiro Municipal","porte":"Startup / Scale-up","loc":"São Paulo - SP",        "fund":"2018",  "presenca":"SP, MG, RS, SC, ES+",    "receita":"R$ 8M (Astella)",  "nota":"Analytics IA para finanças públicas: identifica ineficiências em receitas/despesas municipais. Aporte Astella. BrazilLAB Turma 7.", "alerta":"",                             "isNew":False},
     {"seg":"ia",     "name":"Inteligov",         "subseg":"Monitoramento Legislativo / Inteligência Regulatória","porte":"Startup / Scale-up",  "loc":"São Paulo - SP",        "fund":"2014",  "presenca":"100+ clientes | 27 estados + 1k+ mun.","receita":"N/D",              "nota":"Pioneira em monitoramento automatizado de dados governamentais (Legislativo, Executivo, Judiciário). 4M+ proposições monitoradas. ~890 fontes de Diários Oficiais. IA com termômetro de aprovação de PLs (>98% acurácia). Única com 100% de cobertura das Assembleias Estaduais. Ranking 100 Open Startups, Mapa GovTech. Cubo Itaú, Inovabra, Distrito.", "alerta":"Watch — inteligência regulatória", "isNew":True},
-    {"seg":"ia",     "name":"Hub Esfera",        "subseg":"IA Analytics / Gestão",      "porte":"Startup",             "loc":"N/D (Brasil)",          "fund":"N/D",   "presenca":"N/D",                     "receita":"N/D",              "nota":"Plataforma IA para gestão municipal: analytics preditivo + preventivo + prescritivo. Integra dados orçamentários, operacionais e sociais para apoio à decisão do gestor público.", "alerta":"Watch",                        "isNew":True},
+    {"seg":"fiscal", "name":"Hub Esfera",        "subseg":"IA Analytics / Orçamento Municipal", "porte":"Startup",             "loc":"N/D (Brasil)",          "fund":"N/D",   "presenca":"N/D",                     "receita":"N/D",              "nota":"Plataforma IA para gestão municipal: analytics preditivo + preventivo + prescritivo. Integra dados orçamentários, operacionais e sociais para apoio à decisão do gestor público.", "alerta":"Watch",                        "isNew":True},
     {"seg":"ia",     "name":"Kinebot",           "subseg":"IA Ergonomia / Saúde do Trabalhador","porte":"Startup",          "loc":"Curitiba - PR",         "fund":"N/D",   "presenca":"Indústria + gov",          "receita":"R$3M (Fundo GovTech)","nota":"IA para análises ergonômicas e psicossociais via visão computacional. Clientes: Marfrig, P&G, Electrolux. 8º investimento do Fundo GovTech (KPTL+Cedro), R$3M em fev/2026. Foco em saúde do trabalhador para setor público e privado. Expansão global planejada.", "alerta":"Portfólio KPTL+Cedro",         "isNew":True},
 
     # ── PROCURADORIAS ──
@@ -165,15 +174,17 @@ APORTES = [
 # ══════════════════════════════════════════════════════════════
 
 SEGMENTS = {
-    "gestao": {"label": "Gestão Pública Municipal",      "emoji": "🏛️",  "color": "1F4E79"},
-    "saude":  {"label": "Saúde Pública",                 "emoji": "🏥",  "color": "0D4F4A"},
-    "educ":   {"label": "Educação Pública",              "emoji": "📚",  "color": "2E75B6"},
-    "ia":     {"label": "IA para Governo",               "emoji": "🤖",  "color": "6A1B9A"},
-    "proc":   {"label": "Procuradorias (PGM/PGE/MP)",      "emoji": "⚖️",  "color": "BF360C"},
-    "lic":    {"label": "Licitações & Compras Públicas",  "emoji": "📋",  "color": "2E7D32"},
-    "hab":       {"label": "Habitação & Regularização Fundiária", "emoji": "🏘️", "color": "4E342E"},
-    "ambiental": {"label": "Meio Ambiente & Licenciamento",      "emoji": "🌿", "color": "1B5E20"},
-    "smart":     {"label": "Smart Cities & Mobilidade",          "emoji": "🏙️", "color": "283593"},
+    "gestao":    {"label": "Gestão & ERP Municipal",                 "emoji": "🏛️",  "color": "1F4E79"},
+    "fiscal":    {"label": "Fiscal & Convênios Municipais",          "emoji": "📊",  "color": "92400E"},
+    "saude":     {"label": "Saúde Pública",                          "emoji": "🏥",  "color": "0D4F4A"},
+    "educ":      {"label": "Educação Pública",                       "emoji": "📚",  "color": "2E75B6"},
+    "ia":        {"label": "IA Horizontal & Automação",              "emoji": "🤖",  "color": "6A1B9A"},
+    "proc":      {"label": "Procuradorias & Jurídico",               "emoji": "⚖️",  "color": "BF360C"},
+    "lic":       {"label": "Licitações & Compras Públicas",          "emoji": "📋",  "color": "2E7D32"},
+    "hab":       {"label": "Habitação & Regularização Fundiária",    "emoji": "🏘️",  "color": "4E342E"},
+    "ambiental": {"label": "Meio Ambiente & Licenciamento",          "emoji": "🌿",  "color": "1B5E20"},
+    "smart":     {"label": "Smart Cities & Mobilidade",              "emoji": "🏙️",  "color": "283593"},
+    "segpub":    {"label": "Segurança Pública & Infraestrutura",     "emoji": "🛡️",  "color": "37474F"},
 }
 
 # ══════════════════════════════════════════════════════════════
@@ -370,6 +381,8 @@ def make_html(output_path):
     --indigo-light: #E8EAF6;
     --slate-dark: #37474F;
     --slate-light: #ECEFF1;
+    --gold-dark: #92400E;
+    --gold-light: #FEF3C7;
     --red-fill: #FFEBEE;
     --red-dark: #8B0000;
     --gray-bg: #F4F6F9;
@@ -413,6 +426,10 @@ def make_html(output_path):
   .btn-ambiental.active  {{ background: var(--green-dark);  color: white; }}
   .btn-smart      {{ background: var(--indigo-light); color: var(--indigo-dark); border-color: #9fa8da; }}
   .btn-smart.active      {{ background: var(--indigo-dark); color: white; }}
+  .btn-fiscal     {{ background: var(--gold-light);  color: var(--gold-dark);  border-color: #d97706; }}
+  .btn-fiscal.active     {{ background: var(--gold-dark);  color: white; }}
+  .btn-segpub     {{ background: var(--slate-light); color: var(--slate-dark); border-color: #90a4ae; }}
+  .btn-segpub.active     {{ background: var(--slate-dark); color: white; }}
   .btn-changelog  {{ background: #F5F5F5; color: #444; border-color: #ccc; margin-left: auto; }}
   .btn-changelog:hover   {{ background: #eee; }}
   .btn-ma     {{ background: var(--orange-fill); color: var(--orange-dark); border-color: #e0b080; }}
@@ -517,7 +534,7 @@ def make_html(output_path):
   <div class="sub">DLG · Mapeamento M&amp;A — {DATA_REF} · {VERSION} · Atualizado em {UPDATED_AT}</div>
   <div class="header-meta">
     <div class="kpi"><div class="num" id="kpi-total">{unique_count}</div><div class="lbl">Players mapeados</div></div>
-    <div class="kpi"><div class="num">9</div><div class="lbl">Segmentos</div></div>
+    <div class="kpi"><div class="num">11</div><div class="lbl">Segmentos</div></div>
   </div>
 </div>
 
@@ -526,15 +543,17 @@ def make_html(output_path):
   <div class="filter-btns">
     <span class="lbl">Filtro:</span>
     <button class="btn btn-all active" onclick="setFilter('all',this)">Todos <span class="count-badge" id="cnt-all">{unique_count}</span></button>
-    <button class="btn btn-gestao" onclick="setFilter('gestao',this)">Gestão Municipal <span class="count-badge" id="cnt-gestao"></span></button>
-    <button class="btn btn-saude"  onclick="setFilter('saude',this)">Saúde <span class="count-badge" id="cnt-saude"></span></button>
-    <button class="btn btn-educ"   onclick="setFilter('educ',this)">Educação <span class="count-badge" id="cnt-educ"></span></button>
-    <button class="btn btn-ia"     onclick="setFilter('ia',this)">IA Gov <span class="count-badge" id="cnt-ia"></span></button>
-    <button class="btn btn-proc"   onclick="setFilter('proc',this)">Procuradorias <span class="count-badge" id="cnt-proc"></span></button>
-    <button class="btn btn-lic"    onclick="setFilter('lic',this)">Licitações <span class="count-badge" id="cnt-lic"></span></button>
+    <button class="btn btn-gestao"     onclick="setFilter('gestao',this)">Gestão &amp; ERP <span class="count-badge" id="cnt-gestao"></span></button>
+    <button class="btn btn-fiscal"     onclick="setFilter('fiscal',this)">Fiscal &amp; Convênios <span class="count-badge" id="cnt-fiscal"></span></button>
+    <button class="btn btn-saude"      onclick="setFilter('saude',this)">Saúde <span class="count-badge" id="cnt-saude"></span></button>
+    <button class="btn btn-educ"       onclick="setFilter('educ',this)">Educação <span class="count-badge" id="cnt-educ"></span></button>
+    <button class="btn btn-ia"         onclick="setFilter('ia',this)">IA Horizontal <span class="count-badge" id="cnt-ia"></span></button>
+    <button class="btn btn-proc"       onclick="setFilter('proc',this)">Procuradorias &amp; Jurídico <span class="count-badge" id="cnt-proc"></span></button>
+    <button class="btn btn-lic"        onclick="setFilter('lic',this)">Licitações <span class="count-badge" id="cnt-lic"></span></button>
     <button class="btn btn-hab"        onclick="setFilter('hab',this)">Habitação <span class="count-badge" id="cnt-hab"></span></button>
     <button class="btn btn-ambiental"  onclick="setFilter('ambiental',this)">Meio Ambiente <span class="count-badge" id="cnt-ambiental"></span></button>
     <button class="btn btn-smart"      onclick="setFilter('smart',this)">Smart Cities <span class="count-badge" id="cnt-smart"></span></button>
+    <button class="btn btn-segpub"     onclick="setFilter('segpub',this)">Segurança &amp; Infraestrutura <span class="count-badge" id="cnt-segpub"></span></button>
     <button class="btn btn-ma"         onclick="setFilter('aporte',this)">Aportes &amp; Investimentos <span class="count-badge" id="cnt-aporte"></span></button>
     <button class="btn btn-changelog"  onclick="openChangelog()">📋 Changelog</button>
   </div>
@@ -543,10 +562,16 @@ def make_html(output_path):
 <div class="main">
 
 <div class="section-header" style="color:var(--blue-dark);border-color:var(--blue-mid);" id="sec-gestao">
-  <h2>🏛️ Gestão Pública Municipal &amp; Radar Geral</h2>
+  <h2>🏛️ Gestão &amp; ERP Municipal</h2>
   <span class="pill" style="background:var(--blue-light);color:var(--blue-dark);" id="cnt-gestao-sec"></span>
 </div>
 <div class="grid" id="grid-gestao"></div>
+
+<div class="section-header" style="color:var(--gold-dark);border-color:var(--gold-dark);" id="sec-fiscal">
+  <h2>📊 Fiscal &amp; Convênios Municipais</h2>
+  <span class="pill" style="background:var(--gold-light);color:var(--gold-dark);" id="cnt-fiscal-sec"></span>
+</div>
+<div class="grid" id="grid-fiscal"></div>
 
 <div class="section-header" style="color:var(--teal-dark);border-color:var(--teal-mid);" id="sec-saude">
   <h2>🏥 Saúde Pública</h2>
@@ -595,6 +620,12 @@ def make_html(output_path):
   <span class="pill" style="background:var(--indigo-light);color:var(--indigo-dark);" id="cnt-smart-sec"></span>
 </div>
 <div class="grid" id="grid-smart"></div>
+
+<div class="section-header" style="color:var(--slate-dark);border-color:var(--slate-dark);" id="sec-segpub">
+  <h2>🛡️ Segurança Pública &amp; Infraestrutura</h2>
+  <span class="pill" style="background:var(--slate-light);color:var(--slate-dark);" id="cnt-segpub-sec"></span>
+</div>
+<div class="grid" id="grid-segpub"></div>
 
 <div class="section-header" style="color:var(--orange-dark);border-color:var(--orange-dark);" id="sec-aporte">
   <h2>💰 Aportes &amp; Investimentos</h2>
@@ -684,14 +715,14 @@ function renderAportes() {{
 let currentFilter = "all";
 
 function updateCounts() {{
-  ["gestao","saude","educ","ia","proc","lic","hab","ambiental","smart"].forEach(s => {{
+  ["gestao","fiscal","saude","educ","ia","proc","lic","hab","ambiental","smart","segpub"].forEach(s => {{
     const el = document.getElementById("cnt-"+s);
     if (el) el.textContent = companies.filter(c=>c.seg===s).length;
   }});
   document.getElementById("cnt-all").textContent = companies.length;
 }}
 
-const sections = {{ gestao:["sec-gestao","grid-gestao"], saude:["sec-saude","grid-saude"], educ:["sec-educ","grid-educ"], ia:["sec-ia","grid-ia"], proc:["sec-proc","grid-proc"], lic:["sec-lic","grid-lic"], hab:["sec-hab","grid-hab"], ambiental:["sec-ambiental","grid-ambiental"], smart:["sec-smart","grid-smart"], aporte:["sec-aporte","grid-aporte"] }};
+const sections = {{ gestao:["sec-gestao","grid-gestao"], fiscal:["sec-fiscal","grid-fiscal"], saude:["sec-saude","grid-saude"], educ:["sec-educ","grid-educ"], ia:["sec-ia","grid-ia"], proc:["sec-proc","grid-proc"], lic:["sec-lic","grid-lic"], hab:["sec-hab","grid-hab"], ambiental:["sec-ambiental","grid-ambiental"], smart:["sec-smart","grid-smart"], segpub:["sec-segpub","grid-segpub"], aporte:["sec-aporte","grid-aporte"] }};
 
 function hideAllSections() {{ Object.values(sections).flat().forEach(id => {{ const el=document.getElementById(id); if(el) el.classList.add("hidden"); }}); }}
 function showSection(id)    {{ const el=document.getElementById(id); if(el) el.classList.remove("hidden"); }}
@@ -709,7 +740,7 @@ function setFilter(f, btn) {{
 
 function applySearch(q) {{
   const query = q.toLowerCase().trim();
-  ["grid-gestao","grid-saude","grid-educ","grid-ia","grid-proc","grid-lic","grid-hab","grid-ambiental","grid-smart"].forEach(gid => {{
+  ["grid-gestao","grid-fiscal","grid-saude","grid-educ","grid-ia","grid-proc","grid-lic","grid-hab","grid-ambiental","grid-smart","grid-segpub"].forEach(gid => {{
     const grid = document.getElementById(gid);
     if (!grid) return;
     grid.querySelectorAll(".card").forEach(card => {{
@@ -725,15 +756,17 @@ document.getElementById("searchBox").addEventListener("input", function() {{ app
 function openChangelog()  {{ document.getElementById("cl-overlay").classList.remove("hidden"); }}
 function closeChangelog() {{ document.getElementById("cl-overlay").classList.add("hidden"); }}
 
-renderSection("grid-gestao","cnt-gestao-sec","gestao");
-renderSection("grid-saude", "cnt-saude-sec", "saude");
-renderSection("grid-educ",  "cnt-educ-sec",  "educ");
-renderSection("grid-ia",    "cnt-ia-sec",    "ia");
-renderSection("grid-proc",  "cnt-proc-sec",  "proc");
-renderSection("grid-lic",   "cnt-lic-sec",   "lic");
+renderSection("grid-gestao",    "cnt-gestao-sec",    "gestao");
+renderSection("grid-fiscal",    "cnt-fiscal-sec",    "fiscal");
+renderSection("grid-saude",     "cnt-saude-sec",     "saude");
+renderSection("grid-educ",      "cnt-educ-sec",      "educ");
+renderSection("grid-ia",        "cnt-ia-sec",        "ia");
+renderSection("grid-proc",      "cnt-proc-sec",      "proc");
+renderSection("grid-lic",       "cnt-lic-sec",       "lic");
 renderSection("grid-hab",       "cnt-hab-sec",       "hab");
 renderSection("grid-ambiental", "cnt-ambiental-sec", "ambiental");
 renderSection("grid-smart",     "cnt-smart-sec",     "smart");
+renderSection("grid-segpub",    "cnt-segpub-sec",    "segpub");
 renderAportes();
 updateCounts();
 </script>
