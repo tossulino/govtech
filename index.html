@@ -106,6 +106,8 @@
   .card.hab::before        { background: var(--brown-dark); }
   .card.ambiental::before { background: var(--green-dark); }
   .card.smart::before     { background: var(--indigo-dark); }
+  .card.fiscal::before    { background: var(--gold-dark); }
+  .card.segpub::before    { background: var(--slate-dark); }
 
   .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; gap: 8px; }
   .card-name { font-size: 14px; font-weight: 700; line-height: 1.2; }
@@ -118,6 +120,8 @@
   .card.hab        .card-name { color: var(--brown-dark); }
   .card.ambiental  .card-name { color: var(--green-dark); }
   .card.smart      .card-name { color: var(--indigo-dark); }
+  .card.fiscal     .card-name { color: var(--gold-dark); }
+  .card.segpub     .card-name { color: var(--slate-dark); }
 
   .card-porte { font-size: 10px; font-weight: 600; padding: 3px 8px; border-radius: 10px; white-space: nowrap; flex-shrink: 0; }
   .porte-startup { background: #E8F5E9; color: #1B5E20; }
@@ -136,6 +140,9 @@
   .card-ref-tag   { display: inline-block; margin-top: 4px; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; background: #E8F5E9; color: #1B5E20; border: 1px solid #a5d6a7; }
   .card-watch-tag { display: inline-block; margin-top: 4px; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; background: var(--amber-fill); color: var(--amber-dark); border: 1px solid #ffcc80; }
   .card-new-tag   { display: inline-block; margin-top: 4px; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 10px; background: var(--purple-light); color: var(--purple-dark); border: 1px solid #ce93d8; margin-left: 4px; }
+  .card-footer    { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; flex-wrap: wrap; gap: 4px; }
+  .card-link      { display: inline-flex; align-items: center; gap: 4px; font-size: 10px; font-weight: 600; color: #2E75B6; text-decoration: none; padding: 2px 8px; border-radius: 10px; background: #EEF4FB; border: 1px solid #b8cde0; transition: background 0.15s; }
+  .card-link:hover { background: #d6e4f0; }
 
   /* Aportes */
   .ma-table-wrap { overflow-x: auto; }
@@ -180,7 +187,7 @@
 
 <div class="header">
   <h1>🇧🇷 Radar GovTech Brasil 2025/2026</h1>
-  <div class="sub">DLG · Mapeamento M&amp;A — Maio 2026 · v11 · Atualizado em 05/05/2026</div>
+  <div class="sub">DLG · Mapeamento M&amp;A — Maio 2026 · v12 · Atualizado em 06/05/2026</div>
   <div class="header-meta">
     <div class="kpi"><div class="num" id="kpi-total">68</div><div class="lbl">Players mapeados</div></div>
     <div class="kpi"><div class="num">11</div><div class="lbl">Segmentos</div></div>
@@ -293,7 +300,7 @@
 </div>
 
 <div class="footer">
-  Radar GovTech Brasil 2025/2026 · DLG · Uso interno · Gerado em Maio 2026 · v11
+  Radar GovTech Brasil 2025/2026 · DLG · Uso interno · Gerado em Maio 2026 · v12
 </div>
 
 <script>
@@ -301,261 +308,281 @@ const companies = [
   {
     "seg": "gestao",
     "name": "Aprova Digital",
-    "subseg": "Gestão Pública Municipal",
+    "subseg": "Gestão de Processos Administrativos Municipais",
     "porte": "Startup / Scale-up",
-    "loc": "São Paulo - SP",
+    "loc": "Cascavel - PR",
     "fund": "2017",
-    "presenca": "120+ cidades",
+    "presenca": "150+ cidades | 23M+ brasileiros",
     "receita": "R$ 22,5M (Astella+BB)",
-    "nota": "Aporte Seed de R$22,5M (US$4M) liderado por Astella e VOX Capital (CVC do Banco do Brasil), com CAF e Endeavor. 120+ cidades. TOP Open Startups 2024. Maior aporte da história das GovTechs da AL.",
+    "nota": "Plataforma SaaS de processos eletrônicos para prefeituras: protocolo, assinatura digital ICP-Brasil, tramitação com IA, portal de serviços e arrecadação (Aprova Pay). Cobre obras, meio ambiente, RH e compras. Primeira govtech investida pelo Banco do Brasil. TOP Open Startups 2024.",
     "alerta": "",
+    "url": "https://aprova.com.br",
     "isNew": false
   },
   {
     "seg": "gestao",
     "name": "GovDigital",
-    "subseg": "Gestão Pública Municipal",
+    "subseg": "App Municipal SaaS / Relacionamento Cidadão-Governo",
     "porte": "Startup / Scale-up",
     "loc": "Jaraguá do Sul - SC",
     "fund": "~2020",
-    "presenca": "5 estados | 600+ serv.",
+    "presenca": "Múltiplos municípios SC e outros estados",
     "receita": "N/D (bootstrap)",
-    "nota": "App SaaS municipal customizável. 600+ serviços digitalizados. CEO: Elias Raasch. Expansão nacional sem VC. Referência SC.",
+    "nota": "App oficial white-label de prefeituras reunindo zeladoria, agendamento, formulários online, notícias e comunicação direta cidadão-prefeitura. Integrações com IPTU, protocolo e ouvidoria. CEO: Elias Raasch. Expansão nacional sem VC.",
     "alerta": "Watch — expansão nacional",
+    "url": "https://govdigital.app",
     "isNew": false
   },
   {
     "seg": "gestao",
     "name": "Desenvolve Cidade",
-    "subseg": "Gestão Pública Municipal",
+    "subseg": "Licenciamento e Tributação Municipal Digital",
     "porte": "Startup",
-    "loc": "Campinas/RJ",
+    "loc": "Campinas - SP",
     "fund": "~2014",
-    "presenca": "N/D",
+    "presenca": "Municípios Norte e outras regiões | Scale-Up Endeavor 2021",
     "receita": "N/D",
-    "nota": "TOP 2 Ranking 100 Open Startups 2024 (GovTech).",
+    "nota": "Plataforma integrada de licenciamento digital (urbanístico, ambiental, sanitário, obras), abertura/baixa de empresas, IPTU e ISS digitais integrada à REDESIM federal. Foco em desburocratização e aumento de receita própria municipal. TOP2 Open Startups 2024.",
     "alerta": "",
+    "url": "https://www.desenvolvecidade.com.br",
     "isNew": false
   },
   {
     "seg": "gestao",
     "name": "IP Inovação",
-    "subseg": "Gestão Pública Municipal",
+    "subseg": "Capacitação e Consultoria em Gestão Pública",
     "porte": "Startup",
     "loc": "Belém - PA",
-    "fund": "~2018",
-    "presenca": "N/D",
+    "fund": "2014",
+    "presenca": "Ecossistema Norte do Brasil",
     "receita": "N/D",
-    "nota": "TOP 3 Open Startups 2024. Representante do ecossistema Norte do Brasil.",
-    "alerta": "",
+    "nota": "Empresa de capacitação e consultoria para gestão pública municipal na região Norte. TOP 3 Open Startups 2024. Não foram identificados produtos SaaS com identidade digital clara — oportunidade de due diligence.",
+    "alerta": "Watch — due diligence necessário",
+    "url": "",
     "isNew": false
   },
   {
     "seg": "fiscal",
     "name": "LICI GovTech",
-    "subseg": "Indicadores ODS / Financiamento Municipal",
+    "subseg": "Governança Municipal Baseada em Dados / ODS",
     "porte": "Startup",
     "loc": "Belo Horizonte - MG",
     "fund": "2018",
-    "presenca": "Municípios | 2M+ cid.",
+    "presenca": "1.000+ gestores formados | SEDE-MG, FINEP, PNUD, UNESCO, ALMG",
     "receita": "N/D",
-    "nota": "Plataforma CHESI: 160+ indicadores ODS + fontes de financiamento + governança. Parceria SEDE-MG Cidades do Futuro.",
+    "nota": "GovTech de governança orientada a dados com metodologia CHESI (registrada no INPI): 160+ indicadores ODS monitorados em tempo real, conectando projetos a financiamento público. Produz Relatórios Locais Voluntários para Agenda 2030. Coordena GT Cidades Inteligentes da ALMG.",
     "alerta": "",
+    "url": "https://licigovtech.com.br",
     "isNew": false
   },
   {
     "seg": "fiscal",
     "name": "Quasar",
-    "subseg": "Fiscal / Alvarás Digitais",
+    "subseg": "Alvará Digital e Licenciamento de Empresas Municipal",
     "porte": "Startup",
     "loc": "Belo Horizonte - MG",
     "fund": "2019",
-    "presenca": "Municípios MG",
+    "presenca": "MG, RO, PE, MT | 480+ municípios via Jucemg/SINAL",
     "receita": "N/D",
-    "nota": "Alvarás digitais: reduz 90% do prazo de emissão. 2º DemoDay BrazilLAB 2023. Selecionada PBH Inova (2 desafios).",
-    "alerta": "Watch — fiscal municipal",
+    "nota": "Sistema de gestão de licenciamento e abertura de empresas, com alvarás digitais via QR Code e integração REDESIM. Parceiro estadual da Jucemg para o sistema SINAL (480+ municípios de MG). Apoio Seed-MG e AWS. Reduz prazo de emissão de alvarás em 90%. BrazilLAB 2023.",
+    "alerta": "Watch — expansão estadual Jucemg",
+    "url": "https://quasar.srv.br",
     "isNew": false
   },
   {
     "seg": "gestao",
     "name": "GESUAS",
-    "subseg": "Assistência Social / SUAS",
+    "subseg": "Gestão do SUAS / Assistência Social",
     "porte": "Startup / PME",
     "loc": "Viçosa - MG",
-    "fund": "~2016",
-    "presenca": "168 mun | 3,5M pessoas",
+    "fund": "2008",
+    "presenca": "Centenas de municípios | CRASs e CREASs",
     "receita": "N/D",
-    "nota": "Prontuário eletrônico SUAS. 1,2M famílias | 6,5k trabalhadores. Líder IE GovTech 2020. Vertical exclusivo sem concorrente direto.",
+    "nota": "SaaS de gestão do SUAS com Prontuário Digital integrado ao CadÚnico, planos PAIF/PAEFI/PIA, vigilância socioassistencial georreferenciada e relatórios MDS. 56 colaboradores. Líder IE GovTech 2020. Vertical exclusivo sem concorrente direto.",
     "alerta": "Vertical exclusivo mapeado",
+    "url": "https://gesuas.com.br",
     "isNew": false
   },
   {
     "seg": "gestao",
     "name": "Prosas",
-    "subseg": "Participação Cidadã",
+    "subseg": "Gestão de Editais e Investimento Social",
     "porte": "Startup",
-    "loc": "São Paulo - SP",
-    "fund": "~2016",
-    "presenca": "220k+ usuários",
+    "loc": "Belo Horizonte - MG",
+    "fund": "2014",
+    "presenca": "13k+ editais | institutos e fundações corporativas",
     "receita": "R$4M (KPTL)",
-    "nota": "Portfólio Fundo GovTech KPTL. Gestão digital de editais socioculturais e transparência pública.",
-    "alerta": "",
+    "nota": "Maior base de editais do terceiro setor no Brasil. Plataforma para criação de editais, inscrições online, pareceristas e monitoramento de projetos. Venture Round out/2024. Portfólio Fundo GovTech KPTL. 51 funcionários.",
+    "alerta": "Portfólio KPTL",
+    "url": "https://prosas.com.br",
     "isNew": false
   },
   {
     "seg": "gestao",
     "name": "Lemobs",
-    "subseg": "Smart Cities / Mobilidade",
+    "subseg": "Gestão Urbana Integrada / Smart Cities",
     "porte": "Startup",
     "loc": "Rio de Janeiro - RJ",
-    "fund": "~2015",
-    "presenca": "N/D",
+    "fund": "2015",
+    "presenca": "79k+ pontos monitorados | prefeituras e Petrobras",
     "receita": "N/D",
-    "nota": "Origem COPPE/UFRJ. Selo GovTech BrazilLAB. Mobilidade urbana e cidades inteligentes.",
+    "nota": "GovTech de cidades inteligentes com SIGELU (limpeza urbana), fiscalização móvel, gestão nutricional escolar e saúde. Primeiro contrato pelo Marco Legal das Startups. Origem COPPE/UFRJ. Selo GovTech BrazilLAB.",
     "alerta": "",
+    "url": "https://lemobs.com.br",
     "isNew": false
   },
   {
     "seg": "segpub",
     "name": "Sipremo",
-    "subseg": "Infraestrutura / Clima",
+    "subseg": "Previsão de Desastres / ClimateTech",
     "porte": "Startup",
     "loc": "Ribeirão Preto - SP",
     "fund": "~2018",
     "presenca": "Defesa Civil + seguros",
     "receita": "R$200k (2022)",
-    "nota": "IA para previsão antecipada de desastres naturais. Dados NASA + bases nacionais. Alerta SMS via Defesa Civil. COP26 selecionada.",
+    "nota": "IA para previsão antecipada de desastres naturais com dados NASA e bases nacionais. Alerta SMS via Defesa Civil municipal. Selecionada COP26. Foco em mitigação de riscos climáticos e resiliência urbana.",
     "alerta": "Watch — clima/risco",
+    "url": "https://sipremo.com.br",
     "isNew": false
   },
   {
     "seg": "segpub",
     "name": "i4Sea",
-    "subseg": "Infraestrutura / Clima",
+    "subseg": "Previsões Microclimáticas / Portos e Energia",
     "porte": "Startup",
     "loc": "Santos - SP",
     "fund": "~2018",
-    "presenca": "N/D",
-    "receita": "R$ 7,5M aporte",
-    "nota": "Previsões microclimáticas para portos e setor elétrico. Captou R$7,5M do Fundo GovTech. Resiliência climática.",
-    "alerta": "",
+    "presenca": "Portos, setor elétrico e renovável | Porto do Açu, Wilson Sons, Santos Brasil",
+    "receita": "R$ 7,5M (Fundo GovTech)",
+    "nota": "Plataforma i4cast® de decisão baseada em inteligência climática: previsões hiperlocais de mar e clima para operações portuárias, logística marítima e geração de energia renovável. Precisão 2x superior a previsões genéricas (94% acurácia no Porto do Açu). Captou R$7,5M do Fundo GovTech KPTL.",
+    "alerta": "Portfólio KPTL",
+    "url": "https://i4sea.com",
     "isNew": false
   },
   {
     "seg": "gestao",
     "name": "GRTS Digital",
-    "subseg": "Relações Trabalhistas",
+    "subseg": "Gestão de Relações Trabalhistas e Sindicais (RTS)",
     "porte": "Startup",
     "loc": "São Paulo - SP",
     "fund": "2019",
-    "presenca": "N/D",
+    "presenca": "Unilever, Coca-Cola, Vivo, Burger King, C&A | 29 colaboradores",
     "receita": "R$ 3,4M aporte",
-    "nota": "Digitalização da gestão de relações sindicais. Captou R$3,4M do Fundo GovTech KPTL.",
-    "alerta": "",
+    "nota": "Ecossistema SaaS de digitalização de RTS: gestão de CCTs, IA 'Norma' para análise de cláusulas, assembleias virtuais e data intelligence. Integração com HCM via parceria LG. Prêmio inovação RH 2025. R$3,4M Fundo GovTech KPTL.",
+    "alerta": "Portfólio KPTL",
+    "url": "https://grtsdigital.com.br",
     "isNew": false
   },
   {
     "seg": "segpub",
     "name": "IPQ Tecnologia",
-    "subseg": "Segurança Pública",
+    "subseg": "Segurança Pública / TIC para Ambientes Críticos",
     "porte": "PME / Scale-up",
-    "loc": "Curitiba - PR",
-    "fund": "~2010",
-    "presenca": "250+ municípios",
+    "loc": "Porto Alegre - RS",
+    "fund": "~2001",
+    "presenca": "Nacional e internacional | órgãos públicos, presídios, hospitais, rodovias",
     "receita": "N/D",
-    "nota": "Monitoramento e recuperação de veículos. 7.000+ veículos recuperados em 2024. Redução de 15,5% em furtos.",
+    "nota": "25+ anos desenvolvendo e integrando soluções de TIC com IA e Analytics para segurança pública e ambientes críticos. Portfólio: videomonitoramento, controle de acesso, redes de dados públicas/privadas, infraestrutura para Defesa e Segurança. Atuação descentralizada com cobertura nacional.",
     "alerta": "",
+    "url": "https://www.ipq.com.br",
     "isNew": false
   },
   {
     "seg": "segpub",
     "name": "Atech",
-    "subseg": "Segurança Pública / Defesa",
+    "subseg": "Comando & Controle / Defesa e Segurança Pública",
     "porte": "Médio Porte",
     "loc": "São Paulo - SP",
     "fund": "1999",
-    "presenca": "Nacional / Defesa",
+    "presenca": "Nacional / Defesa, ATM, Segurança",
     "receita": "N/D",
-    "nota": "Empresa Estratégica de Defesa (MDefesa). Plataformas de Comando & Controle e gestão de crises.",
+    "nota": "Empresa do Grupo Embraer e Empresa Estratégica de Defesa (EED). Especialista em sistemas de missão crítica: Gerenciamento de Tráfego Aéreo (ATM), Comando & Controle (C4I), Gestão de UTM (drones), Segurança Pública, Sistemas Navais, Cibersegurança e Sistemas Embarcados. Certificações ISO internacionais.",
     "alerta": "",
+    "url": "https://www.atech.com.br",
     "isNew": false
   },
   {
     "seg": "gestao",
     "name": "Governar",
-    "subseg": "ERP Municipal / SIAFIC",
+    "subseg": "ERP Municipal Integrado / SIAFIC Cloud",
     "porte": "Startup / Scale-up",
-    "loc": "N/D (Brasil)",
+    "loc": "Brasil",
     "fund": "N/D",
-    "presenca": "Municípios (SIAFIC)",
+    "presenca": "Municípios de qualquer porte | SIAFIC + SIEDUC disponíveis",
     "receita": "N/D",
-    "nota": "ERP municipal integrado 100% cloud: SIAFIC + saúde + educação + assistência social. Conformidade SIAFIC obrigatória impulsiona substituição de legados.",
+    "nota": "Suite ERP municipal integrada em nuvem com base de dados única: SIAFIC (financeiro/tributário), SIEDUC (educação), SISAÚDE e SIASOC. Conformidade SICONFI, SIOPE, e-Social, eSUS. Produto novo no mercado com proposta de stack completo integrado.",
     "alerta": "Watch — SIAFIC driver",
+    "url": "https://www.governar.com.br",
     "isNew": false
   },
   {
     "seg": "fiscal",
     "name": "Qiatech",
-    "subseg": "Convênios / Transferências Federais",
+    "subseg": "Gestão de Convênios e Transferências Federais com IA",
     "porte": "Startup",
-    "loc": "N/D (Brasil)",
+    "loc": "Brasil",
     "fund": "N/D",
-    "presenca": "Municípios (convênios)",
+    "presenca": "Municípios de qualquer porte | integra TransfereGov, Simec, Sismob, FNS, Sigcon",
     "receita": "N/D",
-    "nota": "Gestão de convênios com IA: integra TransfereGov, Simec, SISMOB, FNS. Vertical exclusivo de captação e gestão de transferências federais para municípios.",
+    "nota": "Primeiro sistema inteligente de gestão de convênios para prefeituras: unifica automaticamente TransfereGov, Simec, Sismob, FNS e Sigcon em painel único com IA. Kanban automático de diligências, alertas de prazo, monitoramento de certidões, previsão de repasses e elaboração de propostas com IA baseadas em cotações federais. Diferencial: deixa a IA captar e monitorar enquanto a prefeitura foca na execução.",
     "alerta": "Watch — convênios nicho virgem",
+    "url": "https://www.qiatech.com.br",
     "isNew": false
   },
   {
     "seg": "fiscal",
     "name": "MuniScore",
-    "subseg": "Inteligência Fiscal Municipal",
+    "subseg": "Score Fiscal e Inteligência de Risco Municipal",
     "porte": "Startup",
     "loc": "Belo Horizonte - MG",
     "fund": "2026",
-    "presenca": "5.570 municípios (dados)",
+    "presenca": "100% dos 5.570 municípios brasileiros (dados) | B2B: fornecedores, bancos, seguradoras",
     "receita": "N/D",
-    "nota": "Score fiscal para todos os 5.570 municípios brasileiros. Fundada 2026. Plataforma B2B/B2G de avaliação de saúde fiscal e creditícia municipal.",
+    "nota": "Plataforma SaaS de score fiscal para municípios: nota de 0 a 1000 cruzando receita, despesa, endividamento e CAPAG (STN). Integra PNCP, TransfereGov, emendas parlamentares e PCA para identificar oportunidades de fornecimento. Assistente de IA com 4 perspectivas analíticas. Fundadores: Diego Barros (CEO) e Antonio Firmino (Chairman / Grupo Triasa). Planos a partir de R$97/mês.",
     "alerta": "Watch — dado fiscal municipal",
+    "url": "https://muniscore.com.br",
     "isNew": false
   },
   {
     "seg": "gestao",
     "name": "Colab",
-    "subseg": "Participação Cidadã / Gestão Pública",
+    "subseg": "Participação Cidadã e Serviços Digitais Municipais",
     "porte": "Scale-up",
-    "loc": "Brasil",
+    "loc": "São Paulo - SP",
     "fund": "2013",
-    "presenca": "20M+ pessoas impactadas",
+    "presenca": "5 países | 1M+ cidadãos | Piauí, São Gonçalo, Santo André | Parceiro ONU-Habitat",
     "receita": "R$3-7M (Fundo GovTech)",
-    "nota": "Plataforma de gestão pública e participação cidadã: zeladoria urbana, CRM prefeitura-cidadão e marketplace de serviços públicos digitais. 1º investimento da KPTL em 2014. Follow-on pelo Fundo GovTech (KPTL+Cedro) em 2023. Co-invest EDP.",
+    "nota": "Plataforma multicanal (web, app, WhatsApp) de gestão de serviços digitais, participação cidadã e CRM governamental. IA digitaliza qualquer serviço público em minutos. Em 2025 viabilizou OP Digital do Piauí (273k participantes) com validação via Receita Federal e blockchain. Portfólio KPTL+Cedro. Co-invest EDP.",
     "alerta": "Portfólio KPTL+Cedro",
+    "url": "https://colab.com.br",
     "isNew": false
   },
   {
     "seg": "segpub",
     "name": "Fractal",
-    "subseg": "Gestão Hídrica / Infraestrutura",
+    "subseg": "Previsão Hidroclimática / ClimateTech",
     "porte": "Startup / Scale-up",
-    "loc": "Brasil",
+    "loc": "Florianópolis - SC",
     "fund": "2010",
-    "presenca": "Setor elétrico + agro",
+    "presenca": "Defesa Civil SC | usinas hidrelétricas | Clientes: CPFL, Statkraft",
     "receita": "N/D (KPTL 2019)",
-    "nota": "SaaS hidrológico integrado: previsão de fluxo de água e gestão de bacias hidrográficas. 80 anos de dados históricos. Clientes: CPFL, Statkraft. Aplicações em energia, agronegócio e seguros. Investimento KPTL 2019 (pré-Fundo GovTech).",
+    "nota": "ClimaTech com plataforma SPEHC (SaaS) para previsões hidroclimáticas: antecipação de enchentes, gestão de barragens e operação de usinas. Integra múltiplos modelos, radares e dados em tempo real. Referência nacional na Defesa Civil de SC. Escritório também em Bauru/SP. Portfólio KPTL 2019.",
     "alerta": "Portfólio KPTL",
+    "url": "https://fractaleng.com.br",
     "isNew": false
   },
   {
     "seg": "saude",
     "name": "OM30",
-    "subseg": "Atenção Primária / Suite",
+    "subseg": "Suite de Gestão Pública Municipal (Saúde, Educ, Dados, Frota)",
     "porte": "PME Estabelecida",
     "loc": "São Paulo - SP",
     "fund": "~2005",
-    "presenca": "Municípios SP",
+    "presenca": "Municípios SP e outros estados",
     "receita": "N/D",
-    "nota": "Suite municipal: Saúde Simples + Educação + DadosGov + Mobilidade + Doc+. 350 colaboradores. Meta: 2x municípios SP até 2030. IA reduz 40% tempo de consultas SUS.",
+    "nota": "Suite modular de soluções estratégicas para gestão pública: Saúde Simples (prontuário, telemedicina, IA transcrevendo consultas), Educação Simples (gestão escolar), DadosGov Simples (BI exclusivo setor público), Mob Simples (gestão de frotas), Doc+ Simples (gestão documental), Outsourcing Simples (impressão) e Mentor Público (IEG-M com IA). 1º prontuário transcrito por IA da saúde pública do Brasil. Crescimento 40% na pandemia.",
     "alerta": "Target roll-up",
+    "url": "https://om30.com.br",
     "isNew": false
   },
   {
@@ -569,6 +596,7 @@ const companies = [
     "receita": "N/D",
     "nota": "Pioneira SaaS cloud em APS (1998). 91% dos clientes melhoraram indicadores Previne Brasil 2023.",
     "alerta": "Target roll-up",
+    "url": "https://olostech.com.br",
     "isNew": false
   },
   {
@@ -578,10 +606,11 @@ const companies = [
     "porte": "PME Estabelecida",
     "loc": "Belo Horizonte - MG",
     "fund": "1999",
-    "presenca": "Municípios MG + NE",
+    "presenca": "Municípios MG + NE | Filiais SP e PB",
     "receita": "N/D",
-    "nota": "26 anos de operação. Selos Ouro/Prata Bora Vacinar (mar/2025). Filiais SP e PB. Foco saúde pública + educação municipal integradas.",
+    "nota": "26 anos de operação em saúde pública e gestão municipal. Selos Ouro/Prata Bora Vacinar (mar/2025). Cliente Sorocaba SP avançou C+ → B no IEGM 2025. Foco saúde pública + educação municipal integradas.",
     "alerta": "Target roll-up",
+    "url": "https://vivver.com.br",
     "isNew": false
   },
   {
@@ -595,19 +624,21 @@ const companies = [
     "receita": "N/D",
     "nota": "ERP municipal full suite com 9 áreas: Financeira (contabilidade pública, NF-e), Tributária (ISS, IPTU), Gestão de Pessoas (RH, eSocial, ponto eletrônico), Saúde, Escolar, Assistência Social (SUAS), Administrativa (compras, frotas, patrimônio), Atendimento ao Cidadão (portal transparência, app Cidade Pública) e Gestão (BI, GED, PPA). 33 anos de atuação, 98 funcionários. Great Place to Work. Presença internacional: Portugal e Venezuela. Sede Blumenau/SC.",
     "alerta": "Target roll-up",
+    "url": "https://publica.inf.br",
     "isNew": false
   },
   {
     "seg": "saude",
     "name": "ImpulsoGov",
-    "subseg": "Analytics / BI para APS",
-    "porte": "Startup early-stage",
+    "subseg": "BI Preventivo para APS / Saúde Pública",
+    "porte": "ONG / Não-lucrativa",
     "loc": "São Paulo - SP",
     "fund": "~2020",
-    "presenca": "Municípios via SUS",
-    "receita": "US$ 100k",
-    "nota": "BI para gaps de atenção básica preventiva. Cofundada por ex-Harvard Kennedy School. Reconhecida pela CGU. Impulso Previne.",
+    "presenca": "410+ municípios | 16M pessoas | 134k+ rotinas preventivas adicionais (2023)",
+    "receita": "US$ 100k (Mulago Foundation)",
+    "nota": "ONG com execução de startup focada em fechar gaps da atenção primária do SUS. Plataforma Impulso Previne: identifica pacientes em atraso em exames, vacinas e pré-natal e direciona agentes comunitários com listas priorizadas + SMS automático para cidadãos. Também atua em saúde mental (capacitação para depressão). Cofundada por ex-Harvard Kennedy School. Reconhecida pela CGU.",
     "alerta": "",
+    "url": "https://impulsogov.org",
     "isNew": false
   },
   {
@@ -615,51 +646,55 @@ const companies = [
     "name": "UpCities",
     "subseg": "Integração e-SUS / Telecare",
     "porte": "Startup",
-    "loc": "São Paulo - SP",
+    "loc": "Vitória - ES",
     "fund": "~2019",
     "presenca": "Municípios (expansão)",
     "receita": "N/D",
     "nota": "Integradora e-SUS/RNDS. Prontuário unificado, telecare. App offline para agentes comunitários de saúde.",
     "alerta": "",
+    "url": "https://upcities.app",
     "isNew": false
   },
   {
     "seg": "saude",
     "name": "ToGov",
-    "subseg": "Analytics APS / Educação",
+    "subseg": "Gestão de Saúde e Dados Municipais",
     "porte": "Startup",
     "loc": "Santa Luzia - MG",
     "fund": "2020",
-    "presenca": "Municípios MG e outros",
+    "presenca": "15+ municípios | 5 estados | MG, PR, ES, AL, PA",
     "receita": "N/D",
-    "nota": "Analytics Previne Brasil: gaps, captação de recursos, indicadores APS. 3ª DemoDay BrazilLAB 2023.",
+    "nota": "Soluções integradas para modernização municipal: Módulo Saúde (prontuários, regulação, vigilância sanitária) e Módulo Gestão de Dados (integração e consultoria em BI municipal). 100 Open Startups Top 10, Seed Gov, BrazilLAB, Centelha, Young Founders Program. +R$100M gerenciados em clientes.",
     "alerta": "",
+    "url": "https://togov.com.br",
     "isNew": false
   },
   {
     "seg": "saude",
     "name": "MedBolso",
-    "subseg": "Escalas / Anti-fraude Saúde",
+    "subseg": "Gestão de Escalas Médicas / Anti-fraude em Saúde",
     "porte": "Startup",
-    "loc": "N/D (Brasil)",
+    "loc": "Brasil",
     "fund": "~2020",
-    "presenca": "UBS / Municípios",
+    "presenca": "50+ organizações | cooperativas, hospitais e grupos médicos",
     "receita": "N/D",
-    "nota": "Gestão de escalas e plantões para saúde pública municipal. Anti-fraude em folha de pagamento. Top 30 Sebrae 2024. Acelerada GovTech Pará.",
+    "nota": "Aplicativo para gestão de escala médica em um só lugar: elimina planilhas, automatiza escalas de plantão e reduz glosas e fraudes administrativas. 50+ organizações economizando milhões. Top 30 Sebrae 2024. Acelerada GovTech Pará.",
     "alerta": "Watch — anti-fraude saúde",
+    "url": "https://medbolso.com.br",
     "isNew": false
   },
   {
     "seg": "educ",
     "name": "Portabilis",
-    "subseg": "Gestão Escolar (SIE)",
+    "subseg": "Gestão Escolar e SUAS (SIE + Software Público)",
     "porte": "Scale-up / PME",
     "loc": "Içara - SC",
     "fund": "2009",
-    "presenca": "140+ mun | 700k+ alunos",
+    "presenca": "100+ mun | 700k+ alunos | 200k+ famílias SUAS | 47k+ professores",
     "receita": "Aporte Yunus R$2M",
-    "nota": "Mantenedora i-Educar (software público federal). Parceria MEC e Fundação Lemann. Meta: 1,5M alunos até 2027.",
+    "nota": "Mantenedora do i-Educar (software público federal MEC). Abriu o código-fonte do Pré-Matrícula Digital (PMD) em parceria com MEC, Fundação Lemann e MP-SC. Também atua em assistência social (SUAS): 50+ municípios, 200k+ famílias. Meta: 1,5M alunos até 2027. Parceria Portábilis+Educa Rios expandindo para AM.",
     "alerta": "Target / impacto",
+    "url": "https://portabilis.com.br",
     "isNew": false
   },
   {
@@ -673,6 +708,7 @@ const companies = [
     "receita": "N/D",
     "nota": "Cliente Sorocaba (SP): avançou C+ → B no IEGM 2025 (Saúde e Educação). 26 anos no segmento.",
     "alerta": "",
+    "url": "https://vivver.com.br",
     "isNew": false
   },
   {
@@ -680,25 +716,27 @@ const companies = [
     "name": "Educ21",
     "subseg": "Gestão Escolar com IA",
     "porte": "PME / Startup",
-    "loc": "N/D",
+    "loc": "Brasil",
     "fund": "N/D",
     "presenca": "Municípios",
     "receita": "N/D",
     "nota": "Gestão acadêmica, administrativa e financeira com IA integrada. Dados institucionais limitados — oportunidade de due diligence.",
     "alerta": "",
+    "url": "https://educ21.com.br",
     "isNew": false
   },
   {
     "seg": "educ",
     "name": "Geekie",
-    "subseg": "Aprendizagem IA / Híbrida",
+    "subseg": "Aprendizagem IA / Ensino Híbrido",
     "porte": "Scale-up",
     "loc": "São Paulo - SP",
     "fund": "2011",
-    "presenca": "5k esc | 12M alunos",
+    "presenca": "5k+ escolas | 12M alunos | parceria MEC + Arco Educação",
     "receita": "N/D",
-    "nota": "415k alunos rede estadual SP (gratuito). Parceria MEC desde 2014. IA + ensino híbrido. Potencial alvo M&A.",
+    "nota": "Plataforma Geekie One: solução completa de aprendizagem personalizada com IA para todos os segmentos (Infantil, Fund., Médio). BNCC-compliant. 415k+ alunos rede estadual SP (gratuito). Parceria MEC desde 2014 e Arco Educação+OpenAI. Brilhando Juntos: programa de marketing e retenção para escolas parceiras.",
     "alerta": "",
+    "url": "https://geekie.com.br",
     "isNew": false
   },
   {
@@ -706,12 +744,13 @@ const companies = [
     "name": "Educacross",
     "subseg": "Gamificação + IA Educacional",
     "porte": "Startup",
-    "loc": "N/D (Brasil)",
-    "fund": "N/D",
-    "presenca": "Rede estadual GO",
+    "loc": "Ribeirão Preto - SP",
+    "fund": "~2015",
+    "presenca": "4M+ pessoas | 430M+ exercícios | 100% das redes parceiras melhoraram IDEB",
     "receita": "N/D",
-    "nota": "Selecionada Governo de Goiás. Gamificação + IA em Português e Matemática para redes públicas.",
+    "nota": "10 anos de EdTech gamificada com IA adaptativa: avaliações digitais, jogos adaptativos e leitura Fi.Git.Al (físico+digital+social). Metodologia Flow + BNCC. Clientes: redes estaduais GO e BR, escolas públicas e privadas. 100% das redes parceiras melhoraram seu IDEB. Programas: Liga das Corujinhas, Alfabetização, Expedição, Olimpíadas.",
     "alerta": "",
+    "url": "https://educacross.com.br",
     "isNew": false
   },
   {
@@ -725,6 +764,7 @@ const companies = [
     "receita": "N/D",
     "nota": "Monitoramento IDEB, IEGM, captação de recursos. Camada analítica sobre SIEs existentes. BrazilLAB 2023.",
     "alerta": "",
+    "url": "https://togov.com.br",
     "isNew": false
   },
   {
@@ -734,10 +774,11 @@ const companies = [
     "porte": "Software Público",
     "loc": "Itajaí - SC (origem)",
     "fund": "2008",
-    "presenca": "80+ prefeituras ativas",
+    "presenca": "80+ prefeituras | 2.050+ escolas | 500k+ alunos",
     "receita": "Gratuito",
-    "nota": "Software público federal mantido por Portabilis. Monte Alegre (RN) economizou R$2,4M. Parceria MEC + MP.",
+    "nota": "Software público federal mantido pela Portabilis. Pré-Matrícula Digital PMD aberto ao público em 2025 (código no GitHub). Monte Alegre (RN) economizou R$2,4M. Parceria MEC + Fundação Lemann + MP-SC. Canoas RS referência em implementação.",
     "alerta": "Referência pública",
+    "url": "https://ieducar.org",
     "isNew": false
   },
   {
@@ -747,23 +788,25 @@ const companies = [
     "porte": "Startup",
     "loc": "Rio de Janeiro - RJ",
     "fund": "N/D",
-    "presenca": "50+ municípios | est. SP",
+    "presenca": "5.000+ instituições | 100M+ questões | 400k+ conteúdos BNCC",
     "receita": "R$11,8M (Fundo GovTech)",
-    "nota": "Plataforma adaptativa de aprendizagem e avaliação gamificada. 90% dos alunos em escolas públicas. 83% dos usuários em rede pública. Meta: 10M alunos até 2030. Rodada seed R$11,8M liderada pelo Fundo GovTech (KPTL+Cedro) com DOMO.VC, Criabiz Ventures e Rosey Ventures (Grupo Marista). Mar/2026.",
+    "nota": "Maior plataforma de aprendizagem adaptativa gamificada do Brasil. 90% dos alunos em escolas públicas. +18% ganho de aprendizagem em poucos meses. Meta: 10M alunos até 2030. Rodada seed R$11,8M liderada pelo Fundo GovTech (KPTL+Cedro) com DOMO.VC, Criabiz Ventures e Rosey Ventures (Grupo Marista). Mar/2026. Parceiro Edebê Brasil (escolas Salesianas).",
     "alerta": "Portfólio KPTL+Cedro",
+    "url": "https://jovensgenios.com",
     "isNew": false
   },
   {
     "seg": "ia",
     "name": "GovTools",
-    "subseg": "Agentes RPA / WhatsApp",
+    "subseg": "Agentes IA / WhatsApp Municipal",
     "porte": "Startup",
-    "loc": "Porto Alegre - RS",
+    "loc": "Gravataí - RS",
     "fund": "2024",
     "presenca": "200+ municípios",
     "receita": "Aporte Ventiur+DOMO",
-    "nota": "Agentes IA via WhatsApp. Opera sistemas municipais sem integração tradicional. 200+ municípios em <12 meses. Modelo viral, alta tração.",
+    "nota": "Agentes IA via WhatsApp que operam sistemas municipais sem integração tradicional. 200+ municípios em menos de 12 meses. Modelo viral de adoção. Potencial alvo de aquisição.",
     "alerta": "M&A Watch",
+    "url": "https://govtools.com.br",
     "isNew": false
   },
   {
@@ -773,10 +816,11 @@ const companies = [
     "porte": "Startup",
     "loc": "SP / Campina Grande - PB",
     "fund": "2016",
-    "presenca": "Setor público e privado",
+    "presenca": "Setor público e privado | financeiro, seguros, utilities, gov",
     "receita": "N/D",
-    "nota": "Ultra OCR®: automação de documentos públicos. Contratos, invoices, documentos de identidade. Gov + corporativo.",
+    "nota": "Ultra OCR®: automação de análise de documentos com IA — classificação, extração de dados, comparação e validação em bases públicas. Gov Hub: onboarding de alunos, profissionais liberais e pessoas jurídicas. Human-in-the-loop para revisão de casos críticos. Presente em grandes empresas financeiras e setor público.",
     "alerta": "",
+    "url": "https://nuveo.ai",
     "isNew": false
   },
   {
@@ -786,49 +830,53 @@ const companies = [
     "porte": "Instituto P&D",
     "loc": "Campinas - SP",
     "fund": "N/D",
-    "presenca": "Governo Federal",
+    "presenca": "Governo Federal | MGI, telecom, utilities",
     "receita": "R$ 390M contrato",
-    "nota": "Projeto INSPIRE com MGI (R$390M, 4 anos). IA personalizada para serviços de governo digital: chatbots, recomendação, acessibilidade.",
+    "nota": "Instituto de P&D referência em telecomunicações e tecnologias convergentes. Projeto INSPIRE com MGI (R$390M, 4 anos): IA personalizada para serviços de governo digital — assistentes virtuais de voz, recomendação e acessibilidade. Portfólio inclui IoT, Blockchain, IA, Conectividade Inteligente, OSS/BSS. Mais de 30 soluções comerciais.",
     "alerta": "Parceria estratégica MGI",
+    "url": "https://cpqd.com.br",
     "isNew": false
   },
   {
     "seg": "segpub",
     "name": "Horus Smart Det.",
-    "subseg": "Fiscalização / Drones / IA",
+    "subseg": "Monitoramento Aéreo / Fiscalização com IA",
     "porte": "Scale-up",
     "loc": "Florianópolis - SC",
-    "fund": "~2016",
-    "presenca": "100+ gov + privado",
+    "fund": "2014",
+    "presenca": "100+ clientes gov e privado | Florianópolis (Monitora Floripa), telco, energia",
     "receita": "N/D",
-    "nota": "Drones + satélites + visão computacional: obras irregulares, desmatamento, infraestrutura. Cliente: Florianópolis. 9 anos de operação.",
+    "nota": "Plataforma de análise de imagens com IA para decisões inteligentes: sistema Monitora detecta obras irregulares e desmatamento via satélite + drones (identificação automática, 50% mais eficácia de fiscalização). Prêmio Connected Smart Cities 2021. Também atua em inspeção solar e telecom (Vivo, ENEL). CEO: Fabrício Hertz. Sede Parque Tecnológico ALFA Florianópolis.",
     "alerta": "",
+    "url": "https://horus.global",
     "isNew": false
   },
   {
     "seg": "fiscal",
     "name": "Geopixel",
-    "subseg": "GeoInteligência Fiscal",
+    "subseg": "GeoInteligência Fiscal / Cadastro Imobiliário",
     "porte": "PME",
-    "loc": "Curitiba - PR",
-    "fund": "~2010",
-    "presenca": "100+ municípios",
+    "loc": "São José dos Campos - SP",
+    "fund": "~2008",
+    "presenca": "100+ municípios | clientes: Amparo SP, Teresópolis RJ, Guaratinguetá SP",
     "receita": "N/D",
-    "nota": "Geoprocessamento + IA para IPTU, ITBI, ISS. Reforma Tributária (LC 214/2025) cria janela de demanda direta e imediata.",
+    "nota": "18 anos como líder em geointeligência para prefeituras. Plataforma Geopixel Cidades integra geoprocessamento com IA para IPTU, ITBI, ISS e alvarás (digital e por QR Code). Módulos: SIG municipal integrado, monitoramento por satélite de alterações, mobilidade de campo e eventos ambientais. Reforma Tributária (LC 214/2025) cria janela de demanda direta e imediata.",
     "alerta": "Oportunidade fiscal 2025",
+    "url": "https://geopixel.com.br",
     "isNew": false
   },
   {
     "seg": "segpub",
     "name": "Intelicity",
-    "subseg": "IA Infraestrutura Urbana",
+    "subseg": "Gestão Urbana Preditiva / Pavimento e Zeladoria com IA",
     "porte": "Startup / Scale-up",
     "loc": "São Paulo - SP",
     "fund": "~2019",
-    "presenca": "Sabesp + municípios",
+    "presenca": "15M+ cidadãos | 8+ estados | São Paulo, Porto Alegre, Gravatá",
     "receita": "N/D",
-    "nota": "Câmeras em veículos + visão computacional: mapeia pavimento, rachaduras. Sabesp: detecção de vazamentos de água.",
+    "nota": "Plataforma de gestão urbana inteligente com visão computacional embarcada em veículos: mapeia qualidade de pavimento, iluminação, encostas e ativos urbanos georreferenciados. Sistema Gaia (SP) apoia programa de recape. Dashboard preditivo com Machine Learning. Também gerencia zeladoria (OS) e intervenções de concessionárias. Integra portal do cidadão. 40+ tipos de ativos monitorados.",
     "alerta": "",
+    "url": "https://intelicity.com.br",
     "isNew": false
   },
   {
@@ -837,11 +885,12 @@ const companies = [
     "subseg": "IA Jurídica / Judicial",
     "porte": "Startup",
     "loc": "Belo Horizonte - MG",
-    "fund": "2025",
+    "fund": "fev/2024",
     "presenca": "7 tribunais | 100k+ usr",
     "receita": "N/D",
     "nota": "10M+ minutas geradas. TJRS, STM, TRE-PB/BA, Tocantins. CNJ Resolução 615/2025. Exportou para a Argentina.",
     "alerta": "Watch — tração judicial",
+    "url": "https://minutaia.com.br",
     "isNew": false
   },
   {
@@ -849,12 +898,13 @@ const companies = [
     "name": "Tolky",
     "subseg": "IA Atendimento ao Cidadão",
     "porte": "Startup",
-    "loc": "N/D (Brasil)",
+    "loc": "Brasil",
     "fund": "~2023",
     "presenca": "Contratos gov / CNJ",
     "receita": "N/D",
     "nota": "Multichannel (WhatsApp, chat, email) + processos end-to-end. ABES CSC 2025. Contrato CPSI CNJ.",
     "alerta": "Selecionada CPSI CNJ",
+    "url": "https://tolky.com.br",
     "isNew": false
   },
   {
@@ -868,6 +918,7 @@ const companies = [
     "receita": "R$ 8M (Astella)",
     "nota": "Único CRM para setor público com chatbot WhatsApp verificado (login Gov.br), automação de serviços via IA e enriquecimento cadastral contínuo. Foco em arrecadação: cobrança ativa por WhatsApp/SMS/email/Domicílio Eletrônico, cruzamento com Receita Federal. CEO: Rodolfo Fiori (MIT). CTO: Dayanne Ramos. Cases: Salvador BA (R$29M recuperação crédito tributário), Araguaína TO (ROI 32x — R$300k→R$9,6M, 1º CPSI do país), Areal RJ (+135% arrecadação dívida ativa), Manaus AM, Pindamonhangaba SP. Prêmio InovaCidade 2023. Aporte Astella Series A (R$8M, 2020). BrazilLAB Turma 7.",
     "alerta": "M&A Watch — tração comprovada",
+    "url": "https://gove.digital",
     "isNew": false
   },
   {
@@ -877,10 +928,11 @@ const companies = [
     "porte": "Startup / Scale-up",
     "loc": "São Paulo - SP",
     "fund": "2014",
-    "presenca": "100+ clientes | 27 estados + 1k+ mun.",
+    "presenca": "100+ clientes | 27 estados + 1k+ mun. | +700 fontes",
     "receita": "N/D",
-    "nota": "Pioneira em monitoramento automatizado de dados governamentais (Legislativo, Executivo, Judiciário). 4M+ proposições monitoradas. ~890 fontes de Diários Oficiais. IA com termômetro de aprovação de PLs (>98% acurácia). Única com 100% de cobertura das Assembleias Estaduais. Ranking 100 Open Startups, Mapa GovTech. Cubo Itaú, Inovabra, Distrito.",
+    "nota": "Pioneira em monitoramento automatizado de dados governamentais (Legislativo, Executivo, Judiciário). 4M+ proposições monitoradas, +700 fontes incluindo Diários Oficiais. IA com termômetro de aprovação de PLs (>98% acurácia). Única com 100% de cobertura das Assembleias Estaduais. Plataforma de Stakeholders para gestão de contatos e RIG. Ranking 100 Open Startups, Mapa GovTech. Cubo Itaú, Inovabra, Distrito.",
     "alerta": "Watch — inteligência regulatória",
+    "url": "https://inteligov.com.br",
     "isNew": false
   },
   {
@@ -894,19 +946,21 @@ const companies = [
     "receita": "N/D",
     "nota": "Plataforma de inteligência regulatória voltada para corporações e escritórios de RelGov: monitora PLs, decretos, normas de agências reguladoras e órgãos de controle (federal, estadual, municipal). +16M proposições e atos indexados. Diferente da Inteligov (B2G): Datapolicy é B2B — vende para empresas que monitoram o governo. Portfólio Cedro Capital (FIP VBC) — disponível para M&A, sem mandatada.",
     "alerta": "M&A Watch — portfólio Cedro",
+    "url": "https://datapolicy.co",
     "isNew": true
   },
   {
     "seg": "fiscal",
     "name": "Hub Esfera",
-    "subseg": "IA Analytics / Orçamento Municipal",
+    "subseg": "IA 3P para Gestão Municipal / Dashboard Analítico",
     "porte": "Startup",
-    "loc": "N/D (Brasil)",
+    "loc": "Porto Alegre - RS",
     "fund": "N/D",
-    "presenca": "N/D",
+    "presenca": "50+ municípios | 8 áreas da gestão pública",
     "receita": "N/D",
-    "nota": "Plataforma IA para gestão municipal: analytics preditivo + preventivo + prescritivo. Integra dados orçamentários, operacionais e sociais para apoio à decisão do gestor público.",
+    "nota": "Plataforma de IA para gestão pública com metodologia exclusiva 3P: Preditiva (projeta receitas, saúde e matrículas), Preventiva (alertas automáticos de anomalias e contratos) e Prescritiva (sugere onde cortar custos, otimizar frota e compras). Dashboards interativos para todas as secretarias. Chat inteligente para consultas sobre dados oficiais da cidade. Marketplace de soluções parceiras integradas nativamente.",
     "alerta": "Watch",
+    "url": "https://hubesfera.com.br",
     "isNew": false
   },
   {
@@ -916,23 +970,25 @@ const companies = [
     "porte": "Startup",
     "loc": "Curitiba - PR",
     "fund": "N/D",
-    "presenca": "Indústria + gov",
+    "presenca": "29 países | Indústria + gov | 300k+ trabalhadores monitorados",
     "receita": "R$3M (Fundo GovTech)",
-    "nota": "IA para análises ergonômicas e psicossociais via visão computacional. Clientes: Marfrig, P&G, Electrolux. 8º investimento do Fundo GovTech (KPTL+Cedro), R$3M em fev/2026. Foco em saúde do trabalhador para setor público e privado. Expansão global planejada.",
+    "nota": "IA + visão computacional para análises ergonômicas e psicossociais automatizadas: reconhecimento de movimentos, quantificação de riscos biomecânicos e cronoanálise (Indústria 4.0). Resultados: -38% FAP, -30% afastamentos por DORT, análises 5x mais rápidas. Clientes: Marfrig, CNH Industrial, P&G, Electrolux, Vibra. 8º investimento Fundo GovTech (KPTL+Cedro), R$3M fev/2026. Campus da Indústria FIEP. 29 países.",
     "alerta": "Portfólio KPTL+Cedro",
+    "url": "https://kinebot.com.br",
     "isNew": false
   },
   {
     "seg": "proc",
-    "name": "Attus Procuradoria Digital",
-    "subseg": "IA Contencioso + Consultivo (PGE/PGM)",
+    "name": "Attus",
+    "subseg": "IA Generativa + Automações para Procuradorias (PGE/PGM)",
     "porte": "Scale-up",
-    "loc": "São Ludgero, SC (Eloware)",
+    "loc": "São Ludgero - SC (Grupo Eloware)",
     "fund": "~2018",
     "presenca": "PGE-SP, PGE-BA, PGE-PA, PGM-Palmas",
     "receita": "SaaS Oracle Cloud",
-    "nota": "4,3M+ processos analisados. 73% classificados automaticamente (98,5% acurácia). 642k+ peças geradas por IA. Referência nacional pós PGE-SP.",
+    "nota": "Rebrand de Attornatus (dez/2023) para Attus. IA generativa treinada exclusivamente na realidade de cada procuradoria: sínteses inteligentes de processos, geração de minutas, agente jurídico interativo. Centenas de automações em bastidores. Recuperação inteligente de Dívida Ativa com enriquecimento cadastral via Receita Federal. 4,3M+ processos analisados. 73% classificados automaticamente (98,5% acurácia). 642k+ peças geradas por IA. Referência nacional pós PGE-SP.",
     "alerta": "M&A Watch — líder do segmento",
+    "url": "https://attus.ai",
     "isNew": false
   },
   {
@@ -940,12 +996,13 @@ const companies = [
     "name": "Eicon / Giex",
     "subseg": "Dívida Ativa / Execução Fiscal",
     "porte": "PME",
-    "loc": "N/D (Brasil)",
+    "loc": "Brasil",
     "fund": "N/D",
     "presenca": "PGE e PGM — múltiplos estados",
     "receita": "N/D",
     "nota": "Giex: perfil completo do devedor. Integração direta com TJs. Automação de CDA, penhoras e prazos. iCad: alvarás e licenças digitais (concorrente da Quasar). +15 produtos para governo.",
     "alerta": "",
+    "url": "https://giex.com.br",
     "isNew": false
   },
   {
@@ -953,12 +1010,13 @@ const companies = [
     "name": "PGMNET",
     "subseg": "Gestão Jurídica Municipal + RPA",
     "porte": "PME",
-    "loc": "N/D (Brasil)",
+    "loc": "Campos dos Goytacazes - RJ",
     "fund": "N/D",
-    "presenca": "Procuradorias municipais",
+    "presenca": "Procuradorias municipais RJ e outros estados",
     "receita": "N/D",
-    "nota": "RPA integrado para peticionamento automático em qualquer TJ do país. Interface co-desenvolvida com procuradores municipais.",
+    "nota": "Software jurídico SaaS para procuradorias municipais com automação RPA: peticionamento automático em qualquer TJ do país, captura de publicações e intimações 24/7, gestão de prazos e processos judiciais e administrativos. IA integrada. Desenvolvido co-criação com procuradores. Cases: PGM Campos dos Goytacazes RJ, São Francisco de Itabopoana RJ, São Pedro da Aldeia RJ, COMSERCAF Cabo Frio RJ.",
     "alerta": "",
+    "url": "https://www.pgmnet.com.br",
     "isNew": false
   },
   {
@@ -966,12 +1024,13 @@ const companies = [
     "name": "Aetos Tech",
     "subseg": "IA Anti-fraude Contratos (Prisma)",
     "porte": "Startup",
-    "loc": "N/D (Brasil)",
+    "loc": "Brasil",
     "fund": "N/D",
     "presenca": "MPRJ (CPSI 2024)",
     "receita": "Contrato CPSI",
     "nota": "Prisma: detecção de irregularidades em contratos públicos e lavagem de dinheiro. Cruzamento de bases abertas por IA. Selecionada CPSI MPRJ.",
     "alerta": "Contrato CPSI",
+    "url": "https://aetostech.com.br",
     "isNew": false
   },
   {
@@ -979,12 +1038,13 @@ const companies = [
     "name": "Sumé Tecnologia",
     "subseg": "Monitoramento Políticas Públicas (Sonar)",
     "porte": "Startup",
-    "loc": "N/D (Brasil)",
+    "loc": "Brasil",
     "fund": "N/D",
     "presenca": "MPRJ (CPSI 2024)",
     "receita": "Contrato CPSI",
     "nota": "Sonar: controle externo automatizado do executivo municipal. Monitora 92 municípios do RJ via MPRJ. Selecionada CPSI MPRJ.",
     "alerta": "Contrato CPSI",
+    "url": "https://sumetecnologia.com.br",
     "isNew": false
   },
   {
@@ -998,6 +1058,7 @@ const companies = [
     "receita": "N/D",
     "nota": "Módulo procuradoria integrado ao ERP municipal Prodata. Gestão de contencioso, consultivo e execução fiscal para prefeituras de pequeno e médio porte.",
     "alerta": "",
+    "url": "https://prodata.com.br",
     "isNew": false
   },
   {
@@ -1007,36 +1068,39 @@ const companies = [
     "porte": "Scale-up / PME",
     "loc": "Belo Horizonte - MG",
     "fund": "2016",
-    "presenca": "4.300+ entes | 600k+ forn.",
+    "presenca": "4.000+ entes | 634k+ forn. | +R$616M oportunidades/dia | 300+ processos/dia",
     "receita": "R$450B+ TPV",
-    "nota": "40%+ dos municípios brasileiros. Fundadores: Leonardo + Bruno Ladeira (Ecustomize). 35% crescimento anual. Marketplace B2G de referência nacional. Portfólio Cedro Capital (FIP Venture Brasil Central) — disponível para M&A, sem mandatada.",
+    "nota": "Maior marketplace de licitações do Brasil. 40%+ dos municípios. Fundadores: Leonardo + Bruno Ladeira (Ecustomize). Certificações ISO 9001, 27001, 27701, 20000-1. Integrado ao PNCP. 35% crescimento anual. Portfólio Cedro Capital (FIP Venture Brasil Central) — disponível para M&A, sem mandatada.",
     "alerta": "M&A Watch — portfólio Cedro",
+    "url": "https://www.portaldecompraspublicas.com.br",
     "isNew": false
   },
   {
     "seg": "lic",
     "name": "Licitar.digital",
-    "subseg": "SaaS Credenciamento Eletrônico",
+    "subseg": "Plataforma Licitações Eletrônicas / Credenciamento",
     "porte": "Startup",
-    "loc": "N/D (Brasil)",
+    "loc": "Sete Lagoas - MG",
     "fund": "Jul/2019",
-    "presenca": "90k+ fornecedores",
+    "presenca": "90k+ fornecedores | clientes: Recife PE, Sete Lagoas MG, Itabira MG",
     "receita": "N/D",
-    "nota": "Única plataforma de credenciamento eletrônico automatizado do Brasil. CEO: Aniele H. Figueiredo. Diferencial regulatório: elimina burocracia de habilitação presencial.",
+    "nota": "Plataforma completa de compras públicas conectando entes públicos, fornecedores e cidadãos. Diferencial regulatório em credenciamento eletrônico automatizado. Suporte especializado por telefone, WhatsApp e chat. Compatível com Lei 14.133/2021: pregão eletrônico, dispensa, credenciamento e chamamentos. CEO: Aniele H. Figueiredo.",
     "alerta": "",
+    "url": "https://licitar.digital",
     "isNew": false
   },
   {
     "seg": "lic",
     "name": "StartGi",
-    "subseg": "CRM B2G para Fornecedores",
+    "subseg": "Suite B2G para Fornecedores / Gestão de Licitações Sell-side",
     "porte": "Startup",
     "loc": "São Paulo - SP",
     "fund": "2015",
-    "presenca": "N/D",
+    "presenca": "50M+ licitações monitoradas",
     "receita": "N/D",
-    "nota": "Portfólio Fundo GovTech KPTL. CRM especializado na jornada de vendas B2G. Gestão de oportunidades, propostas e relacionamento com entes públicos.",
-    "alerta": "",
+    "nota": "Suite SaaS para fornecedores que vendem para governo: i-Ganhei (captação com IA, workflow, propostas automáticas, gestão de contratos), i-Pesquisei (inteligência de mercado B2G), i-Documentei (gestão de certidões), BPO de Licitações e i-One (projetos IA sob medida). Portfólio Fundo GovTech KPTL. 300% mais eficiência declarada.",
+    "alerta": "Portfólio KPTL",
+    "url": "https://startgi.com.br",
     "isNew": false
   },
   {
@@ -1050,19 +1114,21 @@ const companies = [
     "receita": "N/D",
     "nota": "Bolsa de Licitações e Leilões — uma das maiores plataformas de licitações do Brasil. Mais consolidada, pré-startups. Referência histórica do mercado.",
     "alerta": "",
+    "url": "https://bllcompras.com",
     "isNew": false
   },
   {
     "seg": "lic",
     "name": "GoBuyer",
-    "subseg": "IA Contratos Pós-adjudicação",
+    "subseg": "Plataforma SaaS de Cotação e Compras / Compliance Setor Público",
     "porte": "Startup",
-    "loc": "N/D (Brasil)",
+    "loc": "Brasil",
     "fund": "N/D",
-    "presenca": "N/D",
+    "presenca": "CEB, Onitel e outros | Grupo Squadra",
     "receita": "N/D",
-    "nota": "Gestão do ciclo de vida de contratos públicos com IA: análise de cláusulas, alertas de prazo, auditoria automatizada. Segmento pós-licitação ainda sem líder claro.",
-    "alerta": "Watch — nicho virgem",
+    "nota": "Plataforma SaaS 100% flexível de gestão de compras corporativas com IA: cotação, disputas (aberta/fechada/leilão reverso), gestão de contratos, portal do fornecedor e BI de saving. Conformidade 14.133, 13.303 e Pregão Eletrônico. IA Pesquisa de Mercado premiada (Desafio TREM). Parte do Grupo Squadra (venture builder + data intelligence + cybersec). Integra Totvs, SAP, Oracle, Dynamics.",
+    "alerta": "Watch — compras gov",
+    "url": "https://gobuyer.com.br",
     "isNew": false
   },
   {
@@ -1070,12 +1136,13 @@ const companies = [
     "name": "StartGov",
     "subseg": "Licitações Buy-side para Órgãos Públicos",
     "porte": "PME",
-    "loc": "N/D (Brasil)",
+    "loc": "Imperatriz - MA",
     "fund": "N/D",
     "presenca": "290+ órgãos públicos",
     "receita": "N/D",
-    "nota": "Plataforma buy-side: gestão de licitações e contratos para entes públicos. 290+ clientes. Lei 14.133/2021 compliance. Distinto do StartGi (B2G para fornecedores privados).",
+    "nota": "Plataforma buy-side para gestão de licitações e contratos de entes públicos. 290+ órgãos atendidos. Módulos: PCA, Planejamento & Licitação (ETP com IA, Mapa de Riscos), Cotação de Preços (IA + PNCP) e Gestão de Contratação. 100% aderente à Lei 14.133/2021. Metodologia em 5 etapas. Diferente do StartGi (B2G para fornecedores).",
     "alerta": "Watch — buy-side gov",
+    "url": "https://startgov.com.br",
     "isNew": false
   },
   {
@@ -1085,10 +1152,11 @@ const companies = [
     "porte": "Startup",
     "loc": "Brasil (ES, BA, RN)",
     "fund": "N/D",
-    "presenca": "14 municípios | 17k+ un.",
+    "presenca": "14 municípios | 9.872 títulos emitidos | 17k+ projetos em andamento",
     "receita": "N/D",
-    "nota": "Plataforma SaaS para regularização fundiária urbana (REURB) de ponta a ponta. App offline para agentes de campo. Emissão automática de CRF, títulos de legitimação e relatórios técnicos. Integração com cartórios. 17k+ unidades habitacionais regularizadas.",
+    "nota": "Plataforma SaaS para regularização fundiária urbana (REURB) ponta a ponta. App offline para coleta de campo. Emissão automática de relatórios técnicos, Títulos de Legitimação e Posse (TLP) e CRF. Integração com cartórios. Reduz 180 dias para 60 dias no processo. Municípios atendidos: Vitória ES, Vila Velha ES, Aracruz ES, Itabuna BA, Parnamirim RN, entre outros. ESG: 100% digital, zero papel.",
     "alerta": "Watch — REURB nicho virgem",
+    "url": "https://reurbr.com.br",
     "isNew": false
   },
   {
@@ -1097,11 +1165,12 @@ const companies = [
     "subseg": "Gestão Habitacional + REURB Municipal",
     "porte": "PME",
     "loc": "Chapecó - SC",
-    "fund": "2005",
-    "presenca": "16 estados brasileiros",
+    "fund": "~2007",
+    "presenca": "16 estados brasileiros | MCMV, Casa Verde Amarela, REURB",
     "receita": "N/D",
-    "nota": "Software especialista em habitação de interesse social e regularização fundiária. 18 anos de atuação. Clientes: Governo de Roraima, programas MCMV e Casa Verde Amarela. Gestão de sorteios, hierarquizações e entregas habitacionais para prefeituras.",
+    "nota": "17+ anos como especialista em software para habitação de interesse social: cadastro multifinalitário georreferenciado, seleção de famílias (Portaria 2.081/20), sorteios, auxílio aluguel, cheque-reforma e REURB-S/E com emissão de CRF. Aplicativo móvel online/offline. LGPD-compliant. Equipe multidisciplinar (assistente social, arquiteta, contadora). 100% auditável. Cliente referência: Chapecó SC.",
     "alerta": "Target roll-up",
+    "url": "https://sishabi.com.br",
     "isNew": false
   },
   {
@@ -1109,25 +1178,27 @@ const companies = [
     "name": "CERURB",
     "subseg": "REURB Digital com IA",
     "porte": "Startup",
-    "loc": "Brasil",
+    "loc": "Teresina - PI",
     "fund": "N/D",
     "presenca": "Municípios + TJ Piauí",
     "receita": "N/D",
     "nota": "Plataforma corporativa para REURB: diagnóstico, mapeamento geoespacial, emissão automática de CRF e integração com cartórios. 30k+ matrículas abertas em 12 meses. Contratos com Governo do Piauí (PROURBE) e Tribunal de Justiça.",
     "alerta": "Watch — tração judicial",
+    "url": "https://cerurb.com.br",
     "isNew": false
   },
   {
     "seg": "hab",
     "name": "Vivenda",
-    "subseg": "Melhoria Habitacional de Interesse Social",
+    "subseg": "Plataforma Gerenciadora de Reformas Habitacionais Populares",
     "porte": "Startup de Impacto",
     "loc": "São Paulo - SP",
     "fund": "N/D",
-    "presenca": "4.500+ intervenções",
+    "presenca": "6.500+ reformas | 40+ cidades | 16 estados | R$54M+ gerenciados",
     "receita": "N/D",
-    "nota": "Melhoria habitacional acessível para população de baixa renda. 4.500+ melhorias entregues. Portfólio BrazilLAB. Um dos principais negócios de impacto social do Brasil em habitação.",
+    "nota": "Primeira plataforma gerenciadora de reformas habitacionais populares do Brasil. Conecta beneficiários, prestadores e assistentes sociais em sistema único. Parceiros: COHAB-SP (Pode Entrar – Melhorias), Gerdau, Instituto BID, Instituto Cyrela. 24k+ pessoas vivendo melhor. Empresa B certificada. BrazilLAB.",
     "alerta": "Impacto social / ESG",
+    "url": "https://vivenda.io",
     "isNew": false
   },
   {
@@ -1137,10 +1208,11 @@ const companies = [
     "porte": "Startup",
     "loc": "Bahia",
     "fund": "~2021",
-    "presenca": "Consórcios intermunicipais BA",
+    "presenca": "Consórcios intermunicipais BA | CONSID, CONVALE, CDS Bacia do Paramirim",
     "receita": "N/D",
-    "nota": "SaaS de licenciamento ambiental municipal 100% digital. Integra SINAFLOR, GEOBAHIA, SEMA-BA e CEPRAM. 70% redução de custos declarada, onboarding em 30 dias. Operando via consórcios: CDS Bacia do Paramirim, CONVALE e CONSID Oeste da BA. Conformidade com Resolução CEPRAM 4.327/13.",
+    "nota": "Sistema de Gestão Ambiental Compartilhada (eGAC): SaaS de licenciamento ambiental municipal 100% digital. Integra SINAFLOR, GEOBAHIA, SEMA-BA e CEPRAM. Cobrança automática de taxa ambiental via Pix/boleto. 70% redução de custos declarada, onboarding em 30 dias. Nasceu da pandemia de 2021 em colaboração com gestores municipais baianos. Conformidade CEPRAM 4.327/13.",
     "alerta": "Watch — lic. ambiental nicho virgem",
+    "url": "https://egacapp.com.br",
     "isNew": false
   },
   {
@@ -1148,12 +1220,13 @@ const companies = [
     "name": "TUXTU",
     "subseg": "Licenciamento + Arborização + Crédito de Carbono",
     "porte": "Startup",
-    "loc": "Brasil",
+    "loc": "Macapá - AP",
     "fund": "~2022",
-    "presenca": "Municípios (via órgãos ambientais)",
+    "presenca": "Municípios (via órgãos ambientais) | Associada ABES",
     "receita": "N/D",
-    "nota": "3 módulos SaaS para Secretarias de Meio Ambiente: SIBLAM (licenciamento com bio-algoritmo e método Battelle EES — reduz subjetividade do analista), SIGAU (arborização urbana com participação cidadã), SICCA (crédito de carbono). Propõe padronização nacional do licenciamento. CEO: Marcelo Creão. Associada ABES.",
+    "nota": "Suite SaaS para Secretarias de Meio Ambiente: SIBLAM (licenciamento com bio-algoritmo e método Battelle EES — reduz subjetividade do analista), SIGAU (arborização urbana com participação cidadã), Sistema de Resíduos Sólidos, Crédito de Carbono (SICCA) e Controle e Fiscalização. Propõe padronização nacional do licenciamento. CEO: Marcelo Creão.",
     "alerta": "Watch — 3 verticais ambientais",
+    "url": "https://tuxtu.com.br",
     "isNew": false
   },
   {
@@ -1167,19 +1240,21 @@ const companies = [
     "receita": "N/D",
     "nota": "Plataforma + hardware IoT proprietário (H-SAT) para rastreabilidade de resíduos sólidos do ponto de coleta ao destino final. Gera documentos auditáveis com fotos georreferenciadas, telemetria e carimbos de tempo. Conformidade PNRS. Modelo híbrido: software + presença onsite. PIT-SJC. Fundada jun/2024.",
     "alerta": "Watch — PNRS compliance IoT",
+    "url": "https://retechrecycle.com.br",
     "isNew": false
   },
   {
     "seg": "smart",
     "name": "SmartCityTec",
-    "subseg": "Plataforma FIWARE / Interoperabilidade Municipal",
+    "subseg": "Plataforma FIWARE / Data Spaces Municipais",
     "porte": "Startup",
     "loc": "Santa Catarina",
     "fund": "~2022",
-    "presenca": "Smart Mafra + Amurel Conectada (18 mun.)",
+    "presenca": "Smart Mafra + Amurel Conectada (18 mun.) | Membro FIWARE Foundation",
     "receita": "N/D",
-    "nota": "Plataforma open-source baseada em FIWARE para cidades inteligentes: data spaces, IoT, mobilidade, segurança e clima. Smart Mafra: 1ª cidade BR com lei municipal baseada em FIWARE (centraliza tributação, alvarás e serviços públicos). Amurel Conectada: integra 18 municípios da Região de Laguna/SC. SC aprovou Lei 19.494 adotando FIWARE como padrão estadual. Prêmio GovTech Summit 2025. Smart City Expo Barcelona 2025.",
+    "nota": "Plataforma baseada em FIWARE para cidades inteligentes: data spaces interoperáveis, IoT, mobilidade, segurança e clima. Smart Mafra: 1ª cidade BR com lei municipal FIWARE (centraliza tributação, alvarás e todos os serviços públicos em sistema único). Amurel Conectada: integra 18 municípios Região de Laguna/SC — 1º espaço de dados regional BR em operação. SC aprovou Lei 19.494 adotando FIWARE como padrão estadual. CEO: Gilsoni Lunardi Albino. Prêmio Smart City Expo Curitiba 2025 + Barcelona 2025.",
     "alerta": "Watch — padrão FIWARE em SC",
+    "url": "https://smartcity.tec.br",
     "isNew": false
   },
   {
@@ -1193,19 +1268,21 @@ const companies = [
     "receita": "N/D",
     "nota": "Plataforma de IA para otimização de redes de transporte público: roteirização dinâmica, previsão de demanda, priorização semafórica e inteligência geoespacial. Resultados declarados: -14% no tempo de viagem (ônibus+IA), -18% custo logístico, +21% satisfação em eventos. Arquitetura modular com API aberta. Early-stage — contratos públicos não confirmados.",
     "alerta": "Watch — mobilidade pública IA",
+    "url": "https://iguata.com.br",
     "isNew": false
   },
   {
     "seg": "gestao",
     "name": "PLACE",
-    "subseg": "Planejamento Urbano / GeoInteligência",
+    "subseg": "Planejamento Urbano e Geointeligência / Urban Twin",
     "porte": "Startup",
     "loc": "Brasil",
     "fund": "N/D",
-    "presenca": "Municípios",
+    "presenca": "Prefeituras e mercado imobiliário privado",
     "receita": "N/D",
-    "nota": "Plataforma que integra dados de mercado imobiliário, urbanismo e legislação municipal em interface intuitiva para gestores públicos. Certificada BrazilLAB. Suporte a decisões de planejamento territorial e uso do solo.",
+    "nota": "Plataforma dual (govtech + proptech) de inteligência territorial com Gêmeo Digital: integra bases públicas, rotinas urbanísticas, pré-aprovação de projetos e visualização 2D/3D com IA aplicada à legislação urbanística. Para o setor privado: viabilidade e gestão de portfólio imobiliário. Certificada BrazilLAB.",
     "alerta": "Watch — urbanismo digital",
+    "url": "https://www.ospa.place",
     "isNew": false
   }
 ];
@@ -1356,6 +1433,8 @@ function makeCard(c) {
   const tagHtml = alerta ? `<span class="card-${tagClass}-tag">${alerta}</span>` : "";
   const newBadge = c.isNew ? `<span class="card-new-tag">🆕 Novo</span>` : "";
   const nd = v => (!v || v === "N/D" || v === "N/D (Brasil)") ? "" : v;
+  const urlHost = c.url ? c.url.replace(/^https?:\/\/(www\.)?/,"").split("/")[0] : "";
+  const linkHtml = c.url ? `<a class="card-link" href="${c.url}" target="_blank" rel="noopener">🔗 ${urlHost}</a>` : "";
   return `<div class="card ${c.seg}" data-seg="${c.seg}" data-search="${(c.name+c.subseg+c.nota+c.loc+c.presenca).toLowerCase()}">
     <div class="card-top">
       <div class="card-name">${c.name}</div>
@@ -1369,7 +1448,10 @@ function makeCard(c) {
       ${nd(c.receita) ? `<span class="meta-item"><span class="icon">💰</span>${c.receita}</span>` : ""}
     </div>
     <div class="card-nota">${c.nota}</div>
-    <div style="margin-top:6px;">${tagHtml}${newBadge}</div>
+    <div class="card-footer">
+      <div>${tagHtml}${newBadge}</div>
+      ${linkHtml}
+    </div>
   </div>`;
 }
 
@@ -1464,6 +1546,9 @@ updateCounts();
     <button id="cl-close" onclick="closeChangelog()">✕</button>
     <h2>📋 Histórico de Atualizações</h2>
     <div class="cl-entry">
+  <span class="cl-ver">v12</span><span class="cl-date">06/05/2026</span>
+  <ul class="cl-items"><li>Atualização massiva: site oficial (url) adicionado a todas as 68 empresas do radar</li><li>Atuação, segmento e dados validados com base nos sites oficiais de cada empresa</li><li>ImpulsoGov: porte corrigido para ONG/Não-lucrativa (410+ municípios, missão social)</li><li>Attus: rebrand de 'Attornatus' confirmado (dez/2023), URL attus.ai, IA generativa + automações</li><li>MinutaIA: fundação corrigida para fev/2024 (não 2025)</li><li>Geopixel: sede corrigida para São José dos Campos SP (Parque Tecnológico SJC)</li><li>IPQ Tecnologia: sede corrigida para Porto Alegre RS (Tecnopuc/PUCRS), 25+ anos</li><li>GovTools: sede corrigida para Gravataí RS</li><li>UpCities: sede corrigida para Vitória ES</li><li>PGMNET: sede corrigida para Campos dos Goytacazes RJ</li><li>StartGov: sede corrigida para Imperatriz MA</li><li>CERURB: sede corrigida para Teresina PI</li><li>TUXTU: sede corrigida para Macapá AP</li><li>Vivenda: 6.500+ reformas realizadas, R$54M+ gerenciados, COHAB-SP parceiro</li><li>SmartCityTec: URL smartcity.tec.br, membro oficial FIWARE Foundation</li></ul>
+</div><div class="cl-entry">
   <span class="cl-ver">v11</span><span class="cl-date">06/05/2026</span>
   <ul class="cl-items"><li>Datapolicy adicionada (IA Gov — Inteligência Regulatória B2B, portfólio Cedro Capital)</li><li>Portal de Compras Públicas: confirmado portfólio Cedro Capital (FIP VBC) — disponível para M&A</li></ul>
 </div><div class="cl-entry">
