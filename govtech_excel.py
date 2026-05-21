@@ -16,11 +16,18 @@ from openpyxl.utils import get_column_letter
 # DADOS — edite aqui para atualizar Excel e HTML juntos
 # ══════════════════════════════════════════════════════════════
 
-VERSION = "v13"
+VERSION = "v14"
 DATA_REF = "Maio 2026"
 UPDATED_AT = "21/05/2026"
 
 CHANGELOG = [
+    {
+        "version": "v14", "date": "21/05/2026",
+        "items": [
+            "iBridge adicionada (gestao) — plataforma de Contact Center / PABX IP com vertical para centrais municipais (156 e ouvidorias): 5.000+ posições, 50M+ chamadas/mês, Florianópolis SC",
+            "Senha de acesso removida: radar agora público e aberto",
+        ]
+    },
     {
         "version": "v13", "date": "21/05/2026",
         "items": [
@@ -103,6 +110,7 @@ CHANGELOG = [
 COMPANIES = [
     # ── GESTÃO MUNICIPAL ──
     {"seg":"gestao", "name":"Aprova Digital",    "subseg":"Gestão de Processos Administrativos Municipais", "porte":"Startup / Scale-up",  "loc":"Cascavel - PR",         "fund":"2017",  "presenca":"150+ cidades | 23M+ brasileiros", "receita":"R$ 22,5M (Astella+BB)", "nota":"Plataforma SaaS de processos eletrônicos para prefeituras: protocolo, assinatura digital ICP-Brasil, tramitação com IA, portal de serviços e arrecadação (Aprova Pay). Cobre obras, meio ambiente, RH e compras. Primeira govtech investida pelo Banco do Brasil. TOP Open Startups 2024.", "alerta":"", "url":"https://aprova.com.br", "isNew":False},
+    {"seg":"gestao", "name":"iBridge Technology", "subseg":"Contact Center / PABX IP para Centrais Municipais (156 e Ouvidorias)", "porte":"PME Estabelecida", "loc":"Florianópolis - SC", "fund":"2008", "presenca":"5.000+ posições de atendimento | 50M+ chamadas/mês | 250k+ vendas/mês", "receita":"N/D (bootstrap)", "nota":"Plataforma completa de gestão de contact center e PABX IP em nuvem para operações ativas, receptivas e mistas. Callcenter Manager: controle em tempo real, discador preditivo, gravação de ramais, fila de atendimento com URA, dashboards de performance e integrações com CRM (Salesforce, Dynamics 365, RD Station, Zendesk). PABX IP compatível com redes VoIP e PSTN (analógico, digital, IP ou híbrido). Aplicável a centrais 156 e ouvidorias municipais para modernização do atendimento ao cidadão. CEO: Vinicius Bossle Fagundes. 17 anos de atuação.", "alerta":"Watch — canal 156 municipal", "url":"https://ibridge.com.br", "isNew":True},
     {"seg":"gestao", "name":"GovDigital",        "subseg":"App Municipal SaaS / Relacionamento Cidadão-Governo", "porte":"Startup / Scale-up",  "loc":"Jaraguá do Sul - SC",   "fund":"~2020", "presenca":"Múltiplos municípios SC e outros estados", "receita":"N/D (bootstrap)", "nota":"App oficial white-label de prefeituras reunindo zeladoria, agendamento, formulários online, notícias e comunicação direta cidadão-prefeitura. Integrações com IPTU, protocolo e ouvidoria. CEO: Elias Raasch. Expansão nacional sem VC.", "alerta":"Watch — expansão nacional", "url":"https://govdigital.app", "isNew":False},
     {"seg":"gestao", "name":"Desenvolve Cidade", "subseg":"Licenciamento e Tributação Municipal Digital", "porte":"Startup",             "loc":"Campinas - SP",         "fund":"~2014", "presenca":"Municípios Norte e outras regiões | Scale-Up Endeavor 2021", "receita":"N/D", "nota":"Plataforma integrada de licenciamento digital (urbanístico, ambiental, sanitário, obras), abertura/baixa de empresas, IPTU e ISS digitais integrada à REDESIM federal. Foco em desburocratização e aumento de receita própria municipal. TOP2 Open Startups 2024.", "alerta":"", "url":"https://www.desenvolvecidade.com.br", "isNew":False},
     {"seg":"gestao", "name":"IP Inovação",       "subseg":"Capacitação e Consultoria em Gestão Pública", "porte":"Startup",             "loc":"Belém - PA",             "fund":"2014",  "presenca":"Ecossistema Norte do Brasil", "receita":"N/D", "nota":"Empresa de capacitação e consultoria para gestão pública municipal na região Norte. TOP 3 Open Startups 2024. Não foram identificados produtos SaaS com identidade digital clara — oportunidade de due diligence.", "alerta":"Watch — due diligence necessário", "url":"", "isNew":False},
@@ -566,17 +574,6 @@ def make_html(output_path):
   #cl-close {{ float: right; background: none; border: none; font-size: 20px; cursor: pointer; color: #888; margin-top: -4px; }}
   #cl-close:hover {{ color: #333; }}
 
-  /* Login */
-  #login-overlay {{ position: fixed; inset: 0; background: linear-gradient(135deg, #1F4E79 0%, #2a5f8e 100%); display: flex; align-items: center; justify-content: center; z-index: 9999; }}
-  #login-box {{ background: #fff; border-radius: 12px; padding: 48px 40px; width: 100%; max-width: 380px; box-shadow: 0 8px 32px rgba(0,0,0,0.25); text-align: center; }}
-  #login-box h2 {{ color: #1F4E79; font-size: 20px; font-weight: 700; margin-bottom: 6px; }}
-  #login-box p {{ color: #666; font-size: 13px; margin-bottom: 28px; }}
-  #login-box input {{ width: 100%; padding: 12px 16px; border: 1.5px solid #ccc; border-radius: 8px; font-size: 15px; outline: none; margin-bottom: 12px; transition: border-color 0.2s; }}
-  #login-box input:focus {{ border-color: #2E75B6; }}
-  #login-box button {{ width: 100%; padding: 12px; background: #1F4E79; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 0.2s; }}
-  #login-box button:hover {{ background: #2E75B6; }}
-  #login-error {{ color: #c0392b; font-size: 13px; margin-top: 10px; display: none; }}
-  #login-logo {{ font-size: 13px; color: #999; margin-top: 24px; }}
 </style>
 </head>
 <body>
@@ -837,36 +834,6 @@ updateCounts();
   </div>
 </div>
 
-<!-- LOGIN -->
-<div id="login-overlay">
-  <div id="login-box">
-    <h2>Radar GovTech Brasil</h2>
-    <p>DLG Tech — Acesso restrito</p>
-    <input type="password" id="login-input" placeholder="Digite a senha" onkeydown="if(event.key==='Enter') checkLogin()" autofocus />
-    <button onclick="checkLogin()">Entrar</button>
-    <div id="login-error">Senha incorreta. Tente novamente.</div>
-    <div id="login-logo">dlgtech.com.br</div>
-  </div>
-</div>
-<script>
-(function() {{
-  if (sessionStorage.getItem('dlg_auth') === '1') {{ document.getElementById('login-overlay').style.display='none'; return; }}
-  window.checkLogin = function() {{
-    const pwd = document.getElementById('login-input').value;
-    crypto.subtle.digest('SHA-256', new TextEncoder().encode(pwd)).then(b => {{
-      const hash = Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,'0')).join('');
-      if (hash === 'a4ab044afdb741fec333da9498b48a42edf765c67fa259c8ed2916093d1d33a5') {{
-        sessionStorage.setItem('dlg_auth','1');
-        document.getElementById('login-overlay').style.display='none';
-      }} else {{
-        document.getElementById('login-error').style.display='block';
-        document.getElementById('login-input').value='';
-        document.getElementById('login-input').focus();
-      }}
-    }});
-  }};
-}})();
-</script>
 </body>
 </html>"""
 
