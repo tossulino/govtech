@@ -176,9 +176,9 @@
 
 <div class="header">
   <h1>🇧🇷 Radar GovTech Brasil 2025/2026</h1>
-  <div class="sub">DLG · Mapeamento M&amp;A — Maio 2026 · v14 · Atualizado em 21/05/2026</div>
+  <div class="sub">DLG · Mapeamento M&amp;A — Maio 2026 · v15 · Atualizado em 21/05/2026</div>
   <div class="header-meta">
-    <div class="kpi"><div class="num" id="kpi-total">72</div><div class="lbl">Players mapeados</div></div>
+    <div class="kpi"><div class="num" id="kpi-total">80</div><div class="lbl">Players mapeados</div></div>
     <div class="kpi"><div class="num">11</div><div class="lbl">Segmentos</div></div>
   </div>
 </div>
@@ -187,7 +187,7 @@
   <input class="search-box" id="searchBox" type="text" placeholder="🔍  Buscar empresa, segmento, nota...">
   <div class="filter-btns">
     <span class="lbl">Filtro:</span>
-    <button class="btn btn-all active" onclick="setFilter('all',this)">Todos <span class="count-badge" id="cnt-all">72</span></button>
+    <button class="btn btn-all active" onclick="setFilter('all',this)">Todos <span class="count-badge" id="cnt-all">80</span></button>
     <button class="btn btn-gestao"     onclick="setFilter('gestao',this)">Gestão &amp; ERP <span class="count-badge" id="cnt-gestao"></span></button>
     <button class="btn btn-fiscal"     onclick="setFilter('fiscal',this)">Fiscal &amp; Convênios <span class="count-badge" id="cnt-fiscal"></span></button>
     <button class="btn btn-saude"      onclick="setFilter('saude',this)">Saúde <span class="count-badge" id="cnt-saude"></span></button>
@@ -289,7 +289,7 @@
 </div>
 
 <div class="footer">
-  Radar GovTech Brasil 2025/2026 · DLG · Uso interno · Gerado em Maio 2026 · v14
+  Radar GovTech Brasil 2025/2026 · DLG · Uso interno · Gerado em Maio 2026 · v15
 </div>
 
 <script>
@@ -366,6 +366,20 @@ const companies = [
   },
   {
     "seg": "fiscal",
+    "name": "Munitax",
+    "subseg": "Inteligência Tributária Municipal Completa",
+    "porte": "Startup / Scale-up",
+    "loc": "Brasil",
+    "fund": "N/D",
+    "presenca": "Municípios de qualquer porte | cobertura IPTU, ISS, ITBI, dívida ativa",
+    "receita": "N/D",
+    "nota": "Plataforma completa de inteligência tributária para municípios: IPTU, ISS, ITBI, dívida ativa, notificações automatizadas e processos administrativos fiscais end-to-end. Cruzamento automático com bases da Receita Federal e juntas comerciais para enriquecimento cadastral e detecção de inconsistências tributárias. MuniAcademy: maior plataforma de capacitação em tributação municipal do Brasil com 320+ publicações e 140h de conteúdo. CEO: Harrison Leite (doutor em Direito Tributário, autor de 30+ livros). Combinação rara de tecnologia + doutrina jurídica tributária.",
+    "alerta": "Watch — fiscal municipal",
+    "url": "https://munitax.com.br",
+    "isNew": true
+  },
+  {
+    "seg": "fiscal",
     "name": "LICI GovTech",
     "subseg": "Governança Municipal Baseada em Dados / ODS",
     "porte": "Startup",
@@ -433,6 +447,48 @@ const companies = [
     "alerta": "",
     "url": "https://lemobs.com.br",
     "isNew": false
+  },
+  {
+    "seg": "segpub",
+    "name": "SentinelX",
+    "subseg": "Reconhecimento Facial com IA / Segurança Pública Urbana",
+    "porte": "Scale-up",
+    "loc": "São Paulo - SP",
+    "fund": "N/D",
+    "presenca": "40K+ câmeras | 2.718+ foragidos capturados | 3.650+ presos em flagrante (2025) | 48+ projetos em andamento",
+    "receita": "N/D",
+    "nota": "Maior plataforma de reconhecimento facial com IA da América Latina. Motor tecnológico por trás do Smart Sampa (SP): sistema de videomonitoramento integrado da cidade de São Paulo. 2.718+ criminosos foragidos capturados e 3.650+ pessoas presas em flagrante em 2025. R$40M de investimento em novas tecnologias planejado. 48+ projetos em andamento no Brasil. CEO: Cristian Aquino. Reconhecimento facial em tempo real em escala urbana.",
+    "alerta": "🔥 Deal — Smart Sampa",
+    "url": "https://sentinelx.com.br",
+    "isNew": true
+  },
+  {
+    "seg": "segpub",
+    "name": "Camerite",
+    "subseg": "IA para Videomonitoramento Multimarcas (Facial + Placas)",
+    "porte": "Startup / Scale-up",
+    "loc": "Brasil",
+    "fund": "N/D",
+    "presenca": "Sete Lagoas MG (Guardião 7L) | Smart Sampa SP | modelo franquia nacional",
+    "receita": "N/D",
+    "nota": "Plataforma de IA para videomonitoramento compatível com câmeras de qualquer fabricante. Plataforma Cortex com IA 'Hórus': reconhecimento facial, leitura de placas, detecção de comportamentos suspeitos e rede colaborativa entre câmeras de diferentes entes. Modelo de franquia para expansão nacional. Cases: Sete Lagoas MG (Projeto Guardião 7L) e integração ao Smart Sampa (SP). Reduz custo de implantação por não exigir troca de hardware existente.",
+    "alerta": "Watch — expansão franquias",
+    "url": "https://camerite.com",
+    "isNew": true
+  },
+  {
+    "seg": "segpub",
+    "name": "Monuv",
+    "subseg": "VMS em Nuvem + IA / Videomonitoramento Urbano",
+    "porte": "Startup / Scale-up",
+    "loc": "Brasil",
+    "fund": "N/D",
+    "presenca": "14.000+ câmeras no Smart Sampa SP (principal provedor) | planos a partir de R$900/mês",
+    "receita": "N/D",
+    "nota": "VMS (Video Management System) 100% em nuvem com IA embarcada. Principal fornecedor do Smart Sampa: 14.000+ câmeras integradas ao sistema de videomonitoramento da cidade de São Paulo. Detecção de pessoas por IA lançada abr/2026 (98%+ acurácia, reduz 100x falsos alarmes). Plataforma agnóstica de hardware — integra câmeras de qualquer fabricante. Modelo SaaS acessível com planos a partir de R$900/mês, escalável do pequeno município à metrópole. Obs.: Monuv faz detecção de objetos/faces mas não reconhecimento facial biométrico (diferente da SentinelX).",
+    "alerta": "🔥 Deal — Smart Sampa",
+    "url": "https://monuv.com.br",
+    "isNew": true
   },
   {
     "seg": "segpub",
@@ -800,6 +856,34 @@ const companies = [
   },
   {
     "seg": "educ",
+    "name": "Leme",
+    "subseg": "Gestão Educacional Orientada por Dados / VAAR para Secretarias",
+    "porte": "Startup",
+    "loc": "Brasil",
+    "fund": "N/D",
+    "presenca": "15+ municípios | 100K+ alunos | Mogi das Cruzes SP | São Vicente SP | Teresópolis RJ | Propriá SE",
+    "receita": "N/D",
+    "nota": "Plataforma de gestão educacional orientada por dados com metodologia MAPA (4 fases) e indicador VAAR (Valor Agregado com Ajuste de Risco). Foco em equidade racial e inclusão de alunos PPIs (Pretos, Pardos e Indígenas). +26% de desempenho médio em apenas 4 meses de implementação. 15+ municípios atendidos, 100K+ alunos impactados. Clientes de referência: Mogi das Cruzes SP, São Vicente SP, Teresópolis RJ, Propriá SE. Dispensa de licitação disponível para contratação simplificada.",
+    "alerta": "Watch — municipal",
+    "url": "https://leme.tec.br",
+    "isNew": true
+  },
+  {
+    "seg": "educ",
+    "name": "Layers",
+    "subseg": "SuperApp Escolar / Plataforma Educacional Unificada",
+    "porte": "Scale-up",
+    "loc": "São Caetano do Sul - SP",
+    "fund": "N/D",
+    "presenca": "7.600 escolas públicas (gratuito) | 1.800 escolas privadas | R$1Bi+ transacionado | 20+ ERPs integrados | 50+ soluções edtech parceiras",
+    "receita": "R$21M (pré-série A, set/2025) | valuation R$120M",
+    "nota": "SuperApp escolar que unifica comunicação, gestão e pagamentos em uma só plataforma. Para escolas públicas: totalmente gratuito (7.600 escolas). Para privadas: modelo SaaS premium (1.800 escolas). Ecossistema robusto: integra 20+ ERPs e 50+ soluções edtech parceiras. R$1Bi+ transacionado na plataforma. Aporte pré-série A de R$21M liderado por fundo canadense (set/2025), valuation R$120M. CEO: Danilo Yoneshige. Sede São Caetano do Sul SP. Diferencial: cobertura do setor público + privado com uma única plataforma.",
+    "alerta": "🔥 Deal — aporte recente",
+    "url": "https://layers.education",
+    "isNew": true
+  },
+  {
+    "seg": "educ",
     "name": "Proesc",
     "subseg": "Gestão Escolar com IA + Vertical Pública (Proesc Gov)",
     "porte": "Scale-up",
@@ -1164,6 +1248,34 @@ const companies = [
   },
   {
     "seg": "lic",
+    "name": "Zaelo",
+    "subseg": "Compras Públicas Buy-side (Órgãos) + Auditoria IA",
+    "porte": "Scale-up",
+    "loc": "Itajaí - SC",
+    "fund": "2016",
+    "presenca": "170+ órgãos públicos | 10K+ servidores públicos",
+    "receita": "N/D (bootstrap)",
+    "nota": "GovTech de compras públicas focada no lado dos órgãos (buy-side). Dois produtos principais: Loja Pública Gestor — cobrindo todo o ciclo (planejamento → execução) com conformidade Lei 14.133/2021; e Sentinela — auditoria inteligente de contratos com IA, detecta anomalias e superfaturamento automaticamente. Até 45% de economia declarada em processos de compras. 170+ órgãos atendidos, 10K+ servidores capacitados. Fundada em 2016, 10 anos de mercado, bootstrap. Sede Itajaí SC.",
+    "alerta": "Watch — buy-side maduro",
+    "url": "https://zaelo.com.br",
+    "isNew": true
+  },
+  {
+    "seg": "lic",
+    "name": "Licito.guru",
+    "subseg": "IA Buy-side para Licitações em Órgãos Públicos",
+    "porte": "Startup",
+    "loc": "Florianópolis - SC",
+    "fund": "N/D",
+    "presenca": "Pref. São Paulo SP | Gov. Paraná | Gov. Santa Catarina | MP | TJ | Pref. Curitiba PR",
+    "receita": "N/D",
+    "nota": "Plataforma de IA para o lado dos órgãos na contratação pública. Gera automaticamente os principais documentos obrigatórios: ETP (Estudo Técnico Preliminar), DFD (Documento de Formalização de Demanda), TR (Termo de Referência), Mapa de Risco, Edital, Contrato e mais. IA customizável por órgão — aprende os padrões e histórico de cada cliente. Treinada e supervisionada pelo Prof. Gustavo Schiefler (referência nacional em licitações públicas). Carteira com órgãos de alto perfil: Prefeitura de SP, Governos do PR e SC, MP, TJ, Prefeitura de Curitiba. Florianópolis SC.",
+    "alerta": "🔥 Deal — carteira premium",
+    "url": "https://licito.guru",
+    "isNew": true
+  },
+  {
+    "seg": "lic",
     "name": "Licitagram",
     "subseg": "SO de IA Multi-Agente para Licitações (Sell-side + Buy-side)",
     "porte": "Startup",
@@ -1450,6 +1562,15 @@ const aporteData = [
     "desc": "Fundo GovTech KPTL+Cedro cresce de R$49M para R$105,7M com aportes da Finep (R$40M) e Fapesp (R$30M) em out/2025. Meta para 2026: R$150M. Parceria Prodesp For Startups (SP) para aceleração de startups do portfólio. Portfólio atual: Augen (exit Biosolvit), Prosas, Colab, StartGi, i4Sea, GRTS Digital, Jovens Gênios, Kinebot."
   },
   {
+    "tx": "Layers — fundo canadense (pré-série A)",
+    "tipo": "Aporte Pré-Série A",
+    "valor": "R$ 21M",
+    "ano": 2025,
+    "data": "set/2025",
+    "seg": "Educação Pública / EdTech",
+    "desc": "SuperApp escolar capta R$21M em pré-série A liderado por fundo canadense. Valuation R$120M. 7.600 escolas públicas (gratuito) + 1.800 privadas. R$1Bi+ transacionado. CEO Danilo Yoneshige. São Caetano do Sul SP."
+  },
+  {
     "tx": "MITRA — Valid (51%)",
     "tipo": "Aquisição (M&A)",
     "valor": "N/D",
@@ -1609,6 +1730,9 @@ updateCounts();
     <button id="cl-close" onclick="closeChangelog()">✕</button>
     <h2>📋 Histórico de Atualizações</h2>
     <div class="cl-entry">
+  <span class="cl-ver">v15</span><span class="cl-date">21/05/2026</span>
+  <ul class="cl-items"><li>SentinelX adicionada (segpub) — maior plataforma de reconhecimento facial com IA da AL, motor do Smart Sampa SP: 40K+ câmeras, 2.718+ foragidos capturados, R$40M em novas tecnologias planejado</li><li>Camerite adicionada (segpub) — IA para videomonitoramento multimarcas (facial + placas), rede colaborativa, modelo franquia, integrada ao Smart Sampa e Guardião 7L (Sete Lagoas MG)</li><li>Monuv adicionada (segpub) — VMS em nuvem + IA, principal provedor do Smart Sampa (14.000+ câmeras), detecção facial abr/2026, 98%+ acurácia</li><li>Zaelo adicionada (lic) — buy-side compras públicas: Loja Pública Gestor + Sentinela (auditoria IA), 170+ órgãos, 10K+ servidores, até 45% economia, Itajaí SC</li><li>Licito.guru adicionada (lic) — IA buy-side para órgãos: gera ETP, DFD, TR, Edital, Contrato; clientes Pref. SP, Gov. PR, Gov. SC, TJ, MP, Pref. Curitiba; Florianópolis SC</li><li>Munitax adicionada (fiscal) — inteligência tributária municipal completa: IPTU, ISS, ITBI, dívida ativa, cruzamento com Receita Federal e juntas comerciais; CEO Harrison Leite</li><li>Leme adicionada (educ) — gestão educacional orientada por dados/VAAR para secretarias: 15+ municípios, 100K+ alunos, +26% desempenho em 4 meses, dispensa de licitação disponível</li><li>Layers adicionada (educ) — SuperApp escolar: 7.600 escolas públicas + 1.800 privadas, R$21M pré-série A (fundo canadense set/2025), valuation R$120M, R$1Bi+ transacionado</li></ul>
+</div><div class="cl-entry">
   <span class="cl-ver">v14</span><span class="cl-date">21/05/2026</span>
   <ul class="cl-items"><li>iBridge adicionada (gestao) — plataforma de Contact Center / PABX IP com vertical para centrais municipais (156 e ouvidorias): 5.000+ posições, 50M+ chamadas/mês, Florianópolis SC</li><li>Senha de acesso removida: radar agora público e aberto</li></ul>
 </div><div class="cl-entry">
