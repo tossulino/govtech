@@ -16,11 +16,17 @@ from openpyxl.utils import get_column_letter
 # DADOS — edite aqui para atualizar Excel e HTML juntos
 # ══════════════════════════════════════════════════════════════
 
-VERSION = "v15"
+VERSION = "v16"
 DATA_REF = "Maio 2026"
 UPDATED_AT = "21/05/2026"
 
 CHANGELOG = [
+    {
+        "version": "v16", "date": "21/05/2026",
+        "items": [
+            "Kodefy adicionada (gestao) — plataforma de gerenciamento de projetos e metas para prefeituras, app 4.8★ nas lojas, Tapejara RS (CNPJ 41.426.978/0001-05)",
+        ]
+    },
     {
         "version": "v15", "date": "21/05/2026",
         "items": [
@@ -124,6 +130,7 @@ COMPANIES = [
     # ── GESTÃO MUNICIPAL ──
     {"seg":"gestao", "name":"Aprova Digital",    "subseg":"Gestão de Processos Administrativos Municipais", "porte":"Startup / Scale-up",  "loc":"Cascavel - PR",         "fund":"2017",  "presenca":"150+ cidades | 23M+ brasileiros", "receita":"R$ 22,5M (Astella+BB)", "nota":"Plataforma SaaS de processos eletrônicos para prefeituras: protocolo, assinatura digital ICP-Brasil, tramitação com IA, portal de serviços e arrecadação (Aprova Pay). Cobre obras, meio ambiente, RH e compras. Primeira govtech investida pelo Banco do Brasil. TOP Open Startups 2024.", "alerta":"", "url":"https://aprova.com.br", "isNew":False},
     {"seg":"gestao", "name":"iBridge Technology", "subseg":"Contact Center / PABX IP para Centrais Municipais (156 e Ouvidorias)", "porte":"PME Estabelecida", "loc":"Florianópolis - SC", "fund":"2008", "presenca":"5.000+ posições de atendimento | 50M+ chamadas/mês | 250k+ vendas/mês", "receita":"N/D (bootstrap)", "nota":"Plataforma completa de gestão de contact center e PABX IP em nuvem para operações ativas, receptivas e mistas. Callcenter Manager: controle em tempo real, discador preditivo, gravação de ramais, fila de atendimento com URA, dashboards de performance e integrações com CRM (Salesforce, Dynamics 365, RD Station, Zendesk). PABX IP compatível com redes VoIP e PSTN (analógico, digital, IP ou híbrido). Aplicável a centrais 156 e ouvidorias municipais para modernização do atendimento ao cidadão. CEO: Vinicius Bossle Fagundes. 17 anos de atuação.", "alerta":"Watch — canal 156 municipal", "url":"https://ibridge.com.br", "isNew":True},
+    {"seg":"gestao", "name":"Kodefy",             "subseg":"Gerenciamento de Projetos e Metas Municipais / App de Prefeitura", "porte":"Startup", "loc":"Tapejara - RS", "fund":"N/D", "presenca":"Municípios RS e outros estados | contratada por inexigibilidade (art. 74 IV Lei 14.133/2021)", "receita":"N/D (bootstrap)", "nota":"Plataforma dual: (1) Gov — cadastramento e gerenciamento de projetos e metas da administração pública municipal: gestores acompanham objetivos da gestão em tempo real, com dashboards e relatórios de execução; contratada via inexigibilidade de licitação (ex: Selbach-RS, 2026). (2) Fidelizec — plataforma B2C de programas de fidelidade para comércio local, com R$7,7M movimentados em uma única Black Friday. Apps com média 4.8★ (de 5.0) nas lojas. CNPJ: 41.426.978/0001-05. Sede: Tapejara RS.", "alerta":"Watch — metas municipais", "url":"https://www.kodefy.co", "isNew":True},
     {"seg":"gestao", "name":"GovDigital",        "subseg":"App Municipal SaaS / Relacionamento Cidadão-Governo", "porte":"Startup / Scale-up",  "loc":"Jaraguá do Sul - SC",   "fund":"~2020", "presenca":"Múltiplos municípios SC e outros estados", "receita":"N/D (bootstrap)", "nota":"App oficial white-label de prefeituras reunindo zeladoria, agendamento, formulários online, notícias e comunicação direta cidadão-prefeitura. Integrações com IPTU, protocolo e ouvidoria. CEO: Elias Raasch. Expansão nacional sem VC.", "alerta":"Watch — expansão nacional", "url":"https://govdigital.app", "isNew":False},
     {"seg":"gestao", "name":"Desenvolve Cidade", "subseg":"Licenciamento e Tributação Municipal Digital", "porte":"Startup",             "loc":"Campinas - SP",         "fund":"~2014", "presenca":"Municípios Norte e outras regiões | Scale-Up Endeavor 2021", "receita":"N/D", "nota":"Plataforma integrada de licenciamento digital (urbanístico, ambiental, sanitário, obras), abertura/baixa de empresas, IPTU e ISS digitais integrada à REDESIM federal. Foco em desburocratização e aumento de receita própria municipal. TOP2 Open Startups 2024.", "alerta":"", "url":"https://www.desenvolvecidade.com.br", "isNew":False},
     {"seg":"gestao", "name":"IP Inovação",       "subseg":"Capacitação e Consultoria em Gestão Pública", "porte":"Startup",             "loc":"Belém - PA",             "fund":"2014",  "presenca":"Ecossistema Norte do Brasil", "receita":"N/D", "nota":"Empresa de capacitação e consultoria para gestão pública municipal na região Norte. TOP 3 Open Startups 2024. Não foram identificados produtos SaaS com identidade digital clara — oportunidade de due diligence.", "alerta":"Watch — due diligence necessário", "url":"", "isNew":False},
