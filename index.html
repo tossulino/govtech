@@ -176,9 +176,9 @@
 
 <div class="header">
   <h1>🇧🇷 Radar GovTech Brasil 2025/2026</h1>
-  <div class="sub">DLG · Mapeamento M&amp;A — Maio 2026 · v17 · Atualizado em 21/05/2026</div>
+  <div class="sub">DLG · Mapeamento M&amp;A — Maio 2026 · v18 · Atualizado em 21/05/2026</div>
   <div class="header-meta">
-    <div class="kpi"><div class="num" id="kpi-total">82</div><div class="lbl">Players mapeados</div></div>
+    <div class="kpi"><div class="num" id="kpi-total">83</div><div class="lbl">Players mapeados</div></div>
     <div class="kpi"><div class="num">11</div><div class="lbl">Segmentos</div></div>
   </div>
 </div>
@@ -187,7 +187,7 @@
   <input class="search-box" id="searchBox" type="text" placeholder="🔍  Buscar empresa, segmento, nota...">
   <div class="filter-btns">
     <span class="lbl">Filtro:</span>
-    <button class="btn btn-all active" onclick="setFilter('all',this)">Todos <span class="count-badge" id="cnt-all">82</span></button>
+    <button class="btn btn-all active" onclick="setFilter('all',this)">Todos <span class="count-badge" id="cnt-all">83</span></button>
     <button class="btn btn-gestao"     onclick="setFilter('gestao',this)">Gestão &amp; ERP <span class="count-badge" id="cnt-gestao"></span></button>
     <button class="btn btn-fiscal"     onclick="setFilter('fiscal',this)">Fiscal &amp; Convênios <span class="count-badge" id="cnt-fiscal"></span></button>
     <button class="btn btn-saude"      onclick="setFilter('saude',this)">Saúde <span class="count-badge" id="cnt-saude"></span></button>
@@ -289,7 +289,7 @@
 </div>
 
 <div class="footer">
-  Radar GovTech Brasil 2025/2026 · DLG · Uso interno · Gerado em Maio 2026 · v17
+  Radar GovTech Brasil 2025/2026 · DLG · Uso interno · Gerado em Maio 2026 · v18
 </div>
 
 <script>
@@ -1007,6 +1007,20 @@ const companies = [
     "alerta": "",
     "url": "https://intelicity.com.br",
     "isNew": false
+  },
+  {
+    "seg": "proc",
+    "name": "Minuta.Tech",
+    "subseg": "IA Jurídica para Setor Público — Minutas, Pareceres e LGPD",
+    "porte": "Startup",
+    "loc": "Brasil",
+    "fund": "N/D",
+    "presenca": "Procuradorias (PGE/PGM) | Defensorias | Tribunais de Contas (TCU, TCEs, TCMs) | MP | Judiciário",
+    "receita": "N/D",
+    "nota": "Plataforma de IA de minutas jurídicas desenvolvida exclusivamente para o setor público. 5 modelos de IA combinados: Claude Opus + Gemini 3.1 Pro para o corpo das minutas; Gemini Deep Research + RAGJUR (base própria com 22M+ decisões do STF, STJ e TCs) para citações verificadas. Verticais: Procuradorias (PGE/PGM — pareceres, informações em mandados de segurança, contestações), Tribunais de Contas (relatórios, votos, pareceres, instruções), Judiciário (minutas de decisões, sentenças, acórdãos), Defensorias e MP. Especialidade em LGPD pública: pareceres, RIPD, políticas de privacidade e termos de uso para órgãos. API Local disponível (documentos nunca saem da rede interna). Planos institucionais com até 15 usuários. Contratável via licitação ou dispensa. Concorre diretamente com MinutaIA/jAI, com diferencial de foco exclusivo em setor público e base RAGJUR proprietária.",
+    "alerta": "Watch — concorre com MinutaIA",
+    "url": "https://minuta.tech",
+    "isNew": true
   },
   {
     "seg": "proc",
@@ -1758,6 +1772,9 @@ updateCounts();
     <button id="cl-close" onclick="closeChangelog()">✕</button>
     <h2>📋 Histórico de Atualizações</h2>
     <div class="cl-entry">
+  <span class="cl-ver">v18</span><span class="cl-date">21/05/2026</span>
+  <ul class="cl-items"><li>Minuta.Tech adicionada (proc) — IA de minutas jurídicas exclusivamente para o setor público: Procuradorias (PGE/PGM), Defensorias, TCs, MP e Judiciário; base RAGJUR 22M+ decisões, API Local (dados não saem da rede), especialidade LGPD pública</li></ul>
+</div><div class="cl-entry">
   <span class="cl-ver">v17</span><span class="cl-date">21/05/2026</span>
   <ul class="cl-items"><li>Assesi adicionada (gestao) — suíte SaaS de portais governamentais e transparência: aSiteGov, aLegislativo, aCidadão, aDiário, aOuvidoria, CarteirinhaGov; 600+ municípios, 27 estados, 14 anos, Fortaleza CE</li></ul>
 </div><div class="cl-entry">
